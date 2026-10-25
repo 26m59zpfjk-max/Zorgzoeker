@@ -33,6 +33,39 @@ python3 -m pytest
 python3 -m zorgzoeker.valideer data/fixture_aanbieders.json
 ```
 
+De twintig oorspronkelijke fictieve auditvragen staan ongewijzigd in
+`tests/audit_scenarios.json`; `tests/test_audit_scenarios.py` toetst de
+veiligheidsvoorwaarden. Hertesten met ranglijsten vóór/na:
+
+```bash
+python3 scripts/evalueer_audit.py docs/audit-hertest.json
+```
+
+Bekende leeftijdsmismatches en uitgesloten methoden vallen af vóór de
+rangschikking. Volledige zorginhoudelijke dekking komt altijd vóór gedeeltelijke
+dekking. Een gedeeltelijke match noemt welke kenmerken niet in de bron zijn
+bevestigd; onbekende informatie wordt niet als afwezig aanbod uitgelegd.
+
+`gemeente` toetst regionale contractdekking (of het bekende werkgebied van een
+niet-gecontracteerd alternatief); `vestigingsplaats` is een apart filter.
+`op_datum=YYYY-MM-DD` vraagt om contractgeldigheid op die datum. Een brondatum
+bewijst geen geldigheidsperiode: buiten de vastgestelde brondekking blijft het
+antwoord onbekend. Dezelfde context gaat mee naar de vergelijking.
+
+Het optionele `contractregister` bevat 688 openbare ROB-bronregels voor 166
+aanbieders, met product, gemeente, hoofd-/onderaannemerroute en beperkingen.
+Actualiseren vanuit de openbare, gedownloade werkmap (geen betaalde dienst):
+
+```bash
+python3 scripts/importeer_contracten.py /pad/naar/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx
+python3 -m pytest
+```
+
+De importeur accepteert uitsluitend exacte namen en reeds bekende productcodes.
+Een andere bronversie vereist een bewuste controle van bron-URL, publicatiedatum,
+tabbladen en regiogemeenten in het script. Er worden geen contractperiodes of
+ontbrekende routes ingevuld. Zie [wijzigingen en grenzen](docs/zoekbetrouwbaarheid.md).
+
 Validatie tegen een later aangeleverd bestand:
 
 ```bash

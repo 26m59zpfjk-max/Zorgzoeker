@@ -1,0 +1,235 @@
+[
+  {
+    "id": 1,
+    "vraag": "Kind van 11 jaar met OCD, zoekt exposure met responspreventie in Nijmegen",
+    "controle": {
+      "alleen": [
+        "stichting-pro-persona-ggz"
+      ]
+    },
+    "eerder_aantal": 12,
+    "eerder_eerste": "stichting-pro-persona-ggz"
+  },
+  {
+    "id": 2,
+    "vraag": "Meisje van 13 jaar wast steeds haar handen uit angst voor besmetting",
+    "controle": {
+      "concepten": [
+        "angst"
+      ]
+    },
+    "eerder_aantal": 16,
+    "eerder_eerste": "0-tot-18"
+  },
+  {
+    "id": 3,
+    "vraag": "Jongen van 12 jaar zoekt EMDR na een verkeersongeluk in Wijchen",
+    "controle": {
+      "verboden": [
+        "sentio"
+      ]
+    },
+    "eerder_aantal": 11,
+    "eerder_eerste": "join-jeugd-ouders-vakwerk-regio-nijmegen"
+  },
+  {
+    "id": 4,
+    "vraag": "Kind van 8 jaar met trauma, geen EMDR gewenst",
+    "controle": {
+      "ontkend": [
+        "emdr"
+      ],
+      "uitgesloten": [
+        "emdr"
+      ]
+    },
+    "eerder_aantal": 18,
+    "eerder_eerste": "1-1-vier"
+  },
+  {
+    "id": 5,
+    "vraag": "Meisje van 15 jaar met PTSS en autisme, gespecialiseerde behandeling",
+    "controle": {
+      "vereiste_dekking": [
+        "trauma",
+        "ass"
+      ]
+    },
+    "eerder_aantal": 40,
+    "eerder_eerste": "ambulatorium-nijmegen"
+  },
+  {
+    "id": 6,
+    "vraag": "Kind van 9 jaar heeft last van een vechtscheiding, hulp aan beide ouders",
+    "controle": {
+      "aanwezig": [
+        "stichting-entrea-lindenhout"
+      ]
+    },
+    "eerder_aantal": 2,
+    "eerder_eerste": "nisa-curae"
+  },
+  {
+    "id": 7,
+    "vraag": "Ouders zijn uit elkaar; zoon van 10 wil niet meer naar vader",
+    "controle": {
+      "concepten": [
+        "echtscheiding"
+      ],
+      "leeftijd": 10
+    },
+    "eerder_aantal": 1,
+    "eerder_eerste": "gezinshuis-hemma"
+  },
+  {
+    "id": 8,
+    "vraag": "Jongen van 6 jaar met ASS, ambulante begeleiding thuis in Beuningen",
+    "controle": {
+      "vereiste_dekking": [
+        "ass",
+        "ambulant"
+      ]
+    },
+    "eerder_aantal": 40,
+    "eerder_eerste": "bureau-backpackerz-b-v"
+  },
+  {
+    "id": 9,
+    "vraag": "Jongere van 17 jaar met autisme en LVB zoekt een logeerweekend",
+    "controle": {
+      "concepten": [
+        "ass",
+        "lvb",
+        "logeer"
+      ]
+    },
+    "eerder_aantal": 21,
+    "eerder_eerste": "horizon-pgb-weekend-logeeropvang"
+  },
+  {
+    "id": 10,
+    "vraag": "Kind van 10 jaar durft door paniek niet meer naar school",
+    "controle": {
+      "concepten": [
+        "angst",
+        "school"
+      ]
+    },
+    "eerder_aantal": 19,
+    "eerder_eerste": "dit-coaching"
+  },
+  {
+    "id": 11,
+    "vraag": "Meisje van 14 jaar weigert school; geen autisme vastgesteld",
+    "controle": {
+      "concepten": [
+        "school"
+      ],
+      "ontkend": [
+        "ass"
+      ]
+    },
+    "eerder_aantal": 15,
+    "eerder_eerste": "0-tot-18"
+  },
+  {
+    "id": 12,
+    "vraag": "Ouders zoeken respijtzorg voor hun dochter van 7 in Druten",
+    "controle": {
+      "leeftijd": 7,
+      "concepten": [
+        "logeer"
+      ]
+    },
+    "eerder_aantal": 23,
+    "eerder_eerste": "de-woerd-zorg"
+  },
+  {
+    "id": 13,
+    "vraag": "Kind van 4 jaar zoekt logeeropvang, alleen gecontracteerd in Heumen",
+    "controle": {
+      "contract": "ja"
+    },
+    "eerder_aantal": 36,
+    "eerder_eerste": "eev-jeugd-en-gezinshulp"
+  },
+  {
+    "id": 14,
+    "vraag": "Meisje van 14 jaar met angst in Groesbeek",
+    "controle": {
+      "verboden": [
+        "psycholoog-groesbeek"
+      ],
+      "leeftijd": 14
+    },
+    "eerder_aantal": 18,
+    "eerder_eerste": "psycholoog-groesbeek"
+  },
+  {
+    "id": 15,
+    "vraag": "14-jarige met angst in Groesbeek",
+    "controle": {
+      "verboden": [
+        "psycholoog-groesbeek"
+      ],
+      "leeftijd": 14
+    },
+    "eerder_aantal": 18,
+    "eerder_eerste": "psycholoog-groesbeek"
+  },
+  {
+    "id": 16,
+    "vraag": "18-jarige zoekt jeugd-ggz in Nijmegen",
+    "controle": {
+      "verboden": [
+        "ambulatorium-nijmegen"
+      ],
+      "leeftijd": 18
+    },
+    "eerder_aantal": 40,
+    "eerder_eerste": "ambulatorium-nijmegen"
+  },
+  {
+    "id": 17,
+    "vraag": "Kind van 8 jaar zoekt EMDR, maximaal twee weken wachttijd",
+    "controle": {
+      "leeg": true,
+      "max_wachttijd": 2
+    },
+    "eerder_aantal": 9,
+    "eerder_eerste": "sentio"
+  },
+  {
+    "id": 18,
+    "vraag": "EMDR gecontracteerd in Nijmegen per 1 januari 2027",
+    "controle": {
+      "leeg": true,
+      "op_datum": "2027-01-01"
+    },
+    "eerder_aantal": 10,
+    "eerder_eerste": "join-jeugd-ouders-vakwerk-regio-nijmegen"
+  },
+  {
+    "id": 19,
+    "vraag": "AlkaZorg voor JW 45A04 in Berg en Dal via de hoofdaannemer",
+    "controle": {
+      "eerste": "alkazorg"
+    },
+    "eerder_aantal": 40,
+    "eerder_eerste": "alkazorg"
+  },
+  {
+    "id": 20,
+    "vraag": "Kind van 12 jaar met dwang zoekt behandeling, geen dagbesteding",
+    "controle": {
+      "alleen": [
+        "stichting-pro-persona-ggz"
+      ],
+      "uitgesloten": [
+        "dagbesteding"
+      ]
+    },
+    "eerder_aantal": 40,
+    "eerder_eerste": "stichting-pro-persona-ggz"
+  }
+]

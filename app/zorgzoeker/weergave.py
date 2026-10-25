@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, peildatum_veld
+
 MAANDEN = (
     "",
     "januari",
@@ -73,6 +75,10 @@ def is_onbekend(sleutel: str, veld: dict | None) -> bool:
         return True
     if veld.get("label") == "onbekend":
         return True
+    if sleutel in {"wachttijd", "beschikbaarheid"} and (
+        _valideer_veld(sleutel, sleutel, veld) or _valideer_wachttijd("weergave", {sleutel: veld})
+    ):
+        return True
     waarde = veld.get("waarde")
     if sleutel in ("wachttijd", "beschikbaarheid"):
         return waarde in ("onbekend", "", None, [])
@@ -117,24 +123,38 @@ def toon_veld(sleutel: str, veld: dict | None) -> dict:
     bron = veld if isinstance(veld, dict) else {}
     onbekend = is_onbekend(sleutel, bron if isinstance(veld, dict) else None)
     tekst = "onbekend" if onbekend else formateer_waarde(sleutel, bron.get("waarde"))
+    if sleutel == "gecontracteerd_regio" and bron.get("waarde") == "nee" and bron.get("label") == "afgeleid":
+        tekst = "Niet aangetroffen in contractlijst"
     if sleutel in ("wachttijd", "beschikbaarheid") and onbekend:
         tekst = "onbekend"
     return {
         "sleutel": sleutel,
         "label_nl": VELD_LABELS.get(sleutel, sleutel),
         "tekst": tekst,
-        "label": bron.get("label") or "onbekend",
+        "label": "onbekend" if onbekend else bron.get("label") or "onbekend",
         "bron_url": None if onbekend else veilige_url(bron.get("bron_url")),
         "datum": None if onbekend else format_datum(bron.get("opgehaald_op")),
+        "peildatum": None if onbekend else peildatum_veld(bron),
         "toelichting": None if onbekend else (bron.get("toelichting") or None),
         "onbekend": onbekend or tekst == "onbekend",
     }
 
 
-def onderaannemer_zin(aanbieder: dict) -> str | None:
+def onderaannemer_zin(aanbieder: dict, contracttoets: dict | None = None) -> str | None:
     """Naam van de hoofdaannemer, als dit veld er is."""
+    if contracttoets and contracttoets.get("routes"):
+        routes = contracttoets["routes"]
+        if any(r.get("hoofdaannemer") is None for r in routes):
+            return None  # er is ook een rechtstreekse contractroute
+        namen = sorted({r["hoofdaannemer"] for r in routes})
+        return "Gecontracteerd als onderaannemer van " + "; ".join(namen)
     veld = aanbieder.get("hoofdaannemer")
     if not isinstance(veld, dict):
+        return None
+    contract = aanbieder.get("gecontracteerd_regio") or {}
+    if contract.get("waarde") != "ja" or contract.get("label") not in {"geverifieerd", "afgeleid"}:
+        return None
+    if veld.get("label") not in {"geverifieerd", "afgeleid"} or not veilige_url(veld.get("bron_url")) or not format_datum(veld.get("opgehaald_op")):
         return None
     naam = veld.get("waarde")
     if not isinstance(naam, str):
@@ -145,7 +165,7 @@ def onderaannemer_zin(aanbieder: dict) -> str | None:
     return f"Gecontracteerd als onderaannemer van {naam}"
 
 
-def vergelijk_rijen(aanbieders: list[dict]) -> list[dict]:
+def vergelijk_rijen(aanbieders: list[dict], contracttoetsen: list[dict] | None = None) -> list[dict]:
     rijen = []
     for sleutel in VERGELIJK_VELDEN:
         cellen = [toon_veld(sleutel, aanbieder.get(sleutel)) for aanbieder in aanbieders]
@@ -156,6 +176,16 @@ def vergelijk_rijen(aanbieders: list[dict]) -> list[dict]:
                     cel["tekst"] = zin
                     cel["label"] = "onderaannemer"
                     cel["toelichting"] = None
+            if contracttoetsen:
+                for aanbieder, cel, toets in zip(aanbieders, cellen, contracttoetsen):
+                    if toets["status"] == "onbekend":
+                        cel.update(tekst="Contract voor deze vraag onbekend", label="onbekend", onbekend=True)
+                    elif toets["status"] == "nee":
+                        cel["tekst"] = "Niet aangetroffen in contractlijst" if cel["label"] == "afgeleid" else "Niet gecontracteerd"
+                    elif (zin := onderaannemer_zin(aanbieder, toets)):
+                        cel["tekst"] = zin
+                    cel["toelichting"] = "Bronpeildatum: " + str(toets.get("peildatum") or "onbekend") + ". Geen bewezen geldigheidsperiode. " + " ".join(toets["waarschuwingen"])
+                    cel["bron_url"] = veilige_url(toets.get("bron_url"))
         teksten = [cel["tekst"] for cel in cellen]
         rijen.append(
             {

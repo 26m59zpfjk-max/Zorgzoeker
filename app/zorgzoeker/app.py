@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from datetime import date
 from urllib.parse import quote
 
 from fastapi import FastAPI, Query, Request
@@ -55,10 +56,13 @@ def maak_app(pad: Path | None = None) -> FastAPI:
         document = laad_document(bron_pad)
         application.state.document = document
         application.state.validatiefouten = valideer_document(document)
+        if application.state.validatiefouten:
+            application.state.fout = "Het aanbiedersbestand bevat ongeldige gegevens. Zoeken is geblokkeerd totdat de brongegevens zijn hersteld."
+            raise ValueError("Ongeldige brongegevens")
         application.state.index = Index(document)
         application.state.fictief = _fictief(bron_pad, document)
     except (OSError, ValueError) as fout:
-        application.state.fout = f"Het aanbiedersbestand kan niet worden gelezen ({bron_pad.name})."
+        application.state.fout = application.state.fout or f"Het aanbiedersbestand kan niet worden gelezen ({bron_pad.name})."
         application.state.fictief = "fixture" in bron_pad.name
         # Bewust geen volledige fouttekst: die kan een pad of een zoekvraag bevatten.
         _ = fout
@@ -102,6 +106,8 @@ def maak_app(pad: Path | None = None) -> FastAPI:
         productcode: str = "",
         doelgroep: str = "",
         gemeente: str = "",
+        vestigingsplaats: str = "",
+        op_datum: str = "",
         alles: str = "",
     ) -> HTMLResponse:
         omgeving = basis()
@@ -122,11 +128,18 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                 },
                 status_code=400,
             )
+        if op_datum:
+            try:
+                date.fromisoformat(op_datum)
+            except ValueError:
+                return JSONResponse({"fout": "Contractdatum moet een geldige datum YYYY-MM-DD zijn."}, status_code=400)
         filters = Filters.van(
             gecontracteerd=gecontracteerd,
             productcode=productcode,
             doelgroep=doelgroep,
             gemeente=gemeente,
+            vestigingsplaats=vestigingsplaats,
+            op_datum=op_datum,
         )
         gezocht = bool(q.strip() or filters.actief() or alles == "1")
         treffers = index().zoek("" if alles == "1" and not q.strip() else q, filters) if gezocht else []
@@ -139,14 +152,27 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                 "filters": filters,
                 "opties": opties(),
                 "gezocht": gezocht,
+                "meldingen": index().meldingen(q, filters),
                 "kaarten": [_kaart(treffer) for treffer in treffers],
+                "alleen_gedeeltelijk": bool(treffers) and all(t.ontbrekende_expertise for t in treffers),
                 "voorbeelden": VOORBEELDEN,
             },
         )
 
     @application.get("/vergelijken", response_class=HTMLResponse)
-    def vergelijken(request: Request, ids: list[str] = Query(default=[])) -> HTMLResponse:
+    def vergelijken(request: Request, ids: list[str] = Query(default=[]), q: str = "",
+                    gemeente: str = "", productcode: str = "", gecontracteerd: str = "",
+                    doelgroep: str = "", vestigingsplaats: str = "", op_datum: str = "") -> HTMLResponse:
         omgeving = basis()
+        if len(q) > MAX_VRAAG:
+            return JSONResponse({"fout": "Zoekvraag is te lang."}, status_code=400)
+        if op_datum:
+            try:
+                date.fromisoformat(op_datum)
+            except ValueError:
+                return JSONResponse({"fout": "Contractdatum moet een geldige datum YYYY-MM-DD zijn."}, status_code=400)
+        filters = Filters.van(gemeente=gemeente, productcode=productcode, gecontracteerd=gecontracteerd,
+                              doelgroep=doelgroep, vestigingsplaats=vestigingsplaats, op_datum=op_datum)
         if application.state.fout:
             return SJABLONEN.TemplateResponse(
                 request,
@@ -193,7 +219,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                     {"id": item["id"], "naam": (item.get("naam") or {}).get("waarde")}
                     for item in kolommen
                 ],
-                "rijen": vergelijk_rijen(kolommen),
+                "rijen": vergelijk_rijen(kolommen, [index().contracttoets_voor(item["id"], q, filters) for item in kolommen]),
             },
         )
 
@@ -204,27 +230,40 @@ def maak_app(pad: Path | None = None) -> FastAPI:
         productcode: str = "",
         doelgroep: str = "",
         gemeente: str = "",
+        vestigingsplaats: str = "",
+        op_datum: str = "",
     ) -> JSONResponse:
         if application.state.fout:
-            return JSONResponse({"fout": application.state.fout}, status_code=500)
+            return JSONResponse({"fout": application.state.fout, "validatiefouten": application.state.validatiefouten}, status_code=500)
         if len(q) > MAX_VRAAG:
             return JSONResponse({"fout": "Zoekvraag is te lang."}, status_code=400)
+        if op_datum:
+            try:
+                date.fromisoformat(op_datum)
+            except ValueError:
+                return JSONResponse({"fout": "Contractdatum moet een geldige datum YYYY-MM-DD zijn."}, status_code=400)
         filters = Filters.van(
             gecontracteerd=gecontracteerd,
             productcode=productcode,
             doelgroep=doelgroep,
             gemeente=gemeente,
+            vestigingsplaats=vestigingsplaats,
+            op_datum=op_datum,
         )
         treffers = index().zoek(q, filters)
         return JSONResponse(
             {
                 "aantal": len(treffers),
+                "waarschuwingen": index().meldingen(q, filters),
                 "resultaten": [
                     {
                         "id": treffer.id,
                         "naam": treffer.naam,
                         "rang": treffer.rang,
                         "reden": treffer.reden,
+                        "contracttoets": treffer.contracttoets,
+                        "ontbrekende_expertise": treffer.ontbrekende_expertise,
+                        "volledige_match": not treffer.ontbrekende_expertise,
                         "wachttijd": toon_veld("wachttijd", treffer.aanbieder.get("wachttijd")),
                         "beschikbaarheid": toon_veld(
                             "beschikbaarheid", treffer.aanbieder.get("beschikbaarheid")
@@ -252,7 +291,7 @@ def _kaart(treffer: Treffer) -> dict:
         str(contract), "Contract onbekend"
     )
     contract_toelichting = None
-    onderaannemer = onderaannemer_zin(ruw)
+    onderaannemer = onderaannemer_zin(ruw, treffer.contracttoets)
     if onderaannemer:
         contract_tekst = onderaannemer
         contract_label = "onderaannemer"
@@ -260,6 +299,14 @@ def _kaart(treffer: Treffer) -> dict:
         tekst = contract_veld.get("toelichting")
         if isinstance(tekst, str) and tekst.strip():
             contract_toelichting = tekst.strip()
+    toets = treffer.contracttoets
+    if toets:
+        contract_toelichting = "Contractbron op " + str(toets.get("peildatum") or "onbekende datum") + "; dit is geen geldigheidsperiode."
+        if toets.get("status") == "onbekend":
+            contract_tekst = "Contract voor deze vraag onbekend"
+            contract_label = "onbekend"
+        elif toets.get("status") == "nee" and contract_label == "afgeleid":
+            contract_tekst = "Niet aangetroffen in contractlijst"
     plaatsen = []
     for vestiging in (ruw.get("vestigingen") or {}).get("waarde") or []:
         if isinstance(vestiging, dict) and vestiging.get("plaats"):
@@ -272,6 +319,10 @@ def _kaart(treffer: Treffer) -> dict:
                 veld["tekst"] = onderaannemer
                 veld["label"] = "onderaannemer"
                 veld["toelichting"] = None
+    if toets and toets.get("status") == "onbekend":
+        for veld in velden:
+            if veld["sleutel"] == "gecontracteerd_regio":
+                veld.update(tekst="onbekend voor deze vraag", label="onbekend", onbekend=True)
     kern_velden = [
         veld for veld in velden if veld["sleutel"] in KERN_VELDEN and not veld["onbekend"]
     ]
@@ -283,7 +334,9 @@ def _kaart(treffer: Treffer) -> dict:
         "reden": treffer.reden,
         "naamveld": toon_veld("naam", ruw.get("naam")),
         "contract_tekst": contract_tekst,
-        "contract": str(contract or "onbekend"),
+        "contract": toets.get("status", str(contract or "onbekend")),
+        "contracttoets": toets,
+        "gedeeltelijk": bool(treffer.ontbrekende_expertise),
         "contract_label": contract_label,
         "contract_toelichting": contract_toelichting,
         "plaatsen": plaatsen,

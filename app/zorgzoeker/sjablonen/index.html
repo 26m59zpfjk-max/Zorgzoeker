@@ -34,7 +34,7 @@
           {% endfor %}
         </select>
       </label>
-      <label>Gemeente of plaats
+      <label>Gemeente van de zorgvraag
         <select name="gemeente">
           <option value="">Alle</option>
           {% for plaats in opties.plaatsen %}
@@ -42,11 +42,24 @@
           {% endfor %}
         </select>
       </label>
+      <label>Vestigingsplaats (optioneel)
+        <select name="vestigingsplaats">
+          <option value="">Alle</option>
+          {% for plaats in opties.vestigingsplaatsen %}
+          <option value="{{ plaats }}" {% if filters.vestigingsplaats == plaats %}selected{% endif %}>{{ plaats }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Contractdatum (optioneel)
+        <input type="date" name="op_datum" value="{{ filters.op_datum or '' }}">
+      </label>
     </div>
+    <p>Gemeente toetst contractdekking; bij alternatieven het bekende werkgebied. Een vestigingsplaats is een apart filter.</p>
     {% if gezocht %}<p class="wis"><a class="tikdoel" href="/">Wis zoekvraag en filters</a></p>{% endif %}
   </form>
 </section>
 
+{% if meldingen %}<ul class="meldingen" role="status">{% for melding in meldingen %}<li>{{ melding }}</li>{% endfor %}</ul>{% endif %}
 {% if not gezocht %}
 <section class="start">
   <h1>Typ de zorgvraag zoals je die in het gesprek hoort</h1>
@@ -68,7 +81,8 @@
 <section class="resultaten">
   <div class="resultaatkop">
     <h1>{% if q %}{{ kaarten|length }} aanbieders voor “{{ q }}”{% else %}{{ kaarten|length }} aanbieders{% endif %}</h1>
-    <p>De volgorde volgt de tekst van de zorgvraag, plus leeftijd, plaats, productcode en contractstatus als die erin staan.</p>
+    <p>Eerst de aangetoonde zorginhoudelijke dekking, daarna tekstovereenkomst, leeftijd en plaats. Ontbrekende zorgkenmerken blijven gemarkeerd.</p>
+    {% if alleen_gedeeltelijk %}<p class="reden-letop">Geen aanbieder met alle gevraagde zorgkenmerken in de bron gevonden. Controleer de ontbrekende kenmerken bij de aanbieder.</p>{% endif %}
   </div>
   <ol class="kaarten">
     {% for kaart in kaarten %}
@@ -88,6 +102,7 @@
         </header>
         <p class="reden {% if 'Let op' in kaart.reden %}reden-letop{% endif %} {% if kaart.breder %}reden-breder{% endif %}">{{ kaart.reden }}</p>
         <ul class="chips">
+          {% if kaart.gedeeltelijk %}<li class="chip breder">gedeeltelijke match · niet alles bevestigd</li>{% endif %}
           {% if kaart.breder %}<li class="chip breder">breder resultaat</li>{% endif %}
           <li class="chip contract-{{ kaart.contract }}">{{ kaart.contract_tekst }}{% if kaart.contract_label == "afgeleid" %} · afgeleid{% endif %}</li>
           {% for plaats in kaart.plaatsen %}<li class="chip">{{ plaats }}</li>{% endfor %}
@@ -96,6 +111,12 @@
         </ul>
         {% if kaart.contract_toelichting %}
         <p class="contract-toelichting">{{ kaart.contract_toelichting }}</p>
+        {% endif %}
+        {% if kaart.contracttoets.waarschuwingen %}
+        <details><summary>Contractvoorwaarden en onzekerheden</summary>
+          <ul>{% for melding in kaart.contracttoets.waarschuwingen %}<li>{{ melding }}</li>{% endfor %}</ul>
+          {% if kaart.contracttoets.bron_url %}<a href="{{ kaart.contracttoets.bron_url }}" rel="noopener noreferrer">Contractbron</a>{% endif %}
+        </details>
         {% endif %}
         {% if kaart.kern_velden %}
         <div class="velden kern">
@@ -119,6 +140,10 @@
     {% endfor %}
   </ol>
   <form id="vergelijk" class="vergelijkbalk" action="/vergelijken" method="get" aria-live="polite">
+    <input type="hidden" name="q" value="{{ q }}">
+    {% for sleutel in ['gemeente', 'productcode', 'gecontracteerd', 'doelgroep', 'vestigingsplaats', 'op_datum'] %}
+    <input type="hidden" name="{{ sleutel }}" value="{{ filters[sleutel] or '' }}">
+    {% endfor %}
     <p id="vergelijk-tel">0 geselecteerd</p>
     <button type="submit">Vergelijk geselecteerden</button>
   </form>

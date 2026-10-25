@@ -91,9 +91,8 @@ def test_leeftijd_14_valt_niet_binnen_0_12() -> None:
 
     index = Index(laad_document(_dataset()))
     treffers = index.zoek("meisje 14 jaar angst in Groesbeek")
-    groesbeek = next(treffer for treffer in treffers if treffer.id == "psycholoog-groesbeek")
-    assert "valt buiten de doelgroep" in groesbeek.reden
-    assert "vanaf 15" in groesbeek.reden
+    # Een bewezen leeftijdsmismatch mag niet langer als kandidaat verschijnen.
+    assert "psycholoog-groesbeek" not in {treffer.id for treffer in treffers}
     for treffer in treffers:
         if "valt binnen de doelgroep" in treffer.reden and "0-12" in treffer.reden:
             raise AssertionError(treffer.id + " " + treffer.reden)

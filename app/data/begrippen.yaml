@@ -186,6 +186,8 @@
 - id: school
   label: schoolweigering
   frases:
+    - weigert school
+    - wil niet meer naar school
     - niet meer naar school
     - niet naar school
     - schoolweigering
@@ -198,6 +200,7 @@
   label: echtscheiding
   boven: gezin
   frases:
+    - uit elkaar
     - scheidingsproblematiek
     - scheidingsproblemen
     - complexe scheiding
@@ -331,6 +334,7 @@
 - id: logeer
   label: logeeropvang
   frases:
+    - logeerweekend
     - weekendlogeeropvang
     - logeeropvang
     - logeerhuis

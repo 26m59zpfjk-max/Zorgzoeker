@@ -1,0 +1,700 @@
+[
+  {
+    "id": 1,
+    "vraag": "Kind van 11 jaar met OCD, zoekt exposure met responspreventie in Nijmegen",
+    "eerder_aantal": 12,
+    "eerder_eerste": "stichting-pro-persona-ggz",
+    "aantal": 1,
+    "volledige_matches": 1,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "stichting-pro-persona-ggz",
+        "reden": "Sluit aan op dwangstoornis, gevonden in expertise: \"TOPGGz-behandeling PTSS en dwangstoornissen (Jong Overwaal, Lent)\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "vraag": "Meisje van 13 jaar wast steeds haar handen uit angst voor besmetting",
+    "eerder_aantal": 16,
+    "eerder_eerste": "0-tot-18",
+    "aantal": 16,
+    "volledige_matches": 16,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "0-tot-18",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst\". Leeftijd 13 jaar valt binnen de doelgroep (Kinderen en jongeren 0-18 jaar). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "psychologenpraktijk-marco-de-vries-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 13 jaar valt binnen de doelgroep (jongeren 13-17).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 13 jaar valt binnen de doelgroep (jongeren tot 18).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "ambulatorium-nijmegen",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst- en stemmingsproblemen\". Leeftijd 13 jaar valt binnen de doelgroep (Jongeren 12-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "1-1-vier",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie\". Leeftijd 13 jaar valt binnen de doelgroep (Kinderen en jeugd 4 t/m 18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "vraag": "Jongen van 12 jaar zoekt EMDR na een verkeersongeluk in Wijchen",
+    "eerder_aantal": 11,
+    "eerder_eerste": "join-jeugd-ouders-vakwerk-regio-nijmegen",
+    "aantal": 8,
+    "volledige_matches": 8,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "join-jeugd-ouders-vakwerk-regio-nijmegen",
+        "reden": "Sluit aan op EMDR, gevonden in expertise: \"EMDR\". Leeftijd 12 jaar valt binnen de doelgroep (jongeren 12-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "kruip-praktijk-voor-kinder-en-jeugdpsychotherapie",
+        "reden": "Sluit aan op EMDR, gevonden in expertise: \"EMDR\". Leeftijd 12 jaar valt binnen de doelgroep (kinderen en jongeren 0-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "1-1-vier",
+        "reden": "Sluit aan op EMDR, gevonden in expertise: \"EMDR\". Leeftijd 12 jaar valt binnen de doelgroep (Kinderen en jeugd 4 t/m 18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "praktijk-ponga",
+        "reden": "Sluit aan op EMDR. Past via type aanbod: \"EMDR\". Leeftijd 12 jaar valt binnen de doelgroep (Kinderen tot en met 17 jaar). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "familysupporters-b-v",
+        "reden": "Sluit aan op EMDR, gevonden in expertise: \"EMDR therapie\". Leeftijd 12 jaar valt binnen de doelgroep (Alle leeftijden (0 tot 100+), jeugdigen en hun omgeving). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "vraag": "Kind van 8 jaar met trauma, geen EMDR gewenst",
+    "eerder_aantal": 18,
+    "eerder_eerste": "1-1-vier",
+    "aantal": 9,
+    "volledige_matches": 9,
+    "waarschuwingen": [
+      "Niet als zorgwens gebruikt: EMDR.",
+      "Aanbieders die de uitgesloten methode of zorgvorm noemen worden verborgen; andere mogelijkheden bij hen zijn niet vastgesteld."
+    ],
+    "eerste_vijf": [
+      {
+        "id": "psychologenpraktijk-marco-de-vries-cooperatie-vjggz",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"trauma\". Leeftijd 8 jaar valt binnen de doelgroep (kinderen 4-12).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "ambulatorium-nijmegen",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"Ingrijpende ervaringen\". Leeftijd 8 jaar valt binnen de doelgroep (Kinderen 0-12 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "psychologiepraktijk-roosen-cooperatie-vjggz",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"trauma\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "praktijk-nicole-legters-cooperatie-vjggz",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"angst, trauma en rouw\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "yes-we-can-clinics-b-v",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"trauma\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "vraag": "Meisje van 15 jaar met PTSS en autisme, gespecialiseerde behandeling",
+    "eerder_aantal": 40,
+    "eerder_eerste": "ambulatorium-nijmegen",
+    "aantal": 25,
+    "volledige_matches": 6,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "ambulatorium-nijmegen",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"Ingrijpende ervaringen\". Sluit aan op autisme/ASS, gevonden in expertise: \"ADHD en autisme (jeugd)\". Sluit aan op behandeling, gevonden in expertise: \"Diagnostiek en behandeling (GBGGz en SGGz)\". Leeftijd 15 jaar valt binnen de doelgroep (Jongeren 12-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "psycholoog-groesbeek",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"Verwerken van trauma\". Sluit aan op autisme/ASS, gevonden in expertise: \"Autisme\". Sluit aan op behandeling. Past via type aanbod: \"Psychosociale therapie\". Leeftijd 15 jaar valt binnen de doelgroep (Jongeren vanaf 15 jaar). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "parnassia-groep-b-v",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"psychotrauma\". Sluit aan op autisme/ASS, gevonden in expertise: \"autisme\". Sluit aan op behandeling. Past via type aanbod: \"Behandeling specialistische jeugd ggz\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"traumaverwerking\". Sluit aan op autisme/ASS, gevonden in expertise: \"autisme\". Sluit aan op behandeling. Past via type aanbod: \"Behandeling basis jeugd ggz\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "eclg-expertisecentrum-leren-gedrag",
+        "reden": "Sluit aan op trauma, gevonden in expertise: \"jeugd-GGZ (ADHD, autisme, angst, trauma, gedrag)\". Sluit aan op autisme/ASS, gevonden in expertise: \"jeugd-GGZ (ADHD, autisme, angst, trauma, gedrag)\". Sluit aan op behandeling. Past via type aanbod: \"Behandeling basis jeugd ggz\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "vraag": "Kind van 9 jaar heeft last van een vechtscheiding, hulp aan beide ouders",
+    "eerder_aantal": 2,
+    "eerder_eerste": "nisa-curae",
+    "aantal": 2,
+    "volledige_matches": 2,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "nisa-curae",
+        "reden": "Sluit aan op echtscheiding, gevonden in expertise: \"coaching bij scheiding\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "stichting-entrea-lindenhout",
+        "reden": "Sluit aan op echtscheiding, gevonden in expertise: \"Hulp bij scheiden met kinderen\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "vraag": "Ouders zijn uit elkaar; zoon van 10 wil niet meer naar vader",
+    "eerder_aantal": 1,
+    "eerder_eerste": "gezinshuis-hemma",
+    "aantal": 2,
+    "volledige_matches": 2,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "nisa-curae",
+        "reden": "Sluit aan op echtscheiding, gevonden in expertise: \"coaching bij scheiding\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "stichting-entrea-lindenhout",
+        "reden": "Sluit aan op echtscheiding, gevonden in expertise: \"Hulp bij scheiden met kinderen\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "vraag": "Jongen van 6 jaar met ASS, ambulante begeleiding thuis in Beuningen",
+    "eerder_aantal": 40,
+    "eerder_eerste": "bureau-backpackerz-b-v",
+    "aantal": 14,
+    "volledige_matches": 2,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "bureau-backpackerz-b-v",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"Ambulante begeleiding bij ASS/AD(H)D\". Sluit aan op ambulant, gevonden in expertise: \"Ambulante begeleiding bij ASS/AD(H)D\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "rosemarijn-gezinsbegeleiding",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"autisme\". Sluit aan op ambulant, gevonden in expertise: \"ambulante gezinsbegeleiding\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "0-tot-18",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"Autisme\". Leeftijd 6 jaar valt binnen de doelgroep (Kinderen en jongeren 0-18 jaar). Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: ambulant. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "ambulant"
+        ],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"autisme\". Leeftijd 6 jaar valt binnen de doelgroep (jongeren tot 18). Niet bevestigd in de bron: ambulant. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "ambulant"
+        ],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "ambulatorium-nijmegen",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"ADHD en autisme (jeugd)\". Leeftijd 6 jaar valt binnen de doelgroep (Kinderen 0-12 jaar). Niet bevestigd in de bron: ambulant. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "ambulant"
+        ],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "vraag": "Jongere van 17 jaar met autisme en LVB zoekt een logeerweekend",
+    "eerder_aantal": 21,
+    "eerder_eerste": "horizon-pgb-weekend-logeeropvang",
+    "aantal": 21,
+    "volledige_matches": 1,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "horizon-pgb-weekend-logeeropvang",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"Autismespectrumstoornis\". Sluit aan op LVB, gevonden in expertise: \"Verstandelijke beperking\". Sluit aan op logeeropvang. Past via type aanbod: \"Weekendlogeeropvang (vrijdag 17.30 – zondag 17.00)\". Leeftijd 17 jaar valt binnen de doelgroep (Kinderen/jongeren 8-20 jaar met pgb (groepen 8-11, 12-15, 16-20)). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "balanzza",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"Autisme\". Sluit aan op logeeropvang. Past via type aanbod: \"Logeeropvang (kleinschalig, begeleid)\". Leeftijd 17 jaar valt binnen de doelgroep (Kinderen en jongeren 8-18 jaar met een ondersteuningsvraag). Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: LVB. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "lvb"
+        ],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "kubus-ondersteuning",
+        "reden": "Sluit aan op autisme/ASS, gevonden in expertise: \"begeleiding bij psychische kwetsbaarheid, LVB, verslaving, ADHD, ASS\". Sluit aan op LVB, gevonden in expertise: \"begeleiding bij psychische kwetsbaarheid, LVB, verslaving, ADHD, ASS\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: logeeropvang. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "logeer"
+        ],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "stichting-s-heeren-loo-zorggroep",
+        "reden": "Sluit aan op LVB, gevonden in doelgroep: \"mensen met een (verstandelijke) beperking\". Sluit aan op logeeropvang. Past via type aanbod: \"Logeeropvang\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: autisme/ASS. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "ass"
+        ],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "hettenheuvel",
+        "reden": "Sluit aan op autisme/ASS, gevonden in doelgroep: \"kinderen en jongeren met autisme\". Sluit aan op logeeropvang. Past via type aanbod: \"Logeeropvang\". Let op: leeftijd niet te controleren. Niet bevestigd in de bron: LVB. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "lvb"
+        ],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "vraag": "Kind van 10 jaar durft door paniek niet meer naar school",
+    "eerder_aantal": 19,
+    "eerder_eerste": "dit-coaching",
+    "aantal": 19,
+    "volledige_matches": 0,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "dit-coaching",
+        "reden": "Sluit aan op schoolweigering, gevonden in expertise: \"begeleiding thuiszitters\". Leeftijd 10 jaar valt binnen de doelgroep (kinderen 8-12). Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: angst. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "angst"
+        ],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "balanzza",
+        "reden": "Sluit aan op schoolweigering, gevonden in doelgroep: \"Kinderen die (tijdelijk) niet naar school gaan\". Leeftijd 10 jaar valt binnen de doelgroep (Kinderen en jongeren 8-18 jaar met een ondersteuningsvraag). Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: angst. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "angst"
+        ],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "0-tot-18",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst\". Leeftijd 10 jaar valt binnen de doelgroep (Kinderen en jongeren 0-18 jaar). Let op: controleer de vermelde contractvoorwaarden en bron. Niet bevestigd in de bron: schoolweigering. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "school"
+        ],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "psychologenpraktijk-marco-de-vries-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 10 jaar valt binnen de doelgroep (kinderen 4-12). Niet bevestigd in de bron: schoolweigering. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "school"
+        ],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 10 jaar valt binnen de doelgroep (jongeren tot 18). Niet bevestigd in de bron: schoolweigering. Dit is een gedeeltelijke match.",
+        "ontbrekende_expertise": [
+          "school"
+        ],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "vraag": "Meisje van 14 jaar weigert school; geen autisme vastgesteld",
+    "eerder_aantal": 15,
+    "eerder_eerste": "0-tot-18",
+    "aantal": 3,
+    "volledige_matches": 3,
+    "waarschuwingen": [
+      "Niet als zorgwens gebruikt: autisme/ASS."
+    ],
+    "eerste_vijf": [
+      {
+        "id": "dit-coaching",
+        "reden": "Sluit aan op schoolweigering, gevonden in expertise: \"begeleiding thuiszitters\". Leeftijd 14 jaar valt binnen de doelgroep (jongeren 13-17). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "balanzza",
+        "reden": "Sluit aan op schoolweigering, gevonden in doelgroep: \"Kinderen die (tijdelijk) niet naar school gaan\". Leeftijd 14 jaar valt binnen de doelgroep (Kinderen en jongeren 8-18 jaar met een ondersteuningsvraag). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "bureau-voor-pedagogiek-b-v",
+        "reden": "Sluit aan op schoolweigering, gevonden in doelgroep: \"(Dreigende) thuiszitters\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "vraag": "Ouders zoeken respijtzorg voor hun dochter van 7 in Druten",
+    "eerder_aantal": 23,
+    "eerder_eerste": "de-woerd-zorg",
+    "aantal": 21,
+    "volledige_matches": 21,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "shelterzorg",
+        "reden": "Sluit aan op logeeropvang. Past via type aanbod: \"Logeeropvang\". Leeftijd 7 jaar valt binnen de doelgroep (Jongeren 6-18 jaar die thuis vastlopen). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "eev-jeugd-en-gezinshulp",
+        "reden": "Sluit aan op logeeropvang. Past via type aanbod: \"Logeeropvang\". Leeftijd 7 jaar valt binnen de doelgroep (Jongeren van 0 tot 23 jaar). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "de-woerd-zorg",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"logeeropvang\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "de-gastvrijheid-velp",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"logeren\". Let op: leeftijd niet te controleren.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "kinderzorg-bijzonder-b-v",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"dag- en logeeropvang\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "vraag": "Kind van 4 jaar zoekt logeeropvang, alleen gecontracteerd in Heumen",
+    "eerder_aantal": 36,
+    "eerder_eerste": "eev-jeugd-en-gezinshulp",
+    "aantal": 19,
+    "volledige_matches": 19,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "eev-jeugd-en-gezinshulp",
+        "reden": "Sluit aan op logeeropvang. Past via type aanbod: \"Logeeropvang\". Leeftijd 4 jaar valt binnen de doelgroep (Jongeren van 0 tot 23 jaar). Staat als gecontracteerd door de regio. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "de-woerd-zorg",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"logeeropvang\". Let op: leeftijd niet te controleren. Staat als gecontracteerd door de regio.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "de-gastvrijheid-velp",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"logeren\". Let op: leeftijd niet te controleren. Staat als gecontracteerd door de regio.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "kinderzorg-bijzonder-b-v",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"dag- en logeeropvang\". Let op: leeftijd niet te controleren. Staat als gecontracteerd door de regio. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "grandcare-begeleiding-b-v",
+        "reden": "Sluit aan op logeeropvang, gevonden in expertise: \"logeren en wonen\". Let op: leeftijd niet te controleren. Staat als gecontracteerd door de regio.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "vraag": "Meisje van 14 jaar met angst in Groesbeek",
+    "eerder_aantal": 18,
+    "eerder_eerste": "psycholoog-groesbeek",
+    "aantal": 16,
+    "volledige_matches": 16,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "0-tot-18",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst\". Leeftijd 14 jaar valt binnen de doelgroep (Kinderen en jongeren 0-18 jaar). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "psychologenpraktijk-marco-de-vries-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 14 jaar valt binnen de doelgroep (jongeren 13-17).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 14 jaar valt binnen de doelgroep (jongeren tot 18).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "ambulatorium-nijmegen",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst- en stemmingsproblemen\". Leeftijd 14 jaar valt binnen de doelgroep (Jongeren 12-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "1-1-vier",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie\". Leeftijd 14 jaar valt binnen de doelgroep (Kinderen en jeugd 4 t/m 18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "vraag": "14-jarige met angst in Groesbeek",
+    "eerder_aantal": 18,
+    "eerder_eerste": "psycholoog-groesbeek",
+    "aantal": 16,
+    "volledige_matches": 16,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "0-tot-18",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst\". Leeftijd 14 jaar valt binnen de doelgroep (Kinderen en jongeren 0-18 jaar). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "nee"
+      },
+      {
+        "id": "psychologenpraktijk-marco-de-vries-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 14 jaar valt binnen de doelgroep (jongeren 13-17).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"angst\". Leeftijd 14 jaar valt binnen de doelgroep (jongeren tot 18).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "ambulatorium-nijmegen",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Angst- en stemmingsproblemen\". Leeftijd 14 jaar valt binnen de doelgroep (Jongeren 12-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "1-1-vier",
+        "reden": "Sluit aan op angst, gevonden in expertise: \"Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie\". Leeftijd 14 jaar valt binnen de doelgroep (Kinderen en jeugd 4 t/m 18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "vraag": "18-jarige zoekt jeugd-ggz in Nijmegen",
+    "eerder_aantal": 40,
+    "eerder_eerste": "ambulatorium-nijmegen",
+    "aantal": 40,
+    "volledige_matches": 40,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "kruip-praktijk-voor-kinder-en-jeugdpsychotherapie",
+        "reden": "Sluit aan op jeugd-ggz. Past via type aanbod: \"Behandeling basis jeugd ggz\". Leeftijd 18 jaar valt binnen de doelgroep (kinderen en jongeren 0-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "kinder-en-jongerenpraktijk-maas-en-waal",
+        "reden": "Sluit aan op jeugd-ggz. Past via type aanbod: \"Behandeling basis jeugd ggz\". Leeftijd 18 jaar valt binnen de doelgroep (kinderen en jeugd 0 t/m 23 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "kairos-pompestichting",
+        "reden": "Sluit aan op jeugd-ggz. Past via type aanbod: \"Behandeling specialistische jeugd ggz\". Leeftijd 18 jaar valt binnen de doelgroep (jongeren 14-23 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "optima-psychologische-praktijk",
+        "reden": "Sluit aan op jeugd-ggz. Past via type aanbod: \"Behandeling basis jeugd ggz\". Leeftijd 18 jaar valt binnen de doelgroep (kinderen en jeugdigen 4-18 jaar).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "stichting-karakter",
+        "reden": "Sluit aan op jeugd-ggz. Past via type aanbod: \"Behandeling specialistische jeugd ggz\". Leeftijd 18 jaar valt binnen de doelgroep (Kinderen en jongeren (0-18 jaar) met mentale problemen, meestal als eerdere zorg onvoldoende heeft geholpen).",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "vraag": "Kind van 8 jaar zoekt EMDR, maximaal twee weken wachttijd",
+    "eerder_aantal": 9,
+    "eerder_eerste": "sentio",
+    "aantal": 0,
+    "volledige_matches": 0,
+    "waarschuwingen": [
+      "Alleen resultaten met een eenduidig gepubliceerde wachttijd van maximaal 2 weken. Onbekende of dienstafhankelijke wachttijden worden niet geschat; een publicatie is geen garantie op actuele instroom."
+    ],
+    "eerste_vijf": []
+  },
+  {
+    "id": 18,
+    "vraag": "EMDR gecontracteerd in Nijmegen per 1 januari 2027",
+    "eerder_aantal": 10,
+    "eerder_eerste": "join-jeugd-ouders-vakwerk-regio-nijmegen",
+    "aantal": 0,
+    "volledige_matches": 0,
+    "waarschuwingen": [
+      "Contractgeldigheid op 2027-01-01 niet vastgesteld. Een bron op 2026-10-23 bewijst geen geldigheidsperiode."
+    ],
+    "eerste_vijf": []
+  },
+  {
+    "id": 19,
+    "vraag": "AlkaZorg voor JW 45A04 in Berg en Dal via de hoofdaannemer",
+    "eerder_aantal": 40,
+    "eerder_eerste": "alkazorg",
+    "aantal": 40,
+    "volledige_matches": 40,
+    "waarschuwingen": [],
+    "eerste_vijf": [
+      {
+        "id": "alkazorg",
+        "reden": "Heeft productcode JW 45A04 (Reguliere begeleiding). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "driestroomhuis-tof",
+        "reden": "Heeft productcode JW 45A04 (Reguliere begeleiding). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "nk-homecare",
+        "reden": "Heeft productcode JW 45A04 (Reguliere begeleiding). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "praktijk-kindopmaat",
+        "reden": "Heeft productcode JW 45A04 (Reguliere begeleiding). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      },
+      {
+        "id": "apollis-zorg",
+        "reden": "Heeft productcode JW 45A04 (Reguliere begeleiding). Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "vraag": "Kind van 12 jaar met dwang zoekt behandeling, geen dagbesteding",
+    "eerder_aantal": 40,
+    "eerder_eerste": "stichting-pro-persona-ggz",
+    "aantal": 1,
+    "volledige_matches": 1,
+    "waarschuwingen": [
+      "Niet als zorgwens gebruikt: dagbesteding.",
+      "Aanbieders die de uitgesloten methode of zorgvorm noemen worden verborgen; andere mogelijkheden bij hen zijn niet vastgesteld."
+    ],
+    "eerste_vijf": [
+      {
+        "id": "stichting-pro-persona-ggz",
+        "reden": "Sluit aan op dwangstoornis, gevonden in expertise: \"TOPGGz-behandeling PTSS en dwangstoornissen (Jong Overwaal, Lent)\". Sluit aan op behandeling, gevonden in expertise: \"Behandeling met medicijnen\". Let op: leeftijd niet te controleren. Let op: controleer de vermelde contractvoorwaarden en bron.",
+        "ontbrekende_expertise": [],
+        "contractstatus": "ja"
+      }
+    ]
+  }
+]

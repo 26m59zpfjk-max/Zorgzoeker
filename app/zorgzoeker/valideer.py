@@ -9,8 +9,10 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
+
+from zorgzoeker.contracten import code_sleutel, lees_datum
 
 VELDEN = (
     "naam",
@@ -41,15 +43,22 @@ CONTRACT = {"ja", "nee", "onbekend"}
 
 # Woorden die een schatting verraden. Een gepubliceerd getal ("8 weken") mag wel.
 SCHATTING = re.compile(
-    r"\b(ongeveer|circa|ca\.|geschat|geschatte|schatting|naar schatting|rond de|naar verwachting)\b",
+    r"\b(?:ongeveer|circa|geschat|geschatte|schatting|naar schatting|rond de|naar verwachting)\b|\bca\.",
     re.IGNORECASE,
 )
 DATUM_IN_TEKST = re.compile(r"\b(\d{4}-\d{2}-\d{2}|\d{1,2}-\d{1,2}-\d{4})\b")
 URL = re.compile(r"^https?://", re.IGNORECASE)
 
 
+def peildatum_veld(veld: dict) -> str | None:
+    tekst = str(veld.get("toelichting") or "")
+    patroon = r"\bpeildatum\b(?:\s*\([^)]{0,30}\))?(?:\s+gelezen)?\s*:?\s*(\d{4}-\d{2}-\d{2}|\d{1,2}-\d{1,2}-\d{4})\b"
+    match = re.search(patroon, tekst, re.I)
+    return lees_datum(match[1]) if match else None
+
+
 def _is_datum(waarde: object) -> bool:
-    if not isinstance(waarde, str):
+    if not isinstance(waarde, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", waarde):
         return False
     try:
         datetime.strptime(waarde, "%Y-%m-%d")
@@ -137,17 +146,25 @@ def valideer_document(document: object) -> list[str]:
 
         if "hoofdaannemer" in aanbieder:
             fouten.extend(_valideer_veld(f"{pad}.hoofdaannemer", "hoofdaannemer", aanbieder["hoofdaannemer"]))
+            hoofd = aanbieder["hoofdaannemer"]
+            if isinstance(hoofd, dict) and hoofd.get("waarde") not in (None, "onbekend", ""):
+                contract = aanbieder.get("gecontracteerd_regio") or {}
+                if not isinstance(contract, dict) or contract.get("waarde") != "ja":
+                    fouten.append(f"{pad}: hoofdaannemer zonder bevestigde regionale contractrelatie.")
+        if "contractgemeenten" in aanbieder:
+            fouten.extend(_valideer_veld(f"{pad}.contractgemeenten", "werkgebied", aanbieder["contractgemeenten"]))
 
         gevonden = aanbieder.get("gevonden_via")
         if not isinstance(gevonden, list) or not gevonden:
             fouten.append(f"{pad}.gevonden_via moet een niet-lege lijst bron-id's zijn.")
         else:
             for bron_id in gevonden:
-                if bron_id not in bron_ids:
+                if not isinstance(bron_id, str) or bron_id not in bron_ids:
                     fouten.append(f"{pad}.gevonden_via verwijst naar onbekende bron '{bron_id}'.")
 
         fouten.extend(_valideer_wachttijd(pad, aanbieder))
 
+    fouten.extend(_valideer_contractregister(document))
     return fouten
 
 
@@ -157,9 +174,22 @@ def _valideer_veld(pad: str, sleutel: str, veld: object) -> list[str]:
         return [f"{pad} is geen Veld-object."]
 
     label = veld.get("label")
-    if label not in LABELS:
+    if not isinstance(label, str) or label not in LABELS:
         fouten.append(f"{pad}.label moet geverifieerd, afgeleid of onbekend zijn.")
         return fouten
+    waarde = veld.get("waarde")
+    if label != "onbekend":
+        if sleutel in LIJSTVELDEN:
+            if not isinstance(waarde, list):
+                fouten.append(f"{pad}.waarde moet een lijst zijn.")
+            elif sleutel in {"productcodes", "vestigingen"}:
+                verplicht = "code" if sleutel == "productcodes" else "plaats"
+                if any(not isinstance(item, dict) or not isinstance(item.get(verplicht), str) or not item[verplicht].strip() for item in waarde):
+                    fouten.append(f"{pad}.waarde bevat een ongeldig {verplicht}-object.")
+            elif any(not isinstance(item, str) for item in waarde):
+                fouten.append(f"{pad}.waarde moet alleen teksten bevatten.")
+        elif not isinstance(waarde, str) or not waarde.strip():
+            fouten.append(f"{pad}.waarde moet een niet-lege tekst zijn.")
 
     if label in ("geverifieerd", "afgeleid"):
         bron = veld.get("bron_url")
@@ -167,6 +197,8 @@ def _valideer_veld(pad: str, sleutel: str, veld: object) -> list[str]:
             fouten.append(f"{pad}: label {label} zonder bruikbare bron_url.")
         if not _is_datum(veld.get("opgehaald_op")):
             fouten.append(f"{pad}: label {label} zonder opgehaald_op (YYYY-MM-DD).")
+        elif veld["opgehaald_op"] > date.today().isoformat():
+            fouten.append(f"{pad}: ophaaldatum ligt in de toekomst.")
         if label == "afgeleid":
             toelichting = veld.get("toelichting")
             if not isinstance(toelichting, str) or not toelichting.strip():
@@ -178,7 +210,7 @@ def _valideer_veld(pad: str, sleutel: str, veld: object) -> list[str]:
             )
 
     if sleutel == "gecontracteerd_regio" and label != "onbekend":
-        if veld.get("waarde") not in CONTRACT:
+        if not isinstance(veld.get("waarde"), str) or veld["waarde"] not in CONTRACT:
             fouten.append(f"{pad}.waarde moet ja, nee of onbekend zijn.")
 
     return fouten
@@ -194,17 +226,65 @@ def _valideer_wachttijd(pad: str, aanbieder: dict) -> list[str]:
         if _onbekende_wachttijd(veld):
             continue
         waar = f"{pad}.{sleutel}"
+        if veld.get("label") != "geverifieerd":
+            fouten.append(f"{waar}: alleen letterlijk geverifieerde publicaties mogen bekend zijn.")
         bron = veld.get("bron_url")
         if not isinstance(bron, str) or not bron.strip() or not URL.match(bron):
             fouten.append(f"{waar}: waarde is niet 'onbekend', maar er is geen bron_url.")
         if not _is_datum(veld.get("opgehaald_op")):
             fouten.append(f"{waar}: waarde is niet 'onbekend', maar er is geen ophaaldatum.")
         toelichting = veld.get("toelichting") if isinstance(veld.get("toelichting"), str) else ""
-        if "peildatum" not in toelichting.lower() or not DATUM_IN_TEKST.search(toelichting):
-            fouten.append(f"{waar}: toelichting moet een peildatum bevatten.")
+        peil = peildatum_veld(veld)
+        if not peil:
+            fouten.append(f"{waar}: toelichting moet een geldige peildatum bevatten.")
+        elif _is_datum(veld.get("opgehaald_op")) and peil > veld["opgehaald_op"]:
+            fouten.append(f"{waar}: peildatum ligt na de ophaaldatum.")
         waarde = veld.get("waarde")
         if isinstance(waarde, str) and SCHATTING.search(waarde):
             fouten.append(f"{waar}: de tekst lijkt op een schatting. Alleen een gepubliceerd gegeven mag.")
+    return fouten
+
+
+def _valideer_contractregister(document: dict) -> list[str]:
+    register = document.get("contractregister")
+    if register is None:
+        return []
+    if not isinstance(register, dict):
+        return ["contractregister moet een object zijn."]
+    fouten = []
+    if not isinstance(register.get("bron_url"), str) or not URL.match(register["bron_url"]):
+        fouten.append("contractregister mist bron_url.")
+    for datum in ("peildatum", "opgehaald_op"):
+        if not _is_datum(register.get(datum)):
+            fouten.append(f"contractregister.{datum} moet YYYY-MM-DD zijn.")
+    if _is_datum(register.get("peildatum")) and _is_datum(register.get("opgehaald_op")):
+        if register["peildatum"] > register["opgehaald_op"] or register["opgehaald_op"] > date.today().isoformat():
+            fouten.append("contractregister bevat een onmogelijke datumvolgorde.")
+    if not isinstance(register.get("regels"), list):
+        return fouten + ["contractregister.regels moet een lijst zijn."]
+    per_id = {a["id"]: a for a in document["aanbieders"] if isinstance(a, dict) and isinstance(a.get("id"), str)}
+    for n, r in enumerate(register["regels"]):
+        pad = f"contractregister.regels[{n}]"
+        if not isinstance(r, dict) or not isinstance(r.get("aanbieder_id"), str) or r["aanbieder_id"] not in per_id:
+            fouten.append(f"{pad}: onbekende aanbieder.")
+            continue
+        a = per_id[r["aanbieder_id"]]
+        contract = a.get("gecontracteerd_regio") or {}
+        if not isinstance(contract, dict) or contract.get("waarde") != "ja":
+            fouten.append(f"{pad}: bronroute spreekt de regionale contractstatus tegen.")
+        producten = (a.get("productcodes") or {}).get("waarde", [])
+        codes = {code_sleutel(str(p.get("code", ""))) for p in producten if isinstance(p, dict)} if isinstance(producten, list) else set()
+        if not isinstance(r.get("productcode"), str) or code_sleutel(r["productcode"]) not in codes:
+            fouten.append(f"{pad}: productcode ontbreekt bij de aanbieder.")
+        if not isinstance(r.get("gemeenten"), list) or not r["gemeenten"] or any(not isinstance(g, str) or not g for g in r["gemeenten"]):
+            fouten.append(f"{pad}: gemeenten ontbreken of zijn ongeldig.")
+        if r.get("hoofdaannemer") is not None and (not isinstance(r["hoofdaannemer"], str) or not r["hoofdaannemer"].strip()):
+            fouten.append(f"{pad}: hoofdaannemer is ongeldig.")
+        if not isinstance(r.get("opmerkingen"), list) or any(not isinstance(t, str) for t in r["opmerkingen"]):
+            fouten.append(f"{pad}: opmerkingen moeten teksten zijn.")
+        bewijs = r.get("bewijs")
+        if not isinstance(bewijs, list) or not bewijs or any(not isinstance(b, dict) or not isinstance(b.get("tabblad"), str) or not isinstance(b.get("rij"), int) or b["rij"] < 3 for b in bewijs):
+            fouten.append(f"{pad}: tabblad/bronrij ontbreekt.")
     return fouten
 
 

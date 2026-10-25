@@ -1,6 +1,7 @@
 {% macro herkomst(veld) %}
 <span class="badge {{ veld.label }}">{{ veld.label }}</span>
 {% if veld.datum %}<span class="datum">opgehaald {{ veld.datum }}</span>{% endif %}
+{% if veld.peildatum %}<span class="datum">peildatum {{ veld.peildatum }}</span>{% endif %}
 {% if veld.bron_url %}<a class="bron" href="{{ veld.bron_url }}" rel="noopener noreferrer">bron</a>{% endif %}
 {% endmacro %}
 

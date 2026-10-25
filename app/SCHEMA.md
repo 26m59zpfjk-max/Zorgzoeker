@@ -41,3 +41,35 @@ Regels (worden door tests afgedwongen):
 6. `gevonden_via` verwijst naar `bronnen[].id` en toont de dekking per bron.
 7. Onderaannemers (op ROB-tabblad 'Onderaannemers', of gezinshuis onder een gecontracteerde franchise-/moederorganisatie): `gecontracteerd_regio` = `ja`, label `afgeleid`, toelichting begint letterlijk met `Onderaannemer van <naam>`; daarnaast veld `hoofdaannemer` (waarde = naam gecontracteerde organisatie, met bron_url/opgehaald_op/label). Andere aanbieders hebben géén veld `hoofdaannemer`.
    Weergaveregel UI: toon bij deze aanbieders "gecontracteerd: onderaannemer van <hoofdaannemer>" in plaats van het label "afgeleid".
+
+## Optionele uitbreiding: contractregister
+
+Een algemene regionale vermelding bewijst geen product- of periodegebonden
+contractgeldigheid. Bij zoeken en vergelijken gaat de onderstaande brongebonden
+toets vóór de algemene vermelding. Ontbrekende routes blijven onbekend.
+
+`contractregister` op documentniveau bevat `bron_url`, `peildatum`,
+`opgehaald_op`, `sha256` van de openbare werkmap, `gemeenten_bron`,
+`toelichting` en `regels` (lijst). Elke regel bevat:
+
+- `aanbieder_id`: een bestaande aanbieder;
+- `productcode`: een product dat bij die aanbieder in de dataset staat;
+- `hoofdaannemer`: de letterlijk vermelde naam, of `null` voor rechtstreeks;
+- `gemeenten`: alleen aantoonbare contractdekking, los van vestiging/werkgebied;
+- `opmerkingen`: letterlijke bronvoorwaarden, inclusief toepasselijke voorwaarden van de hoofdaannemer;
+- `bewijs`: lijst met `tabblad` en `rij` in de genoemde werkmap.
+
+De publicatiedatum van een overzicht is een momentopname, geen ingangs- of
+einddatum. Een andere gevraagde datum of een ontbrekende route levert
+`onbekend` op. Een toeleidingsstop wordt per gemeente, product en route getoetst;
+een andere niet-gestopte route blijft een mogelijkheid. Afwezigheid van een stop
+bewijst geen beschikbare plaats. Bij afgeleide negatieve contractlabels zegt de
+weergave daarom ‘niet aangetroffen’, geen bewezen contractloosheid.
+
+Wachttijd/beschikbaarheid mag alleen bekend zijn met label `geverifieerd`, een
+bron, geldige ophaaldatum en een expliciet vermelde, geldige peildatum die niet
+na het ophalen ligt. Gepubliceerde samengestelde wachttijden blijven als tekst
+beschikbaar; de zoekmachine rekent ze niet om tot een algemene belofte. De
+interface toont ophaaldatum en peildatum afzonderlijk. Een ongeldig bestand
+wordt niet geïndexeerd; gezondheid meldt `fout`, zoeken geeft HTTP 500 met
+validatiefouten. Losse veldweergave onderdrukt ongeldige wachttijden eveneens.

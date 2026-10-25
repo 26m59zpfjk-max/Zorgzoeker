@@ -1,0 +1,34 @@
+OK   zoekpagina: 25 resultaatkaarten
+OK   zoekpagina scrollWidth = 390 (≤ 390)
+OK   basistekst 16.5px, zoekveld 16.5px (≥ 16)
+OK   elke kaart heeft een uitklapblok
+OK   uitklapblok standaard dicht op mobiel
+OK   vergelijkbalk verborgen vóór aanvinken
+OK   tikdoel vergelijk-label: 25 st., min 112.1x44 px
+OK   tikdoel bron-links (zichtbaar): 200 st., min 44x44 px
+OK   tikdoel filters: 5 st., min 324x44 px
+OK   tikdoel Wis zoekvraag en filters: 1 st., min 163.6x44 px
+OK   tikdoel uitklap-samenvatting: 25 st., min 330.4x49.6 px
+OK   vergelijkbalk zichtbaar na 1 vinkje
+OK   vergelijkbalk position=fixed, onderkant op 844 px van 844
+OK   teller toont 3 geselecteerd
+OK   balk blijft vast bij scrollen
+OK   tikdoel bron-links (na uitklappen): 200 st., min 44x44 px
+OK   zoekpagina uitgeklapt scrollWidth = 390
+OK   laatste kaart eindigt op 515 px, balk begint op 776 px
+OK   vergelijkpagina geopend via balk
+OK   vergelijkpagina (3 aanbieders) scrollWidth = 390
+OK   tabel verborgen op mobiel
+OK   blokken per kenmerk zichtbaar
+OK   tikdoel Terug naar zoeken: 1 st., min 144x44 px
+OK   tikdoel bron-links vergelijkpagina: 25 st., min 44x44 px
+OK   startpagina scrollWidth = 390
+OK   alle aanbieders scrollWidth = 390
+OK   desktop zoekpagina scrollWidth = 1280
+OK   desktop: details standaard open
+OK   desktop: vergelijktabel zichtbaar
+OK   desktop: mobiele variant verborgen
+OK   desktop vergelijkpagina (2) scrollWidth = 1280
+OK   vergelijkpagina (2 aanbieders) scrollWidth = 390
+
+RESULTAAT: alles in orde
