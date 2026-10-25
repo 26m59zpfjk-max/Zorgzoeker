@@ -15,7 +15,7 @@ from zorgzoeker import __versie__
 from zorgzoeker.config import data_pad
 from zorgzoeker.laden import laad_document
 from zorgzoeker.valideer import valideer_document
-from zorgzoeker.weergave import KAART_VELDEN, onderaannemer_zin, toon_veld, vergelijk_rijen
+from zorgzoeker.weergave import KAART_VELDEN, onderaannemer_zin, toon_veld, vergelijk_rijen, website_url
 from zorgzoeker.zoeken import Filters, Index, Treffer
 
 PAKKET = Path(__file__).resolve().parent
@@ -216,7 +216,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                 **omgeving,
                 "melding": None,
                 "kolommen": [
-                    {"id": item["id"], "naam": (item.get("naam") or {}).get("waarde")}
+                    {"id": item["id"], "naam": (item.get("naam") or {}).get("waarde"), "website": website_url(item)}
                     for item in kolommen
                 ],
                 "rijen": vergelijk_rijen(kolommen, [index().contracttoets_voor(item["id"], q, filters) for item in kolommen]),
@@ -259,6 +259,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                     {
                         "id": treffer.id,
                         "naam": treffer.naam,
+                        "website": website_url(treffer.aanbieder),
                         "rang": treffer.rang,
                         "reden": treffer.reden,
                         "contracttoets": treffer.contracttoets,
@@ -331,6 +332,7 @@ def _kaart(treffer: Treffer) -> dict:
         "id": treffer.id,
         "rang": treffer.rang,
         "naam": treffer.naam,
+        "website": website_url(ruw),
         "reden": treffer.reden,
         "naamveld": toon_veld("naam", ruw.get("naam")),
         "contract_tekst": contract_tekst,

@@ -75,6 +75,14 @@ python3 -m pytest tests/test_validatie.py tests/test_wachttijd.py --aanbieders p
 
 `tests/zoekvragen.yaml` bevat de zoektests tegen de fixture, omdat de verwachte treffers daarbij horen. `tests/test_dataset.py` controleert `data/aanbieders.json`.
 
+## Aanvullende controles na de audit
+
+Zie [de vervolgfixes](docs/vervolg-herstel.md) voor stops bij vrije tekst,
+negaties, decimale leeftijden en verouderde wachttijden. Het standaardbeleid
+voor wachttijden is 30 dagen vanaf de peildatum, instelbaar met
+`ZORGZOEKER_WACHTTIJD_MAX_DAGEN`. Een bekende toeleidingsstop veroudert niet
+mee met een wachttijdpublicatie.
+
 ## Echte dataset inpluggen
 
 1. Lever het bestand aan volgens [SCHEMA.md](SCHEMA.md).

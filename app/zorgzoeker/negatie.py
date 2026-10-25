@@ -33,7 +33,12 @@ def splits_negaties(tekst: str, frases: list[tuple[str, str]]) -> tuple[str, lis
         for begin, einde, _ in hits:
             if einde <= start:
                 prefix[begin:einde] = " " * (einde - begin)
-        voor = re.split(r"[,;.!?]|\b(?:maar|echter|wel|voor|vanwege|met)\b", "".join(prefix))[-1]
+                # 'EMDR niet gewenst' hoort bij EMDR, niet bij het volgende
+                # begrip ('bij trauma', 'en angst', ...).
+                achter = re.match(r"\s+(?:is\s+)?niet\s+(?:gewenst|vastgesteld|nodig|aangetoond)\b", tekst[einde:start])
+                if achter:
+                    prefix[einde:einde + achter.end()] = " " * achter.end()
+        voor = re.split(r"[,;.!?]|\b(?:maar|echter|wel|voor|vanwege|met|bij)\b", "".join(prefix))[-1]
         voor = re.sub(r"\bniet alleen\b", "", voor)
         na = tekst[eind:eind + 45]
         negatief = bool(re.search(r"\b(?:geen|zonder|niet)\b", voor) or

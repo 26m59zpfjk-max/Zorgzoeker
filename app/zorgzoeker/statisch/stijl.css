@@ -353,3 +353,9 @@ select { max-width: 100%; min-height: 44px; }
   .vm-aanbieder { margin: 0; font-weight: 600; }
   .vm-blok li.is-onbekend .vm-aanbieder { color: var(--zacht); }
 }
+
+/* Naam als link naar de eigen website van de aanbieder (los van de bronlink). */
+a.naam-link { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a.naam-link:hover, a.naam-link:focus-visible { text-decoration-thickness: 2px; }
+.geen-website { font-family: system-ui, sans-serif; font-size: 0.72rem; font-weight: 400; color: var(--zacht); letter-spacing: 0; white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

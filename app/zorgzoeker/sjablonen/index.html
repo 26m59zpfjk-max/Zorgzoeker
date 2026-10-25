@@ -1,5 +1,5 @@
 {% extends "basis.html" %}
-{% from "macros.html" import veldblok %}
+{% from "macros.html" import veldblok, naamlink %}
 {% block titel %}{% if q %}{{ q }} · {% endif %}Zorgzoeker{% endblock %}
 {% block inhoud %}
 <section class="zoekblok">
@@ -91,7 +91,7 @@
         <header class="kaart-kop">
           <span class="rang" aria-label="Plaats {{ kaart.rang }}">{{ kaart.rang }}</span>
           <div>
-            <h2>{{ kaart.naam }}</h2>
+            <h2>{{ naamlink(kaart.naam, kaart.website) }}</h2>
             <p class="naam-bron">
               <span class="badge {{ kaart.naamveld.label }}">{{ kaart.naamveld.label }}</span>
               {% if kaart.naamveld.datum %}<span>opgehaald {{ kaart.naamveld.datum }}</span>{% endif %}

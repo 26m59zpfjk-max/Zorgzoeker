@@ -13,6 +13,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from zorgzoeker.contracten import code_sleutel, lees_datum
+from zorgzoeker.config import max_wachttijd_dagen
 
 VELDEN = (
     "naam",
@@ -43,7 +44,7 @@ CONTRACT = {"ja", "nee", "onbekend"}
 
 # Woorden die een schatting verraden. Een gepubliceerd getal ("8 weken") mag wel.
 SCHATTING = re.compile(
-    r"\b(?:ongeveer|circa|geschat|geschatte|schatting|naar schatting|rond de|naar verwachting)\b|\bca\.",
+    r"\b(?:ongeveer|circa|geschat|geschatte|schatting|naar schatting|rond de|naar verwachting|indicatie|indicatief|indicatieve|verwacht|verwachte|verwachting)\b|\bca\.|[±~≈]|\+\s*/\s*[-−]",
     re.IGNORECASE,
 )
 DATUM_IN_TEKST = re.compile(r"\b(\d{4}-\d{2}-\d{2}|\d{1,2}-\d{1,2}-\d{4})\b")
@@ -55,6 +56,16 @@ def peildatum_veld(veld: dict) -> str | None:
     patroon = r"\bpeildatum\b(?:\s*\([^)]{0,30}\))?(?:\s+gelezen)?\s*:?\s*(\d{4}-\d{2}-\d{2}|\d{1,2}-\d{1,2}-\d{4})\b"
     match = re.search(patroon, tekst, re.I)
     return lees_datum(match[1]) if match else None
+
+
+def wachttijd_ouderdom(veld: dict, referentiedatum: date | None = None) -> int | None:
+    peil = peildatum_veld(veld)
+    return ((referentiedatum or date.today()) - date.fromisoformat(peil)).days if peil else None
+
+
+def wachttijd_verouderd(veld: dict, referentiedatum: date | None = None) -> bool:
+    dagen = wachttijd_ouderdom(veld, referentiedatum)
+    return dagen is not None and dagen > max_wachttijd_dagen()
 
 
 def _is_datum(waarde: object) -> bool:

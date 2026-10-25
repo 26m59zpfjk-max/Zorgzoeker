@@ -11,6 +11,14 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 STANDAARD_POORT = 8741
 
 
+def max_wachttijd_dagen() -> int:
+    """Actualiteitsbeleid, geen garantie over instroom bij een aanbieder."""
+    dagen = int(os.environ.get("ZORGZOEKER_WACHTTIJD_MAX_DAGEN", "30"))
+    if dagen < 0:
+        raise ValueError("ZORGZOEKER_WACHTTIJD_MAX_DAGEN mag niet negatief zijn.")
+    return dagen
+
+
 def data_pad() -> Path:
     """Welk aanbiedersbestand geladen wordt.
 

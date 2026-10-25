@@ -51,7 +51,11 @@ def test_gepubliceerde_wachttijd_heeft_bron(fixture_pad: Path) -> None:
     antwoord = _client(fixture_pad).get("/api/zoek", params={"q": "productcode JH-GGZ-09"})
     eerste = antwoord.json()["resultaten"][0]
     assert eerste["id"] == "fictief-jeugd-ggz-de-waalbrug"
-    assert eerste["wachttijd"]["tekst"] == "8 weken"
+    # De fixturepublicatie van 15 september is verouderd; bewaar het
+    # gepubliceerde gegeven, maar presenteer het niet als actuele wachttijd.
+    assert eerste["wachttijd"]["tekst"] == "onbekend"
+    assert eerste["wachttijd"]["publicatie_tekst"] == "8 weken"
+    assert eerste["wachttijd"]["verouderd"]
     assert eerste["wachttijd"]["bron_url"]
     assert "ongeveer" not in eerste["wachttijd"]["tekst"].lower()
 

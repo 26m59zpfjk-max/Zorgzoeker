@@ -24,7 +24,7 @@ from dataclasses import dataclass, field, replace
 from zorgzoeker.config import PROJECT_ROOT
 from zorgzoeker.negatie import splits_negaties
 from zorgzoeker.contracten import Contractregister, ROB_GEMEENTEN, algemene_stop, zoekdatum
-from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd
+from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, wachttijd_verouderd
 from zorgzoeker.synoniemen import (
     BOVEN,
     CONCEPT_LABEL,
@@ -47,9 +47,9 @@ BEHANDELMETHODEN = frozenset({"emdr", "speltherapie", "reflexintegratie"})
 
 TOKEN_RE = re.compile(r"c_[a-z0-9_]+|p_[a-z0-9_]+|code_[a-z0-9]+|[a-z0-9]+")
 CODE_RE = re.compile(r"\b(?=[a-z0-9-]*\d)[a-z]{2,8}(?:-[a-z0-9]{1,8})+\b")
-LEEFTIJD_JAAR = re.compile(r"\b(\d{1,3})\s*(?:jaar|[- ]?jarig(?:e|en)?)\b")
+LEEFTIJD_JAAR = re.compile(r"\b(\d{1,3}(?:decimal\d+)?)\s*(?:jaar|jr|[- ]?jarig(?:e|en)?)\b")
 LEEFTIJD_PERSOON = re.compile(
-    r"\b(?:jongen|meisje|kind|jongere|zoon|dochter|leeftijd)\s+(?:van\s+)?(\d{1,3})\b"
+    r"\b(?:jongen|meisje|kind|jongere|zoon|dochter|leeftijd)\s+(?:van\s+)?(\d{1,3}(?:decimal\d+)?)\b"
 )
 LEEFTIJD_RANGE = re.compile(r"\b(\d{1,3})\s*(?:-|tot en met|tot)\s*(\d{1,3})\s*jaar\b")
 VANAF = re.compile(r"\bvanaf\s+(\d{1,2})\b")
@@ -310,8 +310,10 @@ def leeftijdsgrenzen(tekst: str) -> list[tuple[int, int]]:
         laag, hoog = int(m[1]), int(m[2])
         if tekst[m.end():].startswith("+"):
             hoog = 120
+        elif re.search(r"\b(?:tot en met|t m)\b", m[0]):
+            hoog = math.nextafter(float(hoog + 1), -math.inf)
         elif re.search(r"\btot\b", m[0]) and "tot en met" not in m[0]:
-            hoog -= 1
+            hoog = math.nextafter(float(hoog), -math.inf)
         if 0 <= laag <= hoog <= 120 and laag <= 30:
             grenzen.append((laag, hoog))
     if grenzen:
@@ -323,8 +325,7 @@ def leeftijdsgrenzen(tekst: str) -> list[tuple[int, int]]:
     tot = _TOT_ALLEEN.search(tekst)
     if tot and int(tot.group(1)) <= 120:
         bovengrens = int(tot.group(1))
-        if tot.group(0).startswith("tot ") and not tot.group(0).startswith("tot en met"):
-            bovengrens -= 1
+        bovengrens = math.nextafter(float(bovengrens + (1 if tot.group(0).startswith("tot en met") else 0)), -math.inf)
         return [(0, bovengrens)]
     return grenzen
 
@@ -435,7 +436,7 @@ class Filters:
 @dataclass
 class Vraag:
     tekst: str
-    leeftijd: int | None = None
+    leeftijd: int | float | None = None
     plaatsen: list[str] = field(default_factory=list)
     gemeenten: list[str] = field(default_factory=list)
     contract: str | None = None
@@ -522,7 +523,9 @@ class Treffer:
 def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[str]) -> Vraag:
     origineel = normaliseer(tekst)
     # Bewaar zinsgrenzen voor negatie; normalisatie zou ze anders wissen.
-    werk = normaliseer(re.sub(r"[,;.!?]", " maar ", tekst))
+    # Bescherm numerieke decimalen vóór komma/punt als zinsgrens dient.
+    beschermd = re.sub(r"(?<=\d)[,.](?=\d)", "decimal", tekst)
+    werk = normaliseer(re.sub(r"[,;.!?]", " maar ", beschermd))
     werk = JAAR_IN_TEKST.sub(" ", werk)
     contract = None
     for patroon, status in CONTRACT_PATRONEN:
@@ -545,7 +548,9 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
         match = patroon.search(werk)
         if not match:
             continue
-        kandidaat = int(match.group(1))
+        kandidaat = float(match.group(1).replace("decimal", "."))
+        if kandidaat.is_integer():
+            kandidaat = int(kandidaat)
         if 0 <= kandidaat <= 120:
             leeftijd = kandidaat
             werk = patroon.sub(" ", werk, count=1)
@@ -553,7 +558,7 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
 
     if leeftijd is not None:
         band = (leeftijd, leeftijd)
-        leeftijd_label = f"{leeftijd} jaar"
+        leeftijd_label = f"{leeftijd:g}".replace(".", ",") + " jaar"
     for patroon, grens, naam in _LEVEN:
         if not patroon.search(werk):
             continue
@@ -569,7 +574,7 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
     gemeenten = _uniek([plaatstabel[naam] for naam in plaatsen if naam in plaatstabel])
     tokens = _uniek(codes + _tokeniseer(werk, plaatstabel, set()))
     concepten = _uniek([token[2:] for token in tokens if token.startswith("c_")])
-    maximum = re.search(r"\b(?:maximaal|max|binnen|hooguit)\s+(\d+|een|twee|drie|vier)\s+weken?\b", origineel)
+    maximum = re.search(r"\b(?:maximaal|max|binnen|hooguit)\s+(\d+|een|twee|drie|vier)\s+(?:week|weken)\b", origineel)
     getallen = {"een": 1, "twee": 2, "drie": 3, "vier": 4}
     return Vraag(
         tekst=origineel,
@@ -852,9 +857,8 @@ class Index:
             contextplaats = self.plaatstabel.get(normaliseer(contextplaats), normaliseer(contextplaats))
         # Informatie op naam blijft opvraagbaar, maar een expliciet gestopte
         # route mag geen zorginhoudelijke aanbeveling worden.
-        if analyse.concepten or analyse.codes or filters.productcode:
-            kandidaten = [p for p in kandidaten if toetsen[p.id]["toeleiding"] != "geblokkeerd"
-                          and not algemene_stop(p.ruw, contextplaats, filters.op_datum or analyse.op_datum, analyse.leeftijd)]
+        kandidaten = [p for p in kandidaten if toetsen[p.id]["toeleiding"] != "geblokkeerd"
+                      and not algemene_stop(p.ruw, contextplaats, filters.op_datum or analyse.op_datum, analyse.leeftijd)]
         if analyse.leeg():
             kandidaten.sort(key=lambda profiel: profiel.naam.lower())
             reden = (
@@ -1070,10 +1074,12 @@ class Index:
 def _past_wachttijd(veld: dict | None, maximum: int) -> bool:
     if not isinstance(veld, dict) or _valideer_veld("wachttijd", "wachttijd", veld) or _valideer_wachttijd("zoek", {"wachttijd": veld}):
         return False
+    if wachttijd_verouderd(veld):
+        return False
     tekst = normaliseer(str(veld.get("waarde", "")))
     if tekst == "geen wachtlijst":
         return True
-    match = re.fullmatch(r"(?:\d+\s*-\s*)?(\d+)\s*(weken?|dagen?)", tekst)
+    match = re.fullmatch(r"(?:\d+\s*-\s*)?(\d+)\s*(week|weken|dag|dagen)", tekst)
     if not match:
         return False
     weken = int(match[1]) / (7 if match[2].startswith("dag") else 1)

@@ -1,8 +1,10 @@
 """Tekst voor de interface. Wachttijd blijft 'onbekend' zolang de bron dat zegt."""
 
 from __future__ import annotations
+from datetime import date
+from urllib.parse import urlsplit
 
-from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, peildatum_veld
+from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, peildatum_veld, wachttijd_ouderdom, wachttijd_verouderd
 
 MAANDEN = (
     "",
@@ -70,6 +72,30 @@ def veilige_url(url: object) -> str | None:
     return None
 
 
+def website_url(aanbieder: dict | None) -> str | None:
+    """Eigen website van de aanbieder uit het veld `website`, alleen http(s).
+
+    Nooit een bron_url als vervanging: ontbreekt een bruikbare website, dan
+    geen link.
+    """
+    veld = (aanbieder or {}).get("website") if isinstance(aanbieder, dict) else None
+    if not isinstance(veld, dict) or veld.get("label") not in {"geverifieerd", "afgeleid"}:
+        return None
+    waarde = veld.get("waarde")
+    if not isinstance(waarde, str):
+        return None
+    url = waarde.strip()
+    if not url or any(teken.isspace() or ord(teken) < 32 for teken in url):
+        return None
+    try:
+        delen = urlsplit(url)
+    except ValueError:
+        return None
+    if delen.scheme.lower() not in {"http", "https"} or not delen.hostname:
+        return None
+    return url
+
+
 def is_onbekend(sleutel: str, veld: dict | None) -> bool:
     if not isinstance(veld, dict):
         return True
@@ -118,7 +144,7 @@ def formateer_waarde(sleutel: str, waarde: object) -> str:
     return str(waarde)
 
 
-def toon_veld(sleutel: str, veld: dict | None) -> dict:
+def toon_veld(sleutel: str, veld: dict | None, *, referentiedatum: date | None = None) -> dict:
     """Eén veld, klaar voor de kaart of de vergelijking."""
     bron = veld if isinstance(veld, dict) else {}
     onbekend = is_onbekend(sleutel, bron if isinstance(veld, dict) else None)
@@ -127,15 +153,23 @@ def toon_veld(sleutel: str, veld: dict | None) -> dict:
         tekst = "Niet aangetroffen in contractlijst"
     if sleutel in ("wachttijd", "beschikbaarheid") and onbekend:
         tekst = "onbekend"
+    geldig_gegeven = not onbekend
+    verouderd = sleutel == "wachttijd" and geldig_gegeven and wachttijd_verouderd(bron, referentiedatum)
+    publicatie_tekst = tekst if verouderd else None
+    if verouderd:
+        tekst, onbekend = "onbekend", True
     return {
         "sleutel": sleutel,
         "label_nl": VELD_LABELS.get(sleutel, sleutel),
         "tekst": tekst,
         "label": "onbekend" if onbekend else bron.get("label") or "onbekend",
-        "bron_url": None if onbekend else veilige_url(bron.get("bron_url")),
-        "datum": None if onbekend else format_datum(bron.get("opgehaald_op")),
-        "peildatum": None if onbekend else peildatum_veld(bron),
-        "toelichting": None if onbekend else (bron.get("toelichting") or None),
+        "bron_url": veilige_url(bron.get("bron_url")) if geldig_gegeven else None,
+        "datum": format_datum(bron.get("opgehaald_op")) if geldig_gegeven else None,
+        "peildatum": peildatum_veld(bron) if geldig_gegeven else None,
+        "toelichting": (bron.get("toelichting") or None) if geldig_gegeven else None,
+        "verouderd": verouderd,
+        "peildatum_leeftijd_dagen": wachttijd_ouderdom(bron, referentiedatum) if sleutel == "wachttijd" and geldig_gegeven else None,
+        "publicatie_tekst": publicatie_tekst,
         "onbekend": onbekend or tekst == "onbekend",
     }
 

@@ -1,5 +1,5 @@
 {% extends "basis.html" %}
-{% from "macros.html" import herkomst %}
+{% from "macros.html" import herkomst, naamlink %}
 {% block titel %}Vergelijken · Zorgzoeker{% endblock %}
 {% block inhoud %}
 <section class="vergelijkpagina">
@@ -15,7 +15,7 @@
         <tr>
           <th scope="col">Gegeven</th>
           {% for kolom in kolommen %}
-          <th scope="col">{{ kolom.naam }}</th>
+          <th scope="col">{{ naamlink(kolom.naam, kolom.website) }}</th>
           {% endfor %}
         </tr>
       </thead>
@@ -37,7 +37,7 @@
   </div>
   <div class="vergelijk-mobiel">
     <ol class="vm-namen">
-      {% for kolom in kolommen %}<li>{{ kolom.naam }}</li>{% endfor %}
+      {% for kolom in kolommen %}<li>{{ naamlink(kolom.naam, kolom.website) }}</li>{% endfor %}
     </ol>
     {% for rij in rijen %}
     <section class="vm-blok {% if rij.verschilt %}verschilt{% endif %}">
@@ -45,7 +45,7 @@
       <ul>
         {% for cel in rij.cellen %}
         <li class="{% if cel.onbekend %}is-onbekend{% endif %}">
-          <p class="vm-aanbieder">{{ kolommen[loop.index0].naam }}</p>
+          <p class="vm-aanbieder">{{ naamlink(kolommen[loop.index0].naam, kolommen[loop.index0].website, false) }}</p>
           <p class="veld-tekst {% if cel.onbekend %}onbekend-waarde{% endif %}">{{ cel.tekst }}</p>
           <p class="naam-bron">{{ herkomst(cel) }}</p>
           {% if cel.toelichting %}<p class="toelichting">{{ cel.toelichting }}</p>{% endif %}

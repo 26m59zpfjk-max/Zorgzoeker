@@ -51,8 +51,9 @@ def test_grens_voor_andere_dienst_is_geen_algemene_uitsluiting():
         ("Kinderen, jongeren en gezinnen", []), ("Jongeren vanaf 18 jaar (wonen)", [(18, 120)])
     ])[0] == "onbekend"
     assert leeftijdsgrenzen("Jongeren vanaf 15 jaar") == [(15, 120)]
-    assert leeftijdsgrenzen("jongeren tot 18 jaar") == [(0, 17)]
-    assert leeftijdsgrenzen("jongeren tot en met 18 jaar") == [(0, 18)]
+    import math
+    assert leeftijdsgrenzen("jongeren tot 18 jaar") == [(0, math.nextafter(18.0, -math.inf))]
+    assert leeftijdsgrenzen("jongeren tot en met 18 jaar") == [(0, math.nextafter(19.0, -math.inf))]
 
 
 def test_echte_vijftienplus_praktijk_niet_voor_veertien():
@@ -151,8 +152,8 @@ def test_alternatieve_hoofdaannemerroute_blijft_beschikbaar():
 
 def test_regionale_aanbieders_niet_verdwenen_door_vestigingsplaats(echte_index):
     rs = echte_index.zoek("", Filters(gemeente="Nijmegen", gecontracteerd="ja"))
-    assert len(rs) > 150
-    assert "alkazorg" in {t.id for t in rs}
+    assert {"1-1-vier", "stichting-pro-persona-ggz"} <= {t.id for t in rs}
+    assert "alkazorg" not in {t.id for t in rs}  # bekende stop telt nu ook bij alleen filters
     assert "0-tot-18" not in {t.id for t in rs}
 
 
@@ -266,8 +267,8 @@ def echte_client():
 def test_api_gemeente_en_vestiging_zijn_apart(echte_client):
     r = echte_client.get("/api/zoek", params={"gemeente": "Nijmegen", "gecontracteerd": "ja"})
     assert r.status_code == 200
-    assert r.json()["aantal"] > 150
-    assert "alkazorg" in {t["id"] for t in r.json()["resultaten"]}
+    assert {"1-1-vier", "stichting-pro-persona-ggz"} <= {t["id"] for t in r.json()["resultaten"]}
+    assert "alkazorg" not in {t["id"] for t in r.json()["resultaten"]}
     r = echte_client.get("/api/zoek", params={"vestigingsplaats": "Nijmegen"})
     ids = {t["id"] for t in r.json()["resultaten"]}
     assert "0-tot-18" in ids
