@@ -1,0 +1,415 @@
+# Gewone taal, synoniemen en vaktermen.
+# Een zoekwoord hoort bij een categorie. `boven` is de bredere categorie
+# die alleen gebruikt wordt als de categorie zelf nergens in de data staat.
+# De zoekmachine verzint geen expertise: een treffer citeert een veldtekst.
+
+- id: angst
+  label: angst
+  frases:
+    - angststoornissen
+    - angststoornis
+    - faalangsten
+    - faalangst
+    - angstklachten
+    - paniekaanvallen
+    - paniekaanval
+    - sociale angst
+    - angsten
+    - angstig
+    - angstige
+    - paniek
+    - angst
+
+- id: dwang
+  label: dwangstoornis
+  boven: angst
+  frases:
+    - dwangstoornissen
+    - dwangstoornis
+    - dwanggedachten
+    - dwanghandelingen
+    - dwangmatig
+    - dwangmatige
+    - smetvrees
+    - obsessief
+    - obsessieve
+    - ocd
+    - dwang
+
+- id: depressie
+  label: depressie
+  frases:
+    - stemmingsklachten
+    - stemmingsproblemen
+    - depressiviteit
+    - depressieve
+    - depressief
+    - depressie
+    - somberheid
+    - sombere
+    - somber
+
+- id: zelfbeschadiging
+  label: zelfbeschadiging
+  boven: depressie
+  frases:
+    - zelfbeschadiging
+    - zelfbeschadigen
+    - automutilatie
+    - suïcidale gedachten
+    - suicidale gedachten
+    - suïcidaliteit
+    - suicidaliteit
+    - suïcidale
+    - suicidale
+    - suïcidaal
+    - suicidaal
+    - kerft zich
+    - kerft
+
+- id: adhd
+  label: ADHD
+  frases:
+    - aandachtstekort
+    - hyperactiviteit
+    - concentratieproblemen
+    - concentratieprobleem
+    - kan zich niet concentreren
+    - kan zich slecht concentreren
+    - concentratie
+    - adhd
+    - add
+
+- id: ass
+  label: autisme/ASS
+  frases:
+    - autismespectrumstoornis
+    - autismespectrum
+    - pdd-nos
+    - pdd nos
+    - asperger
+    - autistisch
+    - autistische
+    - autisme
+    - ass
+
+- id: trauma
+  label: trauma
+  frases:
+    - posttraumatische stress
+    - ingrijpende ervaringen
+    - traumabehandeling
+    - traumaverwerking
+    - psychotrauma
+    - posttraumatisch
+    - nachtmerries
+    - nachtmerrie
+    - ongeluk
+    - trauma
+    - ptss
+    - ptsd
+
+- id: eet
+  label: eetstoornis
+  frases:
+    - eet bijna niets meer
+    - eet bijna niets
+    - eetproblematiek
+    - eetstoornissen
+    - eetstoornis
+    - eetproblemen
+    - anorexia
+    - boulimia
+    - eet niet
+
+- id: hechting
+  label: hechting
+  frases:
+    - hechtingsproblematiek
+    - hechtingsproblemen
+    - gehechtheid
+    - hechting
+
+- id: gedrag
+  label: gedragsproblemen
+  frases:
+    - agressieregulatietraining
+    - agressieregulatie
+    - agressieproblematiek
+    - gedragsproblematiek
+    - gedragsproblemen
+    - gedragsprobleem
+    - gedragsstoornis
+    - externaliserend
+    - driftbuien
+    - driftbui
+    - boosheid
+    - agressie
+    - odg
+    - odd
+
+- id: lvb
+  label: LVB
+  frases:
+    - licht verstandelijke beperking
+    - lichte verstandelijke beperking
+    - lichtverstandelijke beperking
+    - verstandelijke beperking
+    - verstandelijk beperkt
+    - zwakbegaafdheid
+    - zwakbegaafd
+    - lvb
+
+- id: verslaving
+  label: verslaving
+  frases:
+    - verslavingszorg
+    - middelengebruik
+    - verslaving
+    - cannabis
+    - blowen
+    - blowt
+    - wiet
+    - alcohol
+    - drugs
+
+- id: gamen
+  label: gamen
+  boven: verslaving
+  frases:
+    - gameverslaving
+    - de hele nacht gamet
+    - gamet
+    - gamen
+    - gokken
+
+- id: school
+  label: schoolweigering
+  frases:
+    - niet meer naar school
+    - niet naar school
+    - schoolweigering
+    - schoolverzuim
+    - schooluitval
+    - thuiszitters
+    - thuiszitter
+
+- id: echtscheiding
+  label: echtscheiding
+  boven: gezin
+  frases:
+    - scheidingsproblematiek
+    - scheidingsproblemen
+    - complexe scheiding
+    - scheidingssituatie
+    - vechtscheiding
+    - echtscheiding
+    - scheiden
+    - scheiding
+
+- id: kopp
+  label: KOPP
+  boven: gezin
+  frases:
+    - kinderen van ouders met psychische problemen
+    - kopp
+    - kvo
+
+- id: gezin
+  label: gezinsproblemen
+  frases:
+    - complexe gezinsproblematiek
+    - gezinsproblematiek
+    - gezinsbehandeling
+    - gezinsproblemen
+    - gezinstherapie
+    - systeemtherapie
+
+- id: dyslexie
+  label: dyslexie
+  frases:
+    - dyslexiebehandeling
+    - dyslexiezorg
+    - dyslexie
+
+- id: dyscalculie
+  label: dyscalculie
+  frases:
+    - dyscalculie
+
+- id: opvoed
+  label: opvoedondersteuning
+  frases:
+    - opvoedondersteuning
+    - opvoedbegeleiding
+    - opvoedproblemen
+    - opvoedhulp
+
+- id: slaap
+  label: slaapproblemen
+  frases:
+    - slaapproblemen
+    - slaapprobleem
+    - slaapt slecht
+    - slecht slapen
+    - slecht slaapt
+    - insomnie
+
+- id: psychose
+  label: psychose
+  boven: ggz
+  frases:
+    - psychotische
+    - psychotisch
+    - psychosen
+    - psychose
+
+- id: rouw
+  label: rouw
+  boven: trauma
+  frases:
+    - rouwverwerking
+    - rouw- en verlies
+    - verliestherapie
+    - rouw
+
+- id: hoogbegaafd
+  label: hoogbegaafdheid
+  frases:
+    - hoogbegaafdheid
+    - hoogbegaafd
+
+- id: speltherapie
+  label: speltherapie
+  frases:
+    - speltherapie
+
+- id: emdr
+  label: EMDR
+  frases:
+    - emdr therapie
+    - emdr
+
+- id: reflexintegratie
+  label: reflexintegratie
+  frases:
+    - reflexintegratie
+
+- id: gezinshuis
+  label: gezinshuis
+  frases:
+    - gezinshuiszorg
+    - gezinshuizen
+    - gezinsvervangend
+    - gezinshuis
+
+- id: dagbesteding
+  label: dagbesteding
+  frases:
+    - dagbegeleiding
+    - dagbesteding
+    - dagactiviteiten
+    - dagactiviteit
+
+- id: ambulant
+  label: ambulant
+  frases:
+    - ambulante jeugdhulp
+    - ambulante begeleiding
+    - ambulante hulp
+    - thuisbegeleiding
+    - ambulante
+    - ambulant
+
+- id: pleegzorg
+  label: pleegzorg
+  frases:
+    - pleegkind
+    - pleeggezin
+    - pleegzorg
+
+- id: logeer
+  label: logeeropvang
+  frases:
+    - weekendlogeeropvang
+    - logeeropvang
+    - logeerhuis
+    - respijtzorg
+    - respijt
+    - logeren
+
+- id: zorgboerderij
+  label: zorgboerderij
+  frases:
+    - zorgboerderijen
+    - zorgboerderij
+    - zorgboeren
+    - boerderijzorg
+    - zorgboer
+
+- id: ggz
+  label: jeugd-ggz
+  frases:
+    - geestelijke gezondheidszorg
+    - jeugd-ggz
+    - jeugd ggz
+    - jeugdggz
+    - basisggz
+    - sggz
+    - ggz
+
+- id: pgb
+  label: pgb
+  frases:
+    - persoonsgebonden budget
+    - pgb
+
+- id: crisis
+  label: crisis
+  frases:
+    - crisisopvang
+    - crisisplaats
+    - spoedhulp
+    - acute hulp
+    - crisiszorg
+    - crisis
+    - spoed
+
+- id: jongkind
+  label: het jonge kind
+  frases:
+    - jonge kinderen
+    - jonge kind
+    - vroeghulp
+
+- id: jongvolwassen
+  label: jongvolwassene (18-23)
+  frases:
+    - jongvolwassenen
+    - jongvolwassene
+    - verlengde jeugdhulp
+
+- id: residentieel
+  label: residentieel
+  frases:
+    - residentiele jeugdhulp
+    - residentiele hulp
+    - residentieel
+    - residentiele
+    - leefgroep
+    - 24-uurs
+
+- id: cultuur
+  label: cultuurspecifieke hulp
+  frases:
+    - cultuurspecifieke jeugdhulp
+    - cultuurspecifieke
+    - cultuurspecifiek
+    - cultuursensitief
+
+- id: behandeling
+  label: behandeling
+  frases:
+    - behandeling
+    - therapie
+    - therapeutisch

@@ -1,0 +1,20 @@
+{% macro herkomst(veld) %}
+<span class="badge {{ veld.label }}">{{ veld.label }}</span>
+{% if veld.datum %}<span class="datum">opgehaald {{ veld.datum }}</span>{% endif %}
+{% if veld.bron_url %}<a class="bron" href="{{ veld.bron_url }}" rel="noopener noreferrer">bron</a>{% endif %}
+{% endmacro %}
+
+{% macro veldblok(veld) %}
+<div class="veld {% if veld.onbekend %}is-onbekend{% endif %} {% if veld.verschilt %}verschilt{% endif %}">
+  <div class="veld-kop">
+    <span class="veld-naam">{{ veld.label_nl }}</span>
+    {{ herkomst(veld) }}
+  </div>
+  {% if veld.tekst.startswith('http://') or veld.tekst.startswith('https://') %}
+  <a class="veld-tekst" href="{{ veld.tekst }}" rel="noopener noreferrer">{{ veld.tekst }}</a>
+  {% else %}
+  <p class="veld-tekst {% if veld.onbekend %}onbekend-waarde{% endif %}">{{ veld.tekst }}</p>
+  {% endif %}
+  {% if veld.toelichting %}<p class="toelichting">{{ veld.toelichting }}</p>{% endif %}
+</div>
+{% endmacro %}

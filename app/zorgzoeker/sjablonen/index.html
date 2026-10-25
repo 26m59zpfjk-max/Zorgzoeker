@@ -1,0 +1,127 @@
+{% extends "basis.html" %}
+{% from "macros.html" import veldblok %}
+{% block titel %}{% if q %}{{ q }} · {% endif %}Zorgzoeker{% endblock %}
+{% block inhoud %}
+<section class="zoekblok">
+  <form class="zoekform" method="get" action="/">
+    <label for="q">Zorgvraag</label>
+    <div class="zoekrij">
+      <input id="q" name="q" type="search" maxlength="500" value="{{ q }}" placeholder="Bijvoorbeeld: jongen van 14 met autisme en angst in Groesbeek, ambulant" autocomplete="off">
+      <button type="submit">Zoek aanbieders</button>
+    </div>
+    <div class="filters">
+      <label>Gecontracteerd door de regio
+        <select name="gecontracteerd">
+          <option value="">Alle</option>
+          <option value="ja" {% if filters.gecontracteerd == "ja" %}selected{% endif %}>Ja</option>
+          <option value="nee" {% if filters.gecontracteerd == "nee" %}selected{% endif %}>Nee</option>
+          <option value="onbekend" {% if filters.gecontracteerd == "onbekend" %}selected{% endif %}>Onbekend</option>
+        </select>
+      </label>
+      <label>Productcode
+        <select name="productcode">
+          <option value="">Alle</option>
+          {% for product in opties.productcodes %}
+          <option value="{{ product.code }}" {% if filters.productcode == product.code %}selected{% endif %}>{{ product.code }}{% if product.omschrijving %} — {{ product.omschrijving }}{% endif %}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Doelgroep
+        <select name="doelgroep">
+          <option value="">Alle</option>
+          {% for doel in opties.doelgroepen %}
+          <option value="{{ doel }}" {% if filters.doelgroep == doel %}selected{% endif %}>{{ doel }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Gemeente of plaats
+        <select name="gemeente">
+          <option value="">Alle</option>
+          {% for plaats in opties.plaatsen %}
+          <option value="{{ plaats }}" {% if filters.gemeente == plaats %}selected{% endif %}>{{ plaats }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    {% if gezocht %}<p class="wis"><a class="tikdoel" href="/">Wis zoekvraag en filters</a></p>{% endif %}
+  </form>
+</section>
+
+{% if not gezocht %}
+<section class="start">
+  <h1>Typ de zorgvraag zoals je die in het gesprek hoort</h1>
+  <p>Zorgzoeker zet gewone Nederlandse tekst om in een gerangschikte lijst aanbieders. Per veld zie je of het gegeven geverifieerd, afgeleid of onbekend is.</p>
+  <h2>Voorbeelden</h2>
+  <ul class="voorbeelden">
+    {% for voorbeeld in voorbeelden %}
+    <li><a href="/?q={{ voorbeeld | urlencode }}">{{ voorbeeld }}</a></li>
+    {% endfor %}
+  </ul>
+  <p><a class="tekstlink" href="/?alles=1">Toon alle {{ aantal_totaal }} aanbieders op naam</a></p>
+</section>
+{% elif not kaarten %}
+<section class="leeg">
+  <h1>Geen passende aanbieders</h1>
+  <p>Geen aanbieder voldoet aan deze zoekvraag en filters. Laat een filter leeg, of formuleer de zorgvraag ruimer. Er wordt niets bijgeschat.</p>
+</section>
+{% else %}
+<section class="resultaten">
+  <div class="resultaatkop">
+    <h1>{% if q %}{{ kaarten|length }} aanbieders voor “{{ q }}”{% else %}{{ kaarten|length }} aanbieders{% endif %}</h1>
+    <p>De volgorde volgt de tekst van de zorgvraag, plus leeftijd, plaats, productcode en contractstatus als die erin staan.</p>
+  </div>
+  <ol class="kaarten">
+    {% for kaart in kaarten %}
+    <li>
+      <article class="kaart {% if kaart.rang == 1 %}eerste{% endif %}">
+        <header class="kaart-kop">
+          <span class="rang" aria-label="Plaats {{ kaart.rang }}">{{ kaart.rang }}</span>
+          <div>
+            <h2>{{ kaart.naam }}</h2>
+            <p class="naam-bron">
+              <span class="badge {{ kaart.naamveld.label }}">{{ kaart.naamveld.label }}</span>
+              {% if kaart.naamveld.datum %}<span>opgehaald {{ kaart.naamveld.datum }}</span>{% endif %}
+              {% if kaart.naamveld.bron_url %}<a class="bron" href="{{ kaart.naamveld.bron_url }}" rel="noopener noreferrer">bron</a>{% endif %}
+            </p>
+          </div>
+          <label class="kies"><input form="vergelijk" type="checkbox" name="ids" value="{{ kaart.id }}"> Vergelijk</label>
+        </header>
+        <p class="reden {% if 'Let op' in kaart.reden %}reden-letop{% endif %} {% if kaart.breder %}reden-breder{% endif %}">{{ kaart.reden }}</p>
+        <ul class="chips">
+          {% if kaart.breder %}<li class="chip breder">breder resultaat</li>{% endif %}
+          <li class="chip contract-{{ kaart.contract }}">{{ kaart.contract_tekst }}{% if kaart.contract_label == "afgeleid" %} · afgeleid{% endif %}</li>
+          {% for plaats in kaart.plaatsen %}<li class="chip">{{ plaats }}</li>{% endfor %}
+          {% for soort in kaart.types[:3] %}<li class="chip zacht">{{ soort }}</li>{% endfor %}
+          {% if kaart.types|length > 3 %}<li class="chip zacht">+ {{ kaart.types|length - 3 }} producten</li>{% endif %}
+        </ul>
+        {% if kaart.contract_toelichting %}
+        <p class="contract-toelichting">{{ kaart.contract_toelichting }}</p>
+        {% endif %}
+        {% if kaart.kern_velden %}
+        <div class="velden kern">
+          {% for veld in kaart.kern_velden %}
+          {{ veldblok(veld) }}
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if kaart.overige_velden %}
+        <details class="meer">
+          <summary>Alle gegevens, bronnen en datums <span class="meer-tel">({{ kaart.overige_velden|length }} velden{% if kaart.aantal_onbekend %}, waarvan {{ kaart.aantal_onbekend }} onbekend{% endif %})</span></summary>
+          <div class="velden">
+            {% for veld in kaart.overige_velden %}
+            {{ veldblok(veld) }}
+            {% endfor %}
+          </div>
+        </details>
+        {% endif %}
+      </article>
+    </li>
+    {% endfor %}
+  </ol>
+  <form id="vergelijk" class="vergelijkbalk" action="/vergelijken" method="get" aria-live="polite">
+    <p id="vergelijk-tel">0 geselecteerd</p>
+    <button type="submit">Vergelijk geselecteerden</button>
+  </form>
+</section>
+{% endif %}
+{% endblock %}

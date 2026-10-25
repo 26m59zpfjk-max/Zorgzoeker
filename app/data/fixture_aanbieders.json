@@ -1,0 +1,1291 @@
+{
+  "meta": {
+    "schema_versie": "0.1",
+    "regio": "Rijk van Nijmegen",
+    "gegenereerd_op": "2026-10-25",
+    "opmerking": "Uitsluitend fictieve aanbieders voor het lokale prototype. Geen echte organisaties en geen persoonsgegevens."
+  },
+  "bronnen": [
+    {
+      "id": "src-fictief-website",
+      "naam": "Fictieve aanbiederswebsite",
+      "url": "https://example.org/fictief/",
+      "opgehaald_op": "2026-10-20",
+      "soort": "website",
+      "opmerking": "Demo-bron op example.org. Geen echte website."
+    },
+    {
+      "id": "src-fictief-contractlijst",
+      "naam": "Fictieve contractlijst regio Rijk van Nijmegen",
+      "url": "https://example.org/fictief/contractlijst",
+      "opgehaald_op": "2026-10-20",
+      "soort": "contractlijst",
+      "opmerking": "Demo-bron. Geen echte contractlijst."
+    },
+    {
+      "id": "src-fictief-wachttijd",
+      "naam": "Fictieve openbare wachttijdpagina",
+      "url": "https://example.org/fictief/wachttijden",
+      "opgehaald_op": "2026-10-18",
+      "soort": "website",
+      "opmerking": "Alleen gebruikt waar een wachttijd of beschikbaarheid bewust is ingevuld."
+    }
+  ],
+  "aanbieders": [
+    {
+      "id": "fictief-de-horst-ambulant",
+      "naam": {
+        "waarde": "FICTIEF - De Horst Ambulant",
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000001",
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Groesbeek",
+            "postcode": "6561 ZZ",
+            "adres": "Fictieflaan 10"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "ambulant"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-AMB-01",
+            "omschrijving": "Ambulante jeugdhulp"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "autisme",
+          "angst",
+          "schoolweigering"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "6-18 jaar",
+          "jongens en meisjes"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Groesbeek",
+          "Berg en Dal",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-de-horst-ambulant",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Groesbeek: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-gezinshuis-de-waard",
+      "naam": {
+        "waarde": "FICTIEF - Gezinshuis De Waard",
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000002",
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen",
+            "postcode": "6511 ZZ",
+            "adres": "Fictieflaan 20"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "gezinshuis"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-GH-04",
+            "omschrijving": "Gezinshuis"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "hechting",
+          "trauma",
+          "gedragsproblemen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "6-18 jaar",
+          "meisjes en jongens"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-de-waard",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Nijmegen: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-zorgboerderij-de-lage-wei",
+      "naam": {
+        "waarde": "FICTIEF - Zorgboerderij De Lage Wei",
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000003",
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Wijchen",
+            "postcode": "6602 ZZ",
+            "adres": "Fictieflaan 30"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "dagbesteding",
+          "zorgboerderij"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-DB-07",
+            "omschrijving": "Dagbesteding op een zorgboerderij"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "licht verstandelijke beperking",
+          "autisme",
+          "dagbesteding"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "12-23 jaar",
+          "jongvolwassenen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Wijchen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-zorgboerderij-de-lage-wei",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Wijchen: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "plaats beschikbaar op dinsdag en donderdag",
+        "bron_url": "https://example.org/fictief/wachttijden/de-lage-wei",
+        "opgehaald_op": "2026-10-18",
+        "label": "geverifieerd",
+        "toelichting": "Peildatum 2026-10-01, zoals vermeld op de fictieve beschikbaarheidsmelding."
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst",
+        "src-fictief-wachttijd"
+      ]
+    },
+    {
+      "id": "fictief-praktijk-lichtpunt",
+      "naam": {
+        "waarde": "FICTIEF - Praktijk Lichtpunt",
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000004",
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen",
+            "postcode": "",
+            "adres": ""
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "De bron noemt alleen de plaats. Geen straat of woonadres overgenomen."
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "ambulant",
+          "pgb"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "nee",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "De fictieve contractlijst noemt deze praktijk niet als gecontracteerde aanbieder."
+      },
+      "productcodes": {
+        "waarde": [],
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "expertise": {
+        "waarde": [
+          "autisme",
+          "angst"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "8-18 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-lichtpunt",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Nijmegen: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-begeleiding-maas-en-waal",
+      "naam": {
+        "waarde": "FICTIEF - Begeleiding Maas en Waal",
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000005",
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Druten",
+            "postcode": "6651 ZZ",
+            "adres": "Fictieflaan 50"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "ambulant"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-AMB-12",
+            "omschrijving": "Ambulante begeleiding bij LVB en middelengebruik"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "licht verstandelijke beperking",
+          "verslaving",
+          "middelengebruik"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "12-23 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Druten",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-begeleiding-maas-en-waal",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Druten: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-logeerhuis-de-ooijse-band",
+      "naam": {
+        "waarde": "FICTIEF - Logeerhuis De Ooijse Band",
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000006",
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Ooij",
+            "postcode": "6576 ZZ",
+            "adres": "Fictieflaan 60"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "logeeropvang"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-LOG-02",
+            "omschrijving": "Logeeropvang"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "logeeropvang",
+          "autisme",
+          "respijtzorg"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "4-18 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Ooij",
+          "Berg en Dal",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-logeerhuis-de-ooijse-band",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Ooij: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-dagbesteding-het-baken",
+      "naam": {
+        "waarde": "FICTIEF - Dagbesteding Het Baken",
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000007",
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Beuningen",
+            "postcode": "6641 ZZ",
+            "adres": "Fictieflaan 70"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "dagbesteding"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-DB-03",
+            "omschrijving": "Dagbesteding"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "autisme",
+          "licht verstandelijke beperking"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "12-18 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Beuningen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-dagbesteding-het-baken",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Beuningen: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-jeugd-ggz-de-waalbrug",
+      "naam": {
+        "waarde": "FICTIEF - Jeugd-GGZ De Waalbrug",
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000008",
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen",
+            "postcode": "6512 ZZ",
+            "adres": "Fictieflaan 80"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "jeugd-ggz",
+          "ambulant"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-GGZ-09",
+            "omschrijving": "Specialistische jeugd-ggz"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "trauma",
+          "angst",
+          "depressie",
+          "behandeling",
+          "jeugd-ggz"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "12-23 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-jeugd-ggz-de-waalbrug",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Nijmegen: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "8 weken",
+        "bron_url": "https://example.org/fictief/wachttijden/de-waalbrug",
+        "opgehaald_op": "2026-10-18",
+        "label": "geverifieerd",
+        "toelichting": "Peildatum 2026-09-15, letterlijk overgenomen van de fictieve webpagina."
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst",
+        "src-fictief-wachttijd"
+      ]
+    },
+    {
+      "id": "fictief-gezinshuis-klein-malden",
+      "naam": {
+        "waarde": "FICTIEF - Gezinshuis Klein Malden",
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000009",
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Malden",
+            "postcode": "6581 ZZ",
+            "adres": "Fictieflaan 90"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "gezinshuis"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-GH-06",
+            "omschrijving": "Gezinshuis"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "gedragsproblemen",
+          "licht verstandelijke beperking"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "8-17 jaar",
+          "jongeren"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Malden",
+          "Heumen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-gezinshuis-klein-malden",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Malden: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-praktijk-de-duffelt",
+      "naam": {
+        "waarde": "FICTIEF - Praktijk De Duffelt",
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000010",
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Millingen aan de Rijn",
+            "postcode": "",
+            "adres": ""
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "De bron noemt alleen de plaats. Geen straat of woonadres overgenomen."
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "ambulant",
+          "pgb"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "productcodes": {
+        "waarde": [],
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "expertise": {
+        "waarde": [
+          "cultuurspecifieke jeugdhulp",
+          "gezinsproblemen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "0-18 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Millingen aan de Rijn",
+          "Berg en Dal",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-praktijk-de-duffelt",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Millingen aan de Rijn: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website"
+      ]
+    },
+    {
+      "id": "fictief-residentieel-de-vuurdoorn",
+      "naam": {
+        "waarde": "FICTIEF - Residentieel De Vuurdoorn",
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000011",
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen",
+            "postcode": "6541 ZZ",
+            "adres": "Fictieflaan 110"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "residentieel",
+          "crisis"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-RES-05",
+            "omschrijving": "Residentiële jeugdhulp"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "crisisopvang",
+          "gedragsproblemen",
+          "trauma"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "12-18 jaar"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-residentieel-de-vuurdoorn",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Nijmegen: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    },
+    {
+      "id": "fictief-ambulant-team-lent",
+      "naam": {
+        "waarde": "FICTIEF - Ambulant Team Lent",
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "kvk_nummer": {
+        "waarde": "FICTIEF-90000012",
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Fictief nummer in de demo-bron. Niet opzoeken in het handelsregister."
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Lent",
+            "postcode": "6663 ZZ",
+            "adres": "Fictieflaan 120"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "website": {
+        "waarde": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "ambulant"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd",
+        "toelichting": "Overgenomen uit de fictieve regionale contractlijst."
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JH-AMB-03",
+            "omschrijving": "Ambulante jeugdhulp voor het jonge kind"
+          }
+        ],
+        "bron_url": "https://example.org/fictief/contractlijst",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "expertise": {
+        "waarde": [
+          "jonge kind",
+          "echtscheiding",
+          "opvoedondersteuning"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "0-12 jaar",
+          "jonge kinderen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "geverifieerd"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Lent",
+          "Nijmegen",
+          "Rijk van Nijmegen"
+        ],
+        "bron_url": "https://example.org/fictief/fictief-ambulant-team-lent",
+        "opgehaald_op": "2026-10-20",
+        "label": "afgeleid",
+        "toelichting": "Afgeleid uit de vestigingsplaats Lent: die ligt in het genoemde werkgebied binnen de regio Rijk van Nijmegen."
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-fictief-website",
+        "src-fictief-contractlijst"
+      ]
+    }
+  ]
+}

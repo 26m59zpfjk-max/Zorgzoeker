@@ -1,0 +1,46 @@
+# Eerste treffer op data/aanbieders.json (189 aanbieders). Elk verwachte id is in die data gecontroleerd.
+- id: d01
+  vraag: "autisme en angst"
+  verwacht_eerste: psycholoog-groesbeek
+- id: d02
+  vraag: "jongen 14 met autisme en angst"
+  verwacht_eerste: 0-tot-18
+- id: d03
+  vraag: "niet gecontracteerd autisme"
+  verwacht_eerste: balanzza
+- id: d04
+  vraag: "reflexintegratie"
+  verwacht_eerste: 0-tot-18
+- id: d05
+  vraag: "gezinshuis hechting trauma Nijmegen"
+  verwacht_eerste: novaera
+- id: d06
+  vraag: "gezinshuis voor meisje van 10 regio Nijmegen"
+  verwacht_eerste: novaera
+- id: d07
+  vraag: "Zorgboerderij Reek"
+  verwacht_eerste: zorgboerderij-reek
+- id: d08
+  vraag: "logeeropvang De Woerd"
+  verwacht_eerste: de-woerd-zorg
+- id: d09
+  vraag: "gezinshuis Wijchen"
+  verwacht_eerste: shelterzorg
+- id: d10
+  vraag: "logeeropvang Wijchen"
+  verwacht_eerste: shelterzorg
+- id: d11
+  vraag: "hoogbegaafdheid diagnostiek"
+  verwacht_eerste: praktijk-ontdek-by-yvonne
+- id: d12
+  vraag: "EMDR"
+  verwacht_eerste: join-jeugd-ouders-vakwerk-regio-nijmegen
+- id: d13
+  vraag: "speltherapie Ponga"
+  verwacht_eerste: praktijk-ponga
+- id: d14
+  vraag: "AlkaZorg"
+  verwacht_eerste: alkazorg
+- id: d15
+  vraag: "productcode JW 44O11"
+  verwacht_eerste: deur-8-b-v

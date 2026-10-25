@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>document.documentElement.classList.add("js");</script>
+  <title>{% block titel %}Zorgzoeker{% endblock %}</title>
+  <link rel="stylesheet" href="/statisch/stijl.css">
+</head>
+<body>
+  <a class="overslaan" href="#inhoud">Naar de inhoud</a>
+  {% if fictief %}
+  <p class="lint lint-fictief">Demo met fictieve aanbieders. Namen beginnen met FICTIEF. Niet gebruiken voor een echte verwijzing.</p>
+  {% endif %}
+  {% if validatiefouten %}
+  <p class="lint lint-fout">Dit bestand voldoet niet aan het schema ({{ validatiefouten|length }} fouten). Controleer de gegevens voordat je erop afgaat.</p>
+  {% endif %}
+  <header class="kop">
+    <div class="kop-binnen">
+      <a class="merk" href="/">
+        <span class="merk-teken" aria-hidden="true"></span>
+        <span>
+          <span class="merk-naam">Zorgzoeker</span>
+          <span class="merk-sub">Jeugdhulp in het Rijk van Nijmegen</span>
+        </span>
+      </a>
+      <p class="kop-meta">{{ aantal_totaal }} aanbieders · {{ bestand }}</p>
+    </div>
+  </header>
+  <main id="inhoud">
+    {% block inhoud %}{% endblock %}
+  </main>
+  <footer class="voet">
+    <p>Elk gegeven toont een label (geverifieerd, afgeleid of onbekend), de bron en de ophaaldatum. Wachttijd en beschikbaarheid blijven onbekend als ze niet openbaar zijn gepubliceerd.</p>
+    <p>Schema {{ meta.schema_versie or "0.1" }} · regio {{ meta.regio or "Rijk van Nijmegen" }}{% if meta.gegenereerd_op %} · dataset {{ meta.gegenereerd_op }}{% endif %} · versie {{ versie }}. Zoekvragen worden niet bewaard.</p>
+  </footer>
+  <script src="/statisch/app.js"></script>
+</body>
+</html>

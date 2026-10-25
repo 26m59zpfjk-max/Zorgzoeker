@@ -1,0 +1,1104 @@
+{
+  "meta": {
+    "regio": "Rijk van Nijmegen",
+    "jaar": 2026,
+    "opgehaald_op": "2026-10-25",
+    "toelichting": "Codes in de vorm 'JW xxxxx' (Jeugdwet). Alle omschrijvingen en tarieven letterlijk uit de openbare ROB-documenten; tarief null = niet in de gelezen bron opgenomen."
+  },
+  "producten": [
+    {
+      "code": "JW 40A04",
+      "omschrijving": "Persoonlijke Verzorging",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,40",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 41A11",
+      "omschrijving": "Voorschoolse Dagbehandeling",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 0,63",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 41A12",
+      "omschrijving": "Naschoolse Dagbehandeling",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 0,59",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 41A13",
+      "omschrijving": "Naschoolse Dagbehandeling LVB+",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 0,76",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 41A14",
+      "omschrijving": "Forensische dagbehandeling",
+      "categorie": "Ambulant/GGZ (Totaaloverzicht)",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; tarief niet in dit overzicht"
+    },
+    {
+      "code": "JW 41A20",
+      "omschrijving": "BSO+",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 0,39",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 41A21",
+      "omschrijving": "Onderwijstoeleidende dagbesteding",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 0,37",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 41R03",
+      "omschrijving": "Kleuterstartgroep",
+      "categorie": "Ambulant/GGZ (Totaaloverzicht)",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; tarief niet in dit overzicht"
+    },
+    {
+      "code": "JW 41Z13",
+      "omschrijving": "Dagbehandeling EVB+",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,06",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 42A03",
+      "omschrijving": "Vervoer",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Aanwezige etmalen",
+      "tarief_2026": "€ 39,16",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44A07",
+      "omschrijving": "Pleegzorg",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 58,05",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44A09",
+      "omschrijving": "Logeeropvang",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Aanwezig etmalen",
+      "tarief_2026": "€ 380,40",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44A18",
+      "omschrijving": "Deeltijd Pleegzorg",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 121,36",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44A29",
+      "omschrijving": "Gezinshuiszorg lichte begeleidingsintensiteit",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 212,11",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44A30",
+      "omschrijving": "Gezinshuiszorg middel begeleidingsintensiteit",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 231,79",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44A31",
+      "omschrijving": "Gezinshuiszorg zware begeleidingsintensiteit",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 267,87",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44C10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening C",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 128,89",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44C11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening C",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 128,89",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44C27",
+      "omschrijving": "Kamertraining C",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 128,89",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44C28",
+      "omschrijving": "Fasehuis C",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 128,89",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44C45",
+      "omschrijving": "Moeder Kind Huis C",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 128,89",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44C52",
+      "omschrijving": "Beschermd wonen Jeugd C",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 128,89",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44D10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening D",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 171,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44D11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening D",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 171,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44D27",
+      "omschrijving": "Kamertraining D",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 171,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44D28",
+      "omschrijving": "Fasehuis D",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 171,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44D45",
+      "omschrijving": "Moeder Kind Huis D",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 171,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44D52",
+      "omschrijving": "Beschermd wonen Jeugd D",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 171,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44E10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening E",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 214,47",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44E11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening E",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 214,47",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44E28",
+      "omschrijving": "Fasehuis E",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 214,47",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44E45",
+      "omschrijving": "Moeder Kind Huis E",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 214,47",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44E52",
+      "omschrijving": "Beschermd wonen Jeugd E",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 214,47",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44F10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening F",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 255,17",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44F11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening F",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 255,17",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44F28",
+      "omschrijving": "Fasehuis F",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 255,17",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44F45",
+      "omschrijving": "Moeder Kind Huis F",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 255,17",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44F52",
+      "omschrijving": "Beschermd wonen Jeugd F",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 255,17",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44G10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening G",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 297,95",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44G11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening G",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 297,95",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44G28",
+      "omschrijving": "Fasehuis G",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 297,95",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44G45",
+      "omschrijving": "Moeder Kind Huis G",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 297,95",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44H10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening H",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 340,75",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44H11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening H",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 340,75",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44H45",
+      "omschrijving": "Moeder Kind Huis H",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 340,75",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44I10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening I",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 483,11",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44I11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening I",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 383,39",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44I45",
+      "omschrijving": "Moeder Kind Huis I",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 383,39",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44J10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening J",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 530,62",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44J11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening J",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 426,32",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44J45",
+      "omschrijving": "Moeder Kind Huis J",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 426,32",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44K10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening K",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 576,84",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44K11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening K",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 469,10",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44K45",
+      "omschrijving": "Moeder Kind Huis K",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 469,10",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44L10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening L",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 620,39",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44L11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening L",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 509,81",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44L45",
+      "omschrijving": "Moeder Kind Huis L",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 509,81",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44M10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening M",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 663,93",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44M11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening M",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 552,59",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44N10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening N",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 707,46",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44N11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening N",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 593,30",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44O10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening O",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 750,88",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44O11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening O",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 636,09",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44P10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening P",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 794,41",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44P11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening P",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 676,78",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44Q10",
+      "omschrijving": "Residentieel verblijf met terreinvoorziening Q",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 833,37",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 44Q11",
+      "omschrijving": "Residentieel verblijf zonder terreinvoorziening Q",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 719,58",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A01",
+      "omschrijving": "1-op-1 begeleiding Verblijf",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "minuut",
+      "tarief_2026": "€ 1,31 per minuut",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A04",
+      "omschrijving": "Reguliere begeleiding",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,31",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A05",
+      "omschrijving": "Specialistische begeleiding",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,59",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A41",
+      "omschrijving": "Multi Systeem Therapie (MST)",
+      "categorie": "Specialistische jeugdhulp / behandeling",
+      "eenheid": "traject",
+      "tarief_2026": "€ 23.135,10 per stuk (outputgericht)",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A49",
+      "omschrijving": "Specialistische begeleiding in een groep",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,90",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A52",
+      "omschrijving": "Vaktherapie in een groep",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct & indirect cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,73",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A53",
+      "omschrijving": "Vaktherapie",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Direct & indirect cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,59",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A55",
+      "omschrijving": "Casemanagement",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": "Indirect cliëntgebonden tijd in minuten",
+      "tarief_2026": "€ 1,40",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026, titelblad 21-11-2025)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A65",
+      "omschrijving": "Orthopedagogische behandeling",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "minuut",
+      "tarief_2026": "€ 1,82",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A66",
+      "omschrijving": "Orthopedagogische behandeling specialistisch",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "minuut",
+      "tarief_2026": "€ 2,11",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45A74",
+      "omschrijving": "Dyslexiezorg",
+      "categorie": "Dyslexiezorg",
+      "eenheid": "minuut",
+      "tarief_2026": "€ 1,90/minuut",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2025/12/Productomschrijving-Dyslexiezorg_2026-1.pdf",
+      "bron_datum": "Productomschrijving Dyslexiezorg 2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 45Z04",
+      "omschrijving": "Zorg Binnen Onderwijs (ZBO)",
+      "categorie": "Ambulante jeugdhulp",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Productenboek-ambulant-2026-16102026-.pdf",
+      "bron_datum": "Productenboek ambulant 2026 (bestand 16-10-2026)",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 46A01",
+      "omschrijving": "Ambulante Spoed Hulp (ASH)",
+      "categorie": "Specialistische jeugdhulp / behandeling",
+      "eenheid": "traject",
+      "tarief_2026": "€ 5.115,25 per stuk (inspanningsgericht)",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 46A02",
+      "omschrijving": "Kleinschalige crisisopvang",
+      "categorie": "Specialistische jeugdhulp / verblijf",
+      "eenheid": "etmaal",
+      "tarief_2026": "€ 416,67",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/01/Bijlage-2-Productenboek-specialistische-jeugdhulp-2026.pdf",
+      "bron_datum": "Productenboek specialistische jeugdhulp 2026, versie 1.7, 05-01-2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 47B10",
+      "omschrijving": "Reguliere jeugdreclassering",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 47B11",
+      "omschrijving": "Gedrag beïnvloedende maatregel (GBM) advies",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 47B12",
+      "omschrijving": "Gedrag beïnvloedende maatregel (GBM) begeleiding",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 47B13",
+      "omschrijving": "Intensieve trajectbegeleiding Criem (ITB-Criem)",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 47B14",
+      "omschrijving": "Intensieve trajectbegeleiding Harde Kern (ITB-harde kern)",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 47B15",
+      "omschrijving": "Samenloop jeugdbescherming jeugdreclassering",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 47B16",
+      "omschrijving": "Scholing en trainingsprogramma (STP)",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 48B07",
+      "omschrijving": "Voorlopige Voogdij (VoVo)",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 48B10",
+      "omschrijving": "OTS",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 48B11",
+      "omschrijving": "Voogdij",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 48B12",
+      "omschrijving": "LET JB OTS",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 48B13",
+      "omschrijving": "LET JB Voogdij",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 48B80",
+      "omschrijving": "Intensief gezinsgerichte en systeemgerichte aanpak",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 49B01",
+      "omschrijving": "Consultatie",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 49B03",
+      "omschrijving": "FORZA",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 49B07",
+      "omschrijving": "Instemmingsverklaring gesloten Jeugdhulp",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 49B98",
+      "omschrijving": "Actieve Consultatieve Dienstverlening Jeugdbescherming",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 49B99",
+      "omschrijving": "Actieve Consultatieve Dienstverlening Jeugdreclassering",
+      "categorie": "Jeugdbescherming en jeugdreclassering",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; productbeschrijving in https://robregionijmegen.nl/wp-content/uploads/2026/01/Productenboek-JBJR-2026.pdf"
+    },
+    {
+      "code": "JW 54001",
+      "omschrijving": "Behandeling basis jeugd ggz",
+      "categorie": "Jeugd-ggz",
+      "eenheid": "Cliëntgebonden tijd (direct en indirect)",
+      "tarief_2026": "€ 2,05 per minuut",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2025/12/Producten-en-tarieven-2026-JGGZ-DEF.pdf",
+      "bron_datum": "Productomschrijvingen en tarieven JGGZ 2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 54002",
+      "omschrijving": "Behandeling specialistische jeugd ggz",
+      "categorie": "Jeugd-ggz",
+      "eenheid": "Cliëntgebonden tijd (direct en indirect)",
+      "tarief_2026": "€ 2,31 per minuut",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2025/12/Producten-en-tarieven-2026-JGGZ-DEF.pdf",
+      "bron_datum": "Productomschrijvingen en tarieven JGGZ 2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 54003",
+      "omschrijving": "Behandeling hoog-specialistische jeugd ggz",
+      "categorie": "Ambulant/GGZ (Totaaloverzicht)",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; tarief niet in dit overzicht"
+    },
+    {
+      "code": "JW 54004",
+      "omschrijving": "Behandeling basis jeugd ggz groep",
+      "categorie": "Jeugd-ggz",
+      "eenheid": "Cliëntgebonden tijd (direct en indirect)",
+      "tarief_2026": "€ 2,46 per minuut",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2025/12/Producten-en-tarieven-2026-JGGZ-DEF.pdf",
+      "bron_datum": "Productomschrijvingen en tarieven JGGZ 2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 54005",
+      "omschrijving": "Behandeling specialistische jeugd ggz groep",
+      "categorie": "Jeugd-ggz",
+      "eenheid": "Cliëntgebonden tijd (direct en indirect)",
+      "tarief_2026": "€ 2,78 per minuut",
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2025/12/Producten-en-tarieven-2026-JGGZ-DEF.pdf",
+      "bron_datum": "Productomschrijvingen en tarieven JGGZ 2026",
+      "opgehaald_op": "2026-10-25"
+    },
+    {
+      "code": "JW 54013",
+      "omschrijving": "Verslavingszorg GGZ jeugdkliniek E-bed",
+      "categorie": "Ambulant/GGZ (Totaaloverzicht)",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; tarief niet in dit overzicht"
+    },
+    {
+      "code": "JW 54014",
+      "omschrijving": "Langdurig Klinische opname GGZ Psychiatrie/ F-bed incl. crisisbed",
+      "categorie": "Ambulant/GGZ (Totaaloverzicht)",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; tarief niet in dit overzicht"
+    },
+    {
+      "code": "JW 54015",
+      "omschrijving": "Langdurig Klinische opname GGZ Psychiatrie/ G-bed incl. crisisbed",
+      "categorie": "Ambulant/GGZ (Totaaloverzicht)",
+      "eenheid": null,
+      "tarief_2026": null,
+      "bron": "https://robregionijmegen.nl/wp-content/uploads/2026/10/Totaaloverzicht-gecontracteerde-aanbieders-23okt26.xlsx",
+      "bron_datum": "Totaaloverzicht gecontracteerde aanbieders 23-10-2026",
+      "opgehaald_op": "2026-10-25",
+      "opmerking": "Productnaam uit Totaaloverzicht; tarief niet in dit overzicht"
+    }
+  ]
+}

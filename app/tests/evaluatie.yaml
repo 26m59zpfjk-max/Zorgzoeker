@@ -1,0 +1,2092 @@
+# Verwachte aanbieders, vastgesteld met een exacte zoekactie op synoniemen
+# in expertise, doelgroepen, type_aanbod, naam en productcodes.
+# Niet overgenomen uit de zoekmachine. Leeftijd buiten een bekend bereik telt niet mee.
+- id: e01
+  vraag: vechtscheiding
+  categorieen:
+  - echtscheiding
+  breder: false
+  verwacht:
+  - id: nisa-curae
+    bewijs:
+    - &id002
+      veld: expertise
+      tekst: coaching bij scheiding
+      code: ''
+      categorie: echtscheiding
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - &id003
+      veld: expertise
+      tekst: Hulp bij scheiden met kinderen
+      code: ''
+      categorie: echtscheiding
+- id: e02
+  vraag: smetvrees
+  categorieen:
+  - dwang
+  breder: false
+  verwacht:
+  - id: stichting-pro-persona-ggz
+    bewijs:
+    - &id001
+      veld: expertise
+      tekst: TOPGGz-behandeling PTSS en dwangstoornissen (Jong Overwaal, Lent)
+      code: ''
+      categorie: dwang
+- id: e03
+  vraag: meisje met dwangstoornis
+  categorieen:
+  - dwang
+  breder: false
+  verwacht:
+  - id: stichting-pro-persona-ggz
+    bewijs:
+    - *id001
+- id: e04
+  vraag: puber die niet meer naar school gaat
+  categorieen:
+  - school
+  breder: false
+  verwacht:
+  - id: bureau-voor-pedagogiek-b-v
+    bewijs:
+    - &id048
+      veld: doelgroepen
+      tekst: (Dreigende) thuiszitters
+      code: ''
+      categorie: school
+  - id: dit-coaching
+    bewijs:
+    - &id049
+      veld: expertise
+      tekst: begeleiding thuiszitters
+      code: ''
+      categorie: school
+  - id: balanzza
+    bewijs:
+    - &id050
+      veld: doelgroepen
+      tekst: Kinderen die (tijdelijk) niet naar school gaan
+      code: ''
+      categorie: school
+  band:
+  - 12
+  - 18
+- id: e05
+  vraag: kind van 6 met driftbuien
+  categorieen:
+  - gedrag
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - &id051
+      veld: expertise
+      tekst: Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie
+      code: ''
+      categorie: gedrag
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - &id052
+      veld: expertise
+      tekst: Gedragsproblemen
+      code: ''
+      categorie: gedrag
+  - id: dare-to-move-vakwerk-regio-nijmegen
+    bewijs:
+    - &id053
+      veld: expertise
+      tekst: agressieproblematiek
+      code: ''
+      categorie: gedrag
+  - id: dromen-durven-doen-d3
+    bewijs:
+    - &id054
+      veld: doelgroepen
+      tekst: jongeren 6 t/m 18 jaar (verlengd 18-23) met ontwikkelingsstoornis en/of gedragsproblematiek
+      code: ''
+      categorie: gedrag
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - &id055
+      veld: expertise
+      tekst: angst, depressie, PTSS, ADHD, autisme, gedragsstoornis
+      code: ''
+      categorie: gedrag
+  - id: psychologenpraktijk-c-p-m-o-op-heij-cooperatie-vjggz
+    bewijs:
+    - &id056
+      veld: expertise
+      tekst: gedragsproblemen
+      code: ''
+      categorie: gedrag
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - &id057
+      veld: expertise
+      tekst: gedragsproblemen
+      code: ''
+      categorie: gedrag
+  - id: stichting-pluryn
+    bewijs:
+    - &id007
+      veld: doelgroepen
+      tekst: Mensen met een licht verstandelijke beperking en complexe gedragsproblemen (LVB+)
+      code: ''
+      categorie: gedrag
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - &id058
+      veld: expertise
+      tekst: ODD/CD
+      code: ''
+      categorie: gedrag
+  - id: rosemarijn-gezinsbegeleiding
+    bewijs:
+    - &id059
+      veld: expertise
+      tekst: gedragsproblemen
+      code: ''
+      categorie: gedrag
+  - id: 0-tot-18
+    bewijs:
+    - &id060
+      veld: expertise
+      tekst: Agressie
+      code: ''
+      categorie: gedrag
+  leeftijd: 6
+- id: e06
+  vraag: jongen 15 kerft zich
+  categorieen:
+  - zelfbeschadiging
+  breder: true
+  verwacht: []
+  leeftijd: 15
+  boven_label:
+  - depressie
+- id: e07
+  vraag: somber meisje 16
+  categorieen:
+  - depressie
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - &id008
+      veld: expertise
+      tekst: Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie
+      code: ''
+      categorie: depressie
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - &id009
+      veld: expertise
+      tekst: Angst- en stemmingsproblemen
+      code: ''
+      categorie: depressie
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - &id010
+      veld: expertise
+      tekst: angst- en depressieve klachten
+      code: ''
+      categorie: depressie
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - &id011
+      veld: expertise
+      tekst: angst, depressie, PTSS, ADHD, autisme, gedragsstoornis
+      code: ''
+      categorie: depressie
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - &id012
+      veld: expertise
+      tekst: stemmingsklachten
+      code: ''
+      categorie: depressie
+  - id: raadthuys-psychologen
+    bewijs:
+    - &id013
+      veld: expertise
+      tekst: somberheid
+      code: ''
+      categorie: depressie
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - &id014
+      veld: expertise
+      tekst: depressieve klachten
+      code: ''
+      categorie: depressie
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - &id015
+      veld: expertise
+      tekst: depressie
+      code: ''
+      categorie: depressie
+  - id: psycholoog-groesbeek
+    bewijs:
+    - &id016
+      veld: expertise
+      tekst: Depressiviteit
+      code: ''
+      categorie: depressie
+  leeftijd: 16
+- id: e08
+  vraag: ouders gaan scheiden kind heeft het moeilijk
+  categorieen:
+  - echtscheiding
+  breder: false
+  verwacht:
+  - id: nisa-curae
+    bewijs:
+    - *id002
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - *id003
+- id: e09
+  vraag: peuter slaapt slecht
+  categorieen:
+  - slaap
+  breder: false
+  verwacht:
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - veld: expertise
+      tekst: slaapproblemen
+      code: ''
+      categorie: slaap
+  band:
+  - 1
+  - 4
+- id: e10
+  vraag: kind met concentratieproblemen
+  categorieen:
+  - adhd
+  breder: false
+  verwacht:
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - &id017
+      veld: expertise
+      tekst: ADHD en autisme (jeugd)
+      code: ''
+      categorie: adhd
+  - id: dare-to-move-vakwerk-regio-nijmegen
+    bewijs:
+    - &id018
+      veld: expertise
+      tekst: ADD/ADHD
+      code: ''
+      categorie: adhd
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - &id019
+      veld: expertise
+      tekst: ADHD
+      code: ''
+      categorie: adhd
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - &id020
+      veld: expertise
+      tekst: jeugd-GGZ (ADHD, autisme, angst, trauma, gedrag)
+      code: ''
+      categorie: adhd
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - &id021
+      veld: expertise
+      tekst: angst, depressie, PTSS, ADHD, autisme, gedragsstoornis
+      code: ''
+      categorie: adhd
+  - id: parnassia-groep-b-v
+    bewijs:
+    - &id022
+      veld: expertise
+      tekst: ADHD
+      code: ''
+      categorie: adhd
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - &id023
+      veld: expertise
+      tekst: ADHD
+      code: ''
+      categorie: adhd
+  - id: regionaal-instituut-voor-ontwikkelingsproblemen-b-v-riozorg
+    bewijs:
+    - &id024
+      veld: expertise
+      tekst: ADHD
+      code: ''
+      categorie: adhd
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - &id025
+      veld: expertise
+      tekst: ADHD/ADD
+      code: ''
+      categorie: adhd
+  - id: kubus-ondersteuning
+    bewijs:
+    - &id026
+      veld: expertise
+      tekst: begeleiding bij psychische kwetsbaarheid, LVB, verslaving, ADHD, ASS
+      code: ''
+      categorie: adhd
+  - id: psycholoog-groesbeek
+    bewijs:
+    - &id027
+      veld: expertise
+      tekst: ADD/ADHD
+      code: ''
+      categorie: adhd
+  - id: horizon-pgb-weekend-logeeropvang
+    bewijs:
+    - &id028
+      veld: expertise
+      tekst: ADHD
+      code: ''
+      categorie: adhd
+  - id: balanzza
+    bewijs:
+    - &id029
+      veld: expertise
+      tekst: ADHD
+      code: ''
+      categorie: adhd
+  - id: gezinshuis-hemma
+    bewijs:
+    - &id030
+      veld: doelgroepen
+      tekst: Jongeren met ADHD of ADD
+      code: ''
+      categorie: adhd
+- id: e11
+  vraag: nachtmerries na ongeluk
+  categorieen:
+  - trauma
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - &id079
+      veld: expertise
+      tekst: Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie
+      code: ''
+      categorie: trauma
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - &id080
+      veld: expertise
+      tekst: Ingrijpende ervaringen
+      code: ''
+      categorie: trauma
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - &id081
+      veld: expertise
+      tekst: traumaverwerking
+      code: ''
+      categorie: trauma
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - &id082
+      veld: expertise
+      tekst: jeugd-GGZ (ADHD, autisme, angst, trauma, gedrag)
+      code: ''
+      categorie: trauma
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - &id083
+      veld: expertise
+      tekst: angst, depressie, PTSS, ADHD, autisme, gedragsstoornis
+      code: ''
+      categorie: trauma
+  - id: parnassia-groep-b-v
+    bewijs:
+    - &id084
+      veld: expertise
+      tekst: psychotrauma
+      code: ''
+      categorie: trauma
+  - id: praktijk-de-bruijn-cooperatie-vjggz
+    bewijs:
+    - &id072
+      veld: expertise
+      tekst: trauma en hechting
+      code: ''
+      categorie: trauma
+  - id: praktijk-nicole-legters-cooperatie-vjggz
+    bewijs:
+    - &id085
+      veld: expertise
+      tekst: angst, trauma en rouw
+      code: ''
+      categorie: trauma
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - &id086
+      veld: expertise
+      tekst: trauma
+      code: ''
+      categorie: trauma
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - &id087
+      veld: expertise
+      tekst: trauma
+      code: ''
+      categorie: trauma
+  - id: raadthuys-psychologen
+    bewijs:
+    - &id088
+      veld: expertise
+      tekst: trauma
+      code: ''
+      categorie: trauma
+  - id: stichting-pro-persona-ggz
+    bewijs:
+    - &id089
+      veld: expertise
+      tekst: TOPGGz-behandeling PTSS en dwangstoornissen (Jong Overwaal, Lent)
+      code: ''
+      categorie: trauma
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - &id090
+      veld: expertise
+      tekst: trauma
+      code: ''
+      categorie: trauma
+  - id: novaera
+    bewijs:
+    - &id074
+      veld: expertise
+      tekst: Trauma
+      code: ''
+      categorie: trauma
+  - id: psycholoog-groesbeek
+    bewijs:
+    - &id076
+      veld: expertise
+      tekst: Verwerken van trauma
+      code: ''
+      categorie: trauma
+- id: e12
+  vraag: eet bijna niets meer
+  categorieen:
+  - eet
+  breder: false
+  verwacht:
+  - id: parnassia-groep-b-v
+    bewijs:
+    - &id004
+      veld: expertise
+      tekst: eetstoornis
+      code: ''
+      categorie: eet
+  - id: raadthuys-psychologen
+    bewijs:
+    - &id005
+      veld: expertise
+      tekst: eetproblematiek
+      code: ''
+      categorie: eet
+  - id: vooruit-met-zorg
+    bewijs:
+    - &id006
+      veld: expertise
+      tekst: eetstoornissen
+      code: ''
+      categorie: eet
+- id: e13
+  vraag: meisje 13 eet niet
+  categorieen:
+  - eet
+  breder: false
+  verwacht:
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id004
+  - id: raadthuys-psychologen
+    bewijs:
+    - *id005
+  - id: vooruit-met-zorg
+    bewijs:
+    - *id006
+  leeftijd: 13
+- id: e14
+  vraag: licht verstandelijke beperking en blowen
+  categorieen:
+  - lvb
+  - verslaving
+  breder: false
+  verwacht:
+  - id: kubus-ondersteuning
+    bewijs:
+    - &id062
+      veld: expertise
+      tekst: begeleiding bij psychische kwetsbaarheid, LVB, verslaving, ADHD, ASS
+      code: ''
+      categorie: lvb
+    - &id077
+      veld: expertise
+      tekst: begeleiding bij psychische kwetsbaarheid, LVB, verslaving, ADHD, ASS
+      code: ''
+      categorie: verslaving
+- id: e15
+  vraag: LVB met agressie
+  categorieen:
+  - lvb
+  - gedrag
+  breder: false
+  verwacht:
+  - id: stichting-pluryn
+    bewijs:
+    - &id061
+      veld: doelgroepen
+      tekst: Mensen met een licht verstandelijke beperking en complexe gedragsproblemen (LVB+)
+      code: ''
+      categorie: lvb
+    - *id007
+- id: e16
+  vraag: gezinshuis voor een tiener
+  categorieen:
+  - gezinshuis
+  breder: false
+  verwacht:
+  - id: coachia-b-v
+    bewijs:
+    - veld: expertise
+      tekst: Gezinshuizen
+      code: ''
+      categorie: gezinshuis
+  - id: familysupporters-b-v
+    bewijs:
+    - veld: expertise
+      tekst: ExtraThuis (gezinshuizen)
+      code: ''
+      categorie: gezinshuis
+  - id: hll-zorgondernemingen-b-v
+    bewijs:
+    - veld: expertise
+      tekst: gezinshuizen
+      code: ''
+      categorie: gezinshuis
+  - id: stichting-s-heeren-loo-zorggroep
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: stichting-driestroom
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: stichting-pactum
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: stichting-pluryn
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: unik-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: william-schrikker-stichting-gezinsvormen
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: zorgmuiters-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuiszorg lichte begeleidingsintensiteit
+      code: ''
+      categorie: gezinshuis
+  - id: shelterzorg
+    bewijs:
+    - &id078
+      veld: type_aanbod
+      tekst: Gezinshuis (24-uurs zorg)
+      code: ''
+      categorie: gezinshuis
+  - id: novaera
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinsvervangend huis / kleinschalig wonen (verblijf)
+      code: ''
+      categorie: gezinshuis
+  - id: gezinshuis-de-bij
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuis (jeugdhulp met verblijf)
+      code: ''
+      categorie: gezinshuis
+  - id: gezinshuis-weversnest
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuis (jeugdhulp met verblijf)
+      code: ''
+      categorie: gezinshuis
+  - id: gezinshuis-kindividu
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuis (jeugdhulp met verblijf)
+      code: ''
+      categorie: gezinshuis
+  - id: gezinshuis-ruya
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuis (jeugdhulp met verblijf)
+      code: ''
+      categorie: gezinshuis
+  - id: gezinshuis-koru
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuis (jeugdhulp met verblijf)
+      code: ''
+      categorie: gezinshuis
+  - id: gezinshuis-hemma
+    bewijs:
+    - veld: type_aanbod
+      tekst: Gezinshuis (jeugdhulp met verblijf)
+      code: ''
+      categorie: gezinshuis
+  band:
+  - 12
+  - 18
+- id: e17
+  vraag: KOPP
+  categorieen:
+  - kopp
+  breder: true
+  verwacht: []
+  boven_label:
+  - gezinsproblemen
+- id: e18
+  vraag: moeder is depressief
+  categorieen:
+  - depressie
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - *id008
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id009
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - *id010
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id011
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - *id012
+  - id: raadthuys-psychologen
+    bewijs:
+    - *id013
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - *id014
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - *id015
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id016
+- id: e19
+  vraag: hechtingsproblemen pleegkind
+  categorieen:
+  - hechting
+  breder: false
+  verwacht:
+  - id: praktijk-de-bruijn-cooperatie-vjggz
+    bewijs:
+    - &id071
+      veld: expertise
+      tekst: trauma en hechting
+      code: ''
+      categorie: hechting
+  - id: novaera
+    bewijs:
+    - &id073
+      veld: expertise
+      tekst: Hechting
+      code: ''
+      categorie: hechting
+  - id: psycholoog-groesbeek
+    bewijs:
+    - &id075
+      veld: expertise
+      tekst: Hechtingsproblemen
+      code: ''
+      categorie: hechting
+- id: e20
+  vraag: zoon gamet de hele nacht
+  categorieen:
+  - gamen
+  breder: true
+  verwacht: []
+  boven_label:
+  - verslaving
+- id: e21
+  vraag: psychose
+  categorieen:
+  - psychose
+  breder: true
+  verwacht: []
+  boven_label:
+  - jeugd-ggz
+- id: e22
+  vraag: jongen met ADHD
+  categorieen:
+  - adhd
+  breder: false
+  verwacht:
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id017
+  - id: dare-to-move-vakwerk-regio-nijmegen
+    bewijs:
+    - *id018
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - *id019
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - *id020
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id021
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id022
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - *id023
+  - id: regionaal-instituut-voor-ontwikkelingsproblemen-b-v-riozorg
+    bewijs:
+    - *id024
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - *id025
+  - id: kubus-ondersteuning
+    bewijs:
+    - *id026
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id027
+  - id: horizon-pgb-weekend-logeeropvang
+    bewijs:
+    - *id028
+  - id: balanzza
+    bewijs:
+    - *id029
+  - id: gezinshuis-hemma
+    bewijs:
+    - *id030
+- id: e23
+  vraag: meisje met autisme
+  categorieen:
+  - ass
+  breder: false
+  verwacht:
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - &id063
+      veld: expertise
+      tekst: ADHD en autisme (jeugd)
+      code: ''
+      categorie: ass
+  - id: autimaat-bv
+    bewijs:
+    - &id092
+      veld: expertise
+      tekst: Behandeling en begeleiding gespecialiseerd in autisme
+      code: ''
+      categorie: ass
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - &id064
+      veld: expertise
+      tekst: autisme
+      code: ''
+      categorie: ass
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - &id065
+      veld: expertise
+      tekst: jeugd-GGZ (ADHD, autisme, angst, trauma, gedrag)
+      code: ''
+      categorie: ass
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - &id066
+      veld: expertise
+      tekst: angst, depressie, PTSS, ADHD, autisme, gedragsstoornis
+      code: ''
+      categorie: ass
+  - id: parnassia-groep-b-v
+    bewijs:
+    - &id067
+      veld: expertise
+      tekst: autisme
+      code: ''
+      categorie: ass
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - &id068
+      veld: expertise
+      tekst: autisme
+      code: ''
+      categorie: ass
+  - id: stichting-driestroom
+    bewijs:
+    - &id093
+      veld: expertise
+      tekst: Wonen, leren & werken voor autisme (ASS)
+      code: ''
+      categorie: ass
+  - id: bureau-backpackerz-b-v
+    bewijs:
+    - &id094
+      veld: expertise
+      tekst: Ambulante begeleiding bij ASS/AD(H)D
+      code: ''
+      categorie: ass
+  - id: hettenheuvel
+    bewijs:
+    - &id095
+      veld: doelgroepen
+      tekst: kinderen en jongeren met autisme
+      code: ''
+      categorie: ass
+  - id: kubus-ondersteuning
+    bewijs:
+    - &id096
+      veld: expertise
+      tekst: begeleiding bij psychische kwetsbaarheid, LVB, verslaving, ADHD, ASS
+      code: ''
+      categorie: ass
+  - id: rosemarijn-gezinsbegeleiding
+    bewijs:
+    - &id097
+      veld: expertise
+      tekst: autisme
+      code: ''
+      categorie: ass
+  - id: 0-tot-18
+    bewijs:
+    - &id069
+      veld: expertise
+      tekst: Autisme
+      code: ''
+      categorie: ass
+  - id: psycholoog-groesbeek
+    bewijs:
+    - &id070
+      veld: expertise
+      tekst: Autisme
+      code: ''
+      categorie: ass
+  - id: horizon-pgb-weekend-logeeropvang
+    bewijs:
+    - &id098
+      veld: expertise
+      tekst: Autismespectrumstoornis
+      code: ''
+      categorie: ass
+  - id: balanzza
+    bewijs:
+    - &id099
+      veld: expertise
+      tekst: Autisme
+      code: ''
+      categorie: ass
+- id: e24
+  vraag: EMDR voor trauma
+  categorieen:
+  - emdr
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: familysupporters-b-v
+    bewijs:
+    - veld: expertise
+      tekst: EMDR therapie
+      code: ''
+      categorie: emdr
+  - id: join-jeugd-ouders-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: kruip-praktijk-voor-kinder-en-jeugdpsychotherapie
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: sentio
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: stichting-pro-persona-ggz
+    bewijs:
+    - veld: expertise
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+  - id: praktijk-ponga
+    bewijs:
+    - veld: type_aanbod
+      tekst: EMDR
+      code: ''
+      categorie: emdr
+- id: e25
+  vraag: dyslexie
+  categorieen:
+  - dyslexie
+  breder: false
+  verwacht:
+  - id: 1801-jeugd-onderwijsadvies
+    bewijs:
+    - veld: expertise
+      tekst: Taal en lezen (dyslexie)
+      code: ''
+      categorie: dyslexie
+  - id: bco-onderwijsadvies-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Dyslexiezorg
+      code: ''
+      categorie: dyslexie
+  - id: berkel-b
+    bewijs:
+    - veld: expertise
+      tekst: 'Dyslexie: onderzoek en behandeling'
+      code: ''
+      categorie: dyslexie
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - veld: expertise
+      tekst: dyslexiebehandeling
+      code: ''
+      categorie: dyslexie
+  - id: leestalent-b-v
+    bewijs:
+    - veld: expertise
+      tekst: Vergoede dyslexiezorg (Jeugdwet)
+      code: ''
+      categorie: dyslexie
+  - id: logopediepraktijk-mhc-krebbers
+    bewijs:
+    - veld: expertise
+      tekst: dyslexiebehandeling
+      code: ''
+      categorie: dyslexie
+  - id: opdidakt-bv
+    bewijs:
+    - veld: expertise
+      tekst: dyslexie
+      code: ''
+      categorie: dyslexie
+  - id: opm-nijmegen-cooperatie-vjggz
+    bewijs:
+    - veld: expertise
+      tekst: dyslexie
+      code: ''
+      categorie: dyslexie
+  - id: regionaal-instituut-voor-dyslexie-b-v-rid
+    bewijs:
+    - veld: expertise
+      tekst: dyslexie
+      code: ''
+      categorie: dyslexie
+  - id: stichting-psychologische-dienstverlening-ijsselgroep
+    bewijs:
+    - veld: expertise
+      tekst: taal, lezen en dyslexie
+      code: ''
+      categorie: dyslexie
+  - id: praktijk-de-puntenslijper
+    bewijs:
+    - veld: doelgroepen
+      tekst: Schoolgaande kinderen met (vermoeden van) dyslexie
+      code: ''
+      categorie: dyslexie
+- id: e26
+  vraag: dyscalculie
+  categorieen:
+  - dyscalculie
+  breder: false
+  verwacht:
+  - id: 1801-jeugd-onderwijsadvies
+    bewijs:
+    - veld: expertise
+      tekst: Rekenen en dyscalculie
+      code: ''
+      categorie: dyscalculie
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - veld: expertise
+      tekst: dyscalculie/leerproblemen
+      code: ''
+      categorie: dyscalculie
+  - id: opdidakt-bv
+    bewijs:
+    - veld: expertise
+      tekst: dyscalculie
+      code: ''
+      categorie: dyscalculie
+  - id: opm-nijmegen-cooperatie-vjggz
+    bewijs:
+    - veld: expertise
+      tekst: dyscalculie
+      code: ''
+      categorie: dyscalculie
+  - id: regionaal-instituut-voor-dyslexie-b-v-rid
+    bewijs:
+    - veld: expertise
+      tekst: dyscalculie
+      code: ''
+      categorie: dyscalculie
+- id: e27
+  vraag: opvoedproblemen
+  categorieen:
+  - opvoed
+  breder: false
+  verwacht:
+  - id: agile-welzijn-b-v
+    bewijs:
+    - veld: expertise
+      tekst: Opvoedondersteuning (Jeugdwet)
+      code: ''
+      categorie: opvoed
+  - id: nisa-curae
+    bewijs:
+    - veld: expertise
+      tekst: ambulante gezins- en opvoedondersteuning
+      code: ''
+      categorie: opvoed
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - veld: expertise
+      tekst: opvoedproblemen
+      code: ''
+      categorie: opvoed
+  - id: samen18
+    bewijs:
+    - veld: expertise
+      tekst: gezins- en opvoedbegeleiding
+      code: ''
+      categorie: opvoed
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - veld: doelgroepen
+      tekst: Kinderen, jongeren en gezinnen met opgroei- of opvoedproblemen
+      code: ''
+      categorie: opvoed
+- id: e28
+  vraag: rouwverwerking kind
+  categorieen:
+  - rouw
+  breder: false
+  verwacht:
+  - id: praktijk-nicole-legters-cooperatie-vjggz
+    bewijs:
+    - veld: expertise
+      tekst: angst, trauma en rouw
+      code: ''
+      categorie: rouw
+  - id: praktijk-ponga
+    bewijs:
+    - veld: type_aanbod
+      tekst: Rouw- en verliestherapie
+      code: ''
+      categorie: rouw
+  - id: juntos-gedrag
+    bewijs:
+    - veld: type_aanbod
+      tekst: Rouwverwerking kind
+      code: ''
+      categorie: rouw
+- id: e29
+  vraag: faalangst
+  categorieen:
+  - angst
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - &id031
+      veld: expertise
+      tekst: Behandeling gedragsproblemen, leerproblemen, (faal)angsten, trauma en depressie
+      code: ''
+      categorie: angst
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - &id032
+      veld: expertise
+      tekst: Angst- en stemmingsproblemen
+      code: ''
+      categorie: angst
+  - id: dare-to-move-vakwerk-regio-nijmegen
+    bewijs:
+    - &id033
+      veld: expertise
+      tekst: faalangst
+      code: ''
+      categorie: angst
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - &id034
+      veld: expertise
+      tekst: angst- en depressieve klachten
+      code: ''
+      categorie: angst
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - &id035
+      veld: expertise
+      tekst: jeugd-GGZ (ADHD, autisme, angst, trauma, gedrag)
+      code: ''
+      categorie: angst
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - &id036
+      veld: expertise
+      tekst: angst, depressie, PTSS, ADHD, autisme, gedragsstoornis
+      code: ''
+      categorie: angst
+  - id: opm-nijmegen-cooperatie-vjggz
+    bewijs:
+    - &id037
+      veld: expertise
+      tekst: faalangst
+      code: ''
+      categorie: angst
+  - id: parnassia-groep-b-v
+    bewijs:
+    - &id038
+      veld: expertise
+      tekst: angststoornis
+      code: ''
+      categorie: angst
+  - id: praktijk-nicole-legters-cooperatie-vjggz
+    bewijs:
+    - &id039
+      veld: expertise
+      tekst: angst, trauma en rouw
+      code: ''
+      categorie: angst
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - &id040
+      veld: expertise
+      tekst: angst
+      code: ''
+      categorie: angst
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - &id041
+      veld: expertise
+      tekst: angst
+      code: ''
+      categorie: angst
+  - id: raadthuys-psychologen
+    bewijs:
+    - &id042
+      veld: expertise
+      tekst: angst
+      code: ''
+      categorie: angst
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - &id043
+      veld: expertise
+      tekst: angst
+      code: ''
+      categorie: angst
+  - id: regionaal-instituut-voor-ontwikkelingsproblemen-b-v-riozorg
+    bewijs:
+    - &id044
+      veld: expertise
+      tekst: angst
+      code: ''
+      categorie: angst
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - &id045
+      veld: expertise
+      tekst: angststoornissen
+      code: ''
+      categorie: angst
+  - id: 0-tot-18
+    bewijs:
+    - &id046
+      veld: expertise
+      tekst: Angst
+      code: ''
+      categorie: angst
+  - id: psycholoog-groesbeek
+    bewijs:
+    - &id047
+      veld: expertise
+      tekst: Angst en paniek
+      code: ''
+      categorie: angst
+- id: e30
+  vraag: paniekaanvallen
+  categorieen:
+  - angst
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - *id031
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id032
+  - id: dare-to-move-vakwerk-regio-nijmegen
+    bewijs:
+    - *id033
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - *id034
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - *id035
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id036
+  - id: opm-nijmegen-cooperatie-vjggz
+    bewijs:
+    - *id037
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id038
+  - id: praktijk-nicole-legters-cooperatie-vjggz
+    bewijs:
+    - *id039
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - *id040
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - *id041
+  - id: raadthuys-psychologen
+    bewijs:
+    - *id042
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - *id043
+  - id: regionaal-instituut-voor-ontwikkelingsproblemen-b-v-riozorg
+    bewijs:
+    - *id044
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - *id045
+  - id: 0-tot-18
+    bewijs:
+    - *id046
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id047
+- id: e31
+  vraag: hoogbegaafd kind
+  categorieen:
+  - hoogbegaafd
+  breder: false
+  verwacht:
+  - id: praktijk-ontdek-by-yvonne
+    bewijs:
+    - veld: expertise
+      tekst: hoogbegaafdheid
+      code: ''
+      categorie: hoogbegaafd
+  - id: lk-psychologie
+    bewijs:
+    - veld: expertise
+      tekst: Hoogbegaafdheid
+      code: ''
+      categorie: hoogbegaafd
+  - id: 0-tot-18
+    bewijs:
+    - veld: expertise
+      tekst: Hoogbegaafdheid
+      code: ''
+      categorie: hoogbegaafd
+- id: e32
+  vraag: logeeropvang
+  categorieen:
+  - logeer
+  breder: false
+  verwacht:
+  - id: cooperatie-boer-en-zorg
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: cooperatie-tvn-zorgt-u-a
+    bewijs:
+    - veld: expertise
+      tekst: logeren
+      code: ''
+      categorie: logeer
+  - id: eev-jeugd-en-gezinshulp
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: grandcare-begeleiding-b-v
+    bewijs:
+    - veld: expertise
+      tekst: logeren en wonen
+      code: ''
+      categorie: logeer
+  - id: hll-zorgondernemingen-b-v
+    bewijs:
+    - veld: expertise
+      tekst: logeren
+      code: ''
+      categorie: logeer
+  - id: kinderzorg-bijzonder-b-v
+    bewijs:
+    - veld: expertise
+      tekst: dag- en logeeropvang
+      code: ''
+      categorie: logeer
+  - id: opvang-uniek-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: stichting-s-heeren-loo-zorggroep
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: stichting-driestroom
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - veld: expertise
+      tekst: Logeren
+      code: ''
+      categorie: logeer
+  - id: stichting-samenwerkende-zorgboeren-zuid-stichting-szz
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: unik-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: buitengewoon-logeren
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: circustheater-stoffel
+    bewijs:
+    - veld: expertise
+      tekst: Logeren
+      code: ''
+      categorie: logeer
+  - id: de-gastvrijheid-velp
+    bewijs:
+    - veld: expertise
+      tekst: logeren
+      code: ''
+      categorie: logeer
+  - id: de-thuishaven
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: de-woerd-zorg
+    bewijs:
+    - veld: expertise
+      tekst: logeeropvang
+      code: ''
+      categorie: logeer
+  - id: deilse-hoeve-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: hettenheuvel
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: shelterzorg
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang
+      code: ''
+      categorie: logeer
+  - id: horizon-pgb-weekend-logeeropvang
+    bewijs:
+    - veld: type_aanbod
+      tekst: Weekendlogeeropvang (vrijdag 17.30 – zondag 17.00)
+      code: ''
+      categorie: logeer
+  - id: balanzza
+    bewijs:
+    - veld: type_aanbod
+      tekst: Logeeropvang (kleinschalig, begeleid)
+      code: ''
+      categorie: logeer
+- id: e33
+  vraag: zorgboerderij
+  categorieen:
+  - zorgboerderij
+  breder: false
+  verwacht:
+  - id: stichting-samenwerkende-zorgboeren-zuid-stichting-szz
+    bewijs:
+    - veld: naam
+      tekst: Stichting Samenwerkende Zorgboeren Zuid (Stichting SZZ)
+      code: ''
+      categorie: zorgboerderij
+  - id: de-gastvrijheid-velp
+    bewijs:
+    - veld: expertise
+      tekst: dagbesteding (zorgboerderij)
+      code: ''
+      categorie: zorgboerderij
+  - id: de-groote-locht-bemmel
+    bewijs:
+    - veld: expertise
+      tekst: groepsbegeleiding (zorgboerderij)
+      code: ''
+      categorie: zorgboerderij
+  - id: de-woerd-zorg
+    bewijs:
+    - veld: expertise
+      tekst: onderwijs & dagbesteding (zorgboerderij)
+      code: ''
+      categorie: zorgboerderij
+  - id: hettenheuvel
+    bewijs:
+    - veld: expertise
+      tekst: zorgboerderij (verblijf/dagbesteding)
+      code: ''
+      categorie: zorgboerderij
+  - id: zorgboerderij-reek
+    bewijs:
+    - veld: naam
+      tekst: Zorgboerderij Reek
+      code: ''
+      categorie: zorgboerderij
+  - id: zorgboerderij-vdg
+    bewijs:
+    - veld: naam
+      tekst: Zorgboerderij VDG
+      code: ''
+      categorie: zorgboerderij
+- id: e34
+  vraag: pleegzorg
+  categorieen:
+  - pleegzorg
+  breder: false
+  verwacht:
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - veld: expertise
+      tekst: Pleegzorg
+      code: ''
+      categorie: pleegzorg
+  - id: stichting-oosterpoort
+    bewijs:
+    - veld: type_aanbod
+      tekst: Pleegzorg
+      code: ''
+      categorie: pleegzorg
+  - id: stichting-pactum
+    bewijs:
+    - veld: type_aanbod
+      tekst: Pleegzorg
+      code: ''
+      categorie: pleegzorg
+  - id: william-schrikker-stichting-gezinsvormen
+    bewijs:
+    - veld: type_aanbod
+      tekst: Pleegzorg
+      code: ''
+      categorie: pleegzorg
+- id: e35
+  vraag: crisisopvang
+  categorieen:
+  - crisis
+  breder: false
+  verwacht:
+  - id: deur-8-b-v
+    bewijs:
+    - veld: expertise
+      tekst: crisisopvang
+      code: ''
+      categorie: crisis
+  - id: fidelity-zorg
+    bewijs:
+    - veld: expertise
+      tekst: crisiszorg
+      code: ''
+      categorie: crisis
+  - id: jeugdbescherming-brabant
+    bewijs:
+    - veld: expertise
+      tekst: hulp bij crisis
+      code: ''
+      categorie: crisis
+  - id: parnassia-groep-b-v
+    bewijs:
+    - veld: expertise
+      tekst: spoed en crisis
+      code: ''
+      categorie: crisis
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - veld: expertise
+      tekst: Ambulante spoedhulp
+      code: ''
+      categorie: crisis
+  - id: stichting-pluryn
+    bewijs:
+    - veld: expertise
+      tekst: Crisisopvang
+      code: ''
+      categorie: crisis
+- id: e36
+  vraag: schooluitval
+  categorieen:
+  - school
+  breder: false
+  verwacht:
+  - id: bureau-voor-pedagogiek-b-v
+    bewijs:
+    - *id048
+  - id: dit-coaching
+    bewijs:
+    - *id049
+  - id: balanzza
+    bewijs:
+    - *id050
+- id: e37
+  vraag: thuiszitter
+  categorieen:
+  - school
+  breder: false
+  verwacht:
+  - id: bureau-voor-pedagogiek-b-v
+    bewijs:
+    - *id048
+  - id: dit-coaching
+    bewijs:
+    - *id049
+  - id: balanzza
+    bewijs:
+    - *id050
+- id: e38
+  vraag: gedragsproblemen thuis
+  categorieen:
+  - gedrag
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - *id051
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id052
+  - id: dare-to-move-vakwerk-regio-nijmegen
+    bewijs:
+    - *id053
+  - id: dromen-durven-doen-d3
+    bewijs:
+    - *id054
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id055
+  - id: psychologenpraktijk-c-p-m-o-op-heij-cooperatie-vjggz
+    bewijs:
+    - *id056
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - *id057
+  - id: stapjeugdhulp
+    bewijs:
+    - veld: expertise
+      tekst: agressieregulatietraining (ART)
+      code: ''
+      categorie: gedrag
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - veld: expertise
+      tekst: Hulp bij gedragsproblemen kind
+      code: ''
+      categorie: gedrag
+  - id: stichting-pluryn
+    bewijs:
+    - *id007
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - *id058
+  - id: rosemarijn-gezinsbegeleiding
+    bewijs:
+    - *id059
+  - id: 0-tot-18
+    bewijs:
+    - *id060
+  - id: psycholoog-groesbeek
+    bewijs:
+    - veld: expertise
+      tekst: Agressie en boosheid
+      code: ''
+      categorie: gedrag
+- id: e39
+  vraag: licht verstandelijke beperking
+  categorieen:
+  - lvb
+  breder: false
+  verwacht:
+  - id: stichting-s-heeren-loo-zorggroep
+    bewijs:
+    - veld: doelgroepen
+      tekst: mensen met een (verstandelijke) beperking
+      code: ''
+      categorie: lvb
+  - id: stichting-humanitas-dmh
+    bewijs:
+    - &id091
+      veld: doelgroepen
+      tekst: mensen met een verstandelijke beperking
+      code: ''
+      categorie: lvb
+  - id: stichting-karakter
+    bewijs:
+    - veld: expertise
+      tekst: LVB en psychiatrie
+      code: ''
+      categorie: lvb
+  - id: stichting-pluryn
+    bewijs:
+    - *id061
+  - id: kubus-ondersteuning
+    bewijs:
+    - *id062
+  - id: horizon-pgb-weekend-logeeropvang
+    bewijs:
+    - veld: expertise
+      tekst: Verstandelijke beperking
+      code: ''
+      categorie: lvb
+  - id: gezinshuis-hemma
+    bewijs:
+    - veld: doelgroepen
+      tekst: Jongeren met een lichte verstandelijke beperking (LVB)
+      code: ''
+      categorie: lvb
+- id: e40
+  vraag: autisme en angst
+  categorieen:
+  - ass
+  - angst
+  breder: false
+  verwacht:
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id063
+    - *id032
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - *id064
+    - *id034
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - *id065
+    - *id035
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id066
+    - *id036
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id067
+    - *id038
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - *id068
+    - *id043
+  - id: 0-tot-18
+    bewijs:
+    - *id069
+    - *id046
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id070
+    - *id047
+- id: e41
+  vraag: hechting en trauma
+  categorieen:
+  - hechting
+  - trauma
+  breder: false
+  verwacht:
+  - id: praktijk-de-bruijn-cooperatie-vjggz
+    bewijs:
+    - *id071
+    - *id072
+  - id: novaera
+    bewijs:
+    - *id073
+    - *id074
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id075
+    - *id076
+- id: e42
+  vraag: eetstoornis
+  categorieen:
+  - eet
+  breder: false
+  verwacht:
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id004
+  - id: raadthuys-psychologen
+    bewijs:
+    - *id005
+  - id: vooruit-met-zorg
+    bewijs:
+    - *id006
+- id: e43
+  vraag: verslavingszorg
+  categorieen:
+  - verslaving
+  breder: false
+  verwacht:
+  - id: parnassia-groep-b-v
+    bewijs:
+    - veld: expertise
+      tekst: verslaving
+      code: ''
+      categorie: verslaving
+  - id: stichting-iriszorg
+    bewijs:
+    - veld: expertise
+      tekst: verslavingszorg
+      code: ''
+      categorie: verslaving
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - veld: type_aanbod
+      tekst: Verslavingszorg GGZ jeugdkliniek E-bed
+      code: ''
+      categorie: verslaving
+  - id: kubus-ondersteuning
+    bewijs:
+    - *id077
+- id: e44
+  vraag: speltherapie
+  categorieen:
+  - speltherapie
+  breder: false
+  verwacht:
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - veld: expertise
+      tekst: speltherapie
+      code: ''
+      categorie: speltherapie
+  - id: kinderpraktijk-sigrid-wessels-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: expertise
+      tekst: speltherapie
+      code: ''
+      categorie: speltherapie
+  - id: kruip-praktijk-voor-kinder-en-jeugdpsychotherapie
+    bewijs:
+    - veld: expertise
+      tekst: speltherapie
+      code: ''
+      categorie: speltherapie
+  - id: medemens-speltherapie-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: expertise
+      tekst: speltherapie
+      code: ''
+      categorie: speltherapie
+  - id: speelruimte-speltherapie-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: naam
+      tekst: Speelruimte Speltherapie- Vakwerk regio Nijmegen
+      code: ''
+      categorie: speltherapie
+  - id: speltherapie-de-veer-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: expertise
+      tekst: speltherapie
+      code: ''
+      categorie: speltherapie
+  - id: via-spel-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: expertise
+      tekst: speltherapie
+      code: ''
+      categorie: speltherapie
+  - id: vuurvlinders-speltherapie-nijmegen-vakwerk-regio-nijmegen
+    bewijs:
+    - veld: naam
+      tekst: Vuurvlinders speltherapie Nijmegen - Vakwerk regio Nijmegen
+      code: ''
+      categorie: speltherapie
+  - id: praktijk-ponga
+    bewijs:
+    - veld: type_aanbod
+      tekst: Speltherapie
+      code: ''
+      categorie: speltherapie
+- id: e45
+  vraag: reflexintegratie
+  categorieen:
+  - reflexintegratie
+  breder: false
+  verwacht:
+  - id: 0-tot-18
+    bewijs:
+    - veld: expertise
+      tekst: Reflexintegratie
+      code: ''
+      categorie: reflexintegratie
+- id: e46
+  vraag: gezinshuis Wijchen
+  categorieen:
+  - gezinshuis
+  breder: false
+  verwacht:
+  - id: shelterzorg
+    bewijs:
+    - *id078
+  plaats: Wijchen
+- id: e47
+  vraag: angst in Groesbeek
+  categorieen:
+  - angst
+  breder: false
+  verwacht:
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id047
+  plaats: Groesbeek
+- id: e48
+  vraag: dwangstoornis
+  categorieen:
+  - dwang
+  breder: false
+  verwacht:
+  - id: stichting-pro-persona-ggz
+    bewijs:
+    - *id001
+- id: e49
+  vraag: jongere met PTSS
+  categorieen:
+  - trauma
+  breder: false
+  verwacht:
+  - id: 1-1-vier
+    bewijs:
+    - *id079
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id080
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - *id081
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - *id082
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id083
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id084
+  - id: praktijk-de-bruijn-cooperatie-vjggz
+    bewijs:
+    - *id072
+  - id: praktijk-nicole-legters-cooperatie-vjggz
+    bewijs:
+    - *id085
+  - id: psychologenpraktijk-marco-de-vries-cooperatie-vjggz
+    bewijs:
+    - *id086
+  - id: psychologiepraktijk-roosen-cooperatie-vjggz
+    bewijs:
+    - *id087
+  - id: raadthuys-psychologen
+    bewijs:
+    - *id088
+  - id: stichting-pro-persona-ggz
+    bewijs:
+    - *id089
+  - id: yes-we-can-clinics-b-v
+    bewijs:
+    - *id090
+  - id: novaera
+    bewijs:
+    - *id074
+  - id: psycholoog-groesbeek
+    bewijs:
+    - *id076
+- id: e50
+  vraag: suïcidale gedachten
+  categorieen:
+  - zelfbeschadiging
+  breder: true
+  verwacht: []
+  boven_label:
+  - depressie
+- id: e51
+  vraag: complexe scheiding
+  categorieen:
+  - echtscheiding
+  breder: false
+  verwacht:
+  - id: nisa-curae
+    bewijs:
+    - *id002
+  - id: stichting-entrea-lindenhout
+    bewijs:
+    - *id003
+- id: e52
+  vraag: dagbesteding voor LVB
+  categorieen:
+  - dagbesteding
+  - lvb
+  breder: false
+  verwacht:
+  - id: stichting-humanitas-dmh
+    bewijs:
+    - veld: expertise
+      tekst: dagbesteding
+      code: ''
+      categorie: dagbesteding
+    - *id091
+  - id: stichting-pluryn
+    bewijs:
+    - veld: expertise
+      tekst: Leren, werken en dagbesteding
+      code: ''
+      categorie: dagbesteding
+    - *id061
+- id: e53
+  vraag: kind 10 met autisme
+  categorieen:
+  - ass
+  breder: false
+  verwacht:
+  - id: ambulatorium-nijmegen
+    bewijs:
+    - *id063
+  - id: autimaat-bv
+    bewijs:
+    - *id092
+  - id: de-gezinspraktijk-psychotherapie-voor-jeugd-en-gezin-cooperatie-vjggz
+    bewijs:
+    - *id064
+  - id: eclg-expertisecentrum-leren-gedrag
+    bewijs:
+    - *id065
+  - id: mentaal-beter-cure-b-v
+    bewijs:
+    - *id066
+  - id: parnassia-groep-b-v
+    bewijs:
+    - *id067
+  - id: rebis-kinder-psychiatrisch-centrum-cooperatie-vjggz
+    bewijs:
+    - *id068
+  - id: stichting-driestroom
+    bewijs:
+    - *id093
+  - id: bureau-backpackerz-b-v
+    bewijs:
+    - *id094
+  - id: hettenheuvel
+    bewijs:
+    - *id095
+  - id: kubus-ondersteuning
+    bewijs:
+    - *id096
+  - id: rosemarijn-gezinsbegeleiding
+    bewijs:
+    - *id097
+  - id: 0-tot-18
+    bewijs:
+    - *id069
+  - id: horizon-pgb-weekend-logeeropvang
+    bewijs:
+    - *id098
+  - id: balanzza
+    bewijs:
+    - *id099
+  leeftijd: 10

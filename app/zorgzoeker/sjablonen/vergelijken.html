@@ -1,0 +1,60 @@
+{% extends "basis.html" %}
+{% from "macros.html" import herkomst %}
+{% block titel %}Vergelijken · Zorgzoeker{% endblock %}
+{% block inhoud %}
+<section class="vergelijkpagina">
+  <p class="terug"><a class="tikdoel" href="/">Terug naar zoeken</a></p>
+  <h1>Aanbieders naast elkaar</h1>
+  {% if melding %}
+  <p class="leeg-tekst">{{ melding }}</p>
+  {% else %}
+  <p>Velden die verschillen zijn gemarkeerd. Een onbekende wachttijd blijft onbekend.</p>
+  <div class="tabelwrap">
+    <table class="vergelijktabel">
+      <thead>
+        <tr>
+          <th scope="col">Gegeven</th>
+          {% for kolom in kolommen %}
+          <th scope="col">{{ kolom.naam }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for rij in rijen %}
+        <tr class="{% if rij.verschilt %}verschilt{% endif %}">
+          <th scope="row">{{ rij.label_nl }}{% if rij.verschilt %} <span class="verschil">verschilt</span>{% endif %}</th>
+          {% for cel in rij.cellen %}
+          <td class="{% if cel.onbekend %}is-onbekend{% endif %}">
+            <p class="veld-tekst {% if cel.onbekend %}onbekend-waarde{% endif %}">{{ cel.tekst }}</p>
+            <p class="naam-bron">{{ herkomst(cel) }}</p>
+            {% if cel.toelichting %}<p class="toelichting">{{ cel.toelichting }}</p>{% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="vergelijk-mobiel">
+    <ol class="vm-namen">
+      {% for kolom in kolommen %}<li>{{ kolom.naam }}</li>{% endfor %}
+    </ol>
+    {% for rij in rijen %}
+    <section class="vm-blok {% if rij.verschilt %}verschilt{% endif %}">
+      <h2>{{ rij.label_nl }}{% if rij.verschilt %} <span class="verschil">verschilt</span>{% endif %}</h2>
+      <ul>
+        {% for cel in rij.cellen %}
+        <li class="{% if cel.onbekend %}is-onbekend{% endif %}">
+          <p class="vm-aanbieder">{{ kolommen[loop.index0].naam }}</p>
+          <p class="veld-tekst {% if cel.onbekend %}onbekend-waarde{% endif %}">{{ cel.tekst }}</p>
+          <p class="naam-bron">{{ herkomst(cel) }}</p>
+          {% if cel.toelichting %}<p class="toelichting">{{ cel.toelichting }}</p>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

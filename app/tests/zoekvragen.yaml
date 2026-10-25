@@ -1,0 +1,57 @@
+# Verwachte eerste treffer op data/fixture_aanbieders.json.
+# De meegeleverde dataset data/aanbieders.json heeft andere aanbieders;
+# die controleert de validatie, niet deze ranglijst.
+- id: z01
+  vraag: "jongen 14 met autisme en angst in Groesbeek, ambulant"
+  verwacht_eerste: fictief-de-horst-ambulant
+- id: z02
+  vraag: "gezinshuis voor meisje van 10 regio Nijmegen"
+  verwacht_eerste: fictief-gezinshuis-de-waard
+- id: z03
+  vraag: "dagbesteding zorgboerderij Wijchen"
+  verwacht_eerste: fictief-zorgboerderij-de-lage-wei
+- id: z04
+  vraag: "LVB en verslaving in Druten, ambulant"
+  verwacht_eerste: fictief-begeleiding-maas-en-waal
+- id: z05
+  vraag: "logeeropvang in Berg en Dal"
+  verwacht_eerste: fictief-logeerhuis-de-ooijse-band
+- id: z06
+  vraag: "trauma behandeling jeugd-ggz Nijmegen 16 jaar"
+  verwacht_eerste: fictief-jeugd-ggz-de-waalbrug
+- id: z07
+  vraag: "niet gecontracteerd autisme en angst"
+  verwacht_eerste: fictief-praktijk-lichtpunt
+- id: z08
+  vraag: "gezinshuis Malden gedragsproblemen"
+  verwacht_eerste: fictief-gezinshuis-klein-malden
+- id: z09
+  vraag: "dagbesteding ASS Beuningen"
+  verwacht_eerste: fictief-dagbesteding-het-baken
+- id: z10
+  vraag: "crisis residentieel Nijmegen"
+  verwacht_eerste: fictief-residentieel-de-vuurdoorn
+- id: z11
+  vraag: "jonge kind 4 jaar echtscheiding Lent"
+  verwacht_eerste: fictief-ambulant-team-lent
+- id: z12
+  vraag: "productcode JH-GGZ-09"
+  verwacht_eerste: fictief-jeugd-ggz-de-waalbrug
+- id: z13
+  vraag: "zorgboerderij voor jongere van 19 met LVB"
+  verwacht_eerste: fictief-zorgboerderij-de-lage-wei
+- id: z14
+  vraag: "cultuurspecifieke hulp in Millingen"
+  verwacht_eerste: fictief-praktijk-de-duffelt
+- id: z15
+  vraag: "depressie bij jongere van 17 in Nijmegen"
+  verwacht_eerste: fictief-jeugd-ggz-de-waalbrug
+- id: z16
+  vraag: "gecontracteerd hechtingsproblematiek"
+  verwacht_eerste: fictief-gezinshuis-de-waard
+- id: z17
+  vraag: "schoolweigering in Groesbeek"
+  verwacht_eerste: fictief-de-horst-ambulant
+- id: z18
+  vraag: "opvoedondersteuning peuter in Lent"
+  verwacht_eerste: fictief-ambulant-team-lent
