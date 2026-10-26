@@ -119,6 +119,8 @@ def toelating_past(document,d,analyse,interpretatie):
 class HybrideZoeker:
     def __init__(self,document,taalmodel=None,embeddings=None):
         self.document=document;self.index=Index(document);self.taalmodel=taalmodel;self.embeddings=embeddings
+        from zorgzoeker.beslissen import Beslisservice
+        self.beslisservice=Beslisservice(document,self.index)
         self.diensten=diensten(document)
         self.vectors=None
         if embeddings and self.diensten:
@@ -173,7 +175,7 @@ class HybrideZoeker:
                 if not past:continue
             datum=filters.op_datum or analyse.op_datum
             op=date.fromisoformat(datum) if datum and len(datum)==10 else date.today()
-            regels=relevante_regels(self.document,d['aanbieder_id'],gemeente=gemeente,codes=routecodes,leeftijden=leeftijden,locatie=filters.vestigingsplaats)
+            regels=relevante_regels(self.document,d['aanbieder_id'],gemeente=gemeente,codes=routecodes,leeftijden=leeftijden,locatie=filters.vestigingsplaats,dienst=d['dienst'])
             if analyse.max_wachttijd is not None:
                 if regels:
                     if not (len(regels)==1 and actueel(regels[0]) and regels[0]['start_behandeling_weken'] is not None and regels[0]['start_behandeling_weken']<=analyse.max_wachttijd):continue
@@ -187,6 +189,7 @@ class HybrideZoeker:
               'leeftijd':'onbekend' if not oordelen or 'onbekend' in oordelen else 'binnen bronbereik',
               'toelatingsvoorwaarden':[(p.get(k) or {}).get('waarde') for k in ('uitsluitingscriteria','toelatingsvoorwaarden') if (p.get(k) or {}).get('waarde') not in (None,'','onbekend',[])],
               'dienstscope_bevestigd':d['dienstscope_bevestigd'],'bronbewijs':[d['bewijs']],
+              'beoordeling':self.beslisservice.beoordeel(d['aanbieder_id'],q,filters,dienst=d['dienst'],profielbron=d['ruw']),
               'reden':'Bron vermeldt: '+d['bewijs']['citaat'],'score':round(score,6)})
         resultaten.sort(key=lambda x:(bool(x['ontbreekt']),len(x['ontbreekt']),-x['score'],x['naam'],x['id']))
         return {'backend':'regel_fallback' if r['backend']=='regel_fallback' else ('hybride_lokaal' if self.vectors and not embedding_fout else 'bronregels_zonder_embeddings'),

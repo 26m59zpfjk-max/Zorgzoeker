@@ -1,8 +1,9 @@
 {% extends "basis.html" %}
 {% from "macros.html" import veldblok, naamlink %}
-{% block titel %}{% if q %}{{ q }} · {% endif %}Zorgzoeker{% endblock %}
+{% block titel %}Zoeken · Zorgzoeker{% endblock %}
 {% block inhoud %}
 {% if ai_ingeschakeld %}<p><a class="tikdoel" href="/ai">Probeer de lokale AI-pilot met een fictieve casus</a></p>{% endif %}
+<p><a class="tikdoel" href="/werkplek">Controleerbare keuzewerkplek: zoeken zonder zorgtekst in de URL</a></p><p>Gebruik uitsluitend fictieve casussen, geen herleidbare cliëntgegevens. Deze oudere GET-route plaatst zoektekst in de URL.</p>
 <section class="zoekblok">
   <form class="zoekform" method="get" action="/">
     <label for="q">Zorgvraag</label>
@@ -98,10 +99,11 @@
           </div>
           <label class="kies"><input form="vergelijk" type="checkbox" name="ids" value="{{ kaart.id }}"> Vergelijk</label>
         </header>
+        {% if kaart.contracttoets.beoordeling %}<p>Bronbewijs: {{ kaart.contracttoets.beoordeling.inhoud.status }} · {{ kaart.contracttoets.beoordeling.inhoud.kwaliteit }}. Instroom: {{ kaart.contracttoets.beoordeling.instroom.status }}. Beoordeling: {{ kaart.contracttoets.beoordeling.context.op_datum }}.</p>{% endif %}
         <p class="zorg-kort"><strong>{{ kaart.expertise_kort }}</strong> · {{ kaart.hulpvorm_kort }}</p>
         {% for waarschuwing in kaart.waarschuwingen_kort %}<p class="kaart-waarschuwing"><strong>Let op:</strong> {{ waarschuwing }}</p>{% endfor %}
         <dl class="kaart-kern">
-          <div><dt>Contract · {{ kaart.gemeente_kort }}</dt><dd>{{ kaart.contract_kort }}</dd></div>
+          <div><dt>Contract · {{ kaart.gemeente_kort }}</dt><dd>{{ kaart.contract_kort }} · bronpeildatum {{ kaart.contracttoets.peildatum or "onbekend" }}. Actuele geldigheid controleren; geen bewezen geldigheidsperiode.</dd></div>
           <div><dt>Toewijzingsroute</dt><dd>{{ kaart.route_kort }}</dd></div>
           <div><dt>Bevestigde producten</dt><dd>{{ kaart.codes_kort|join(', ') if kaart.codes_kort else 'Onbekend voor deze vraag' }}{% if kaart.meer_codes %} · meer bij details{% endif %}</dd></div>
           <div><dt>Leeftijd / toelating</dt><dd>{{ kaart.leeftijd_kort }}</dd></div>

@@ -34,7 +34,8 @@ def valideer_regel(r: object, vandaag: date | None = None) -> list[str]:
     if not isinstance(r, dict):
         return ["Beschikbaarheidsregel moet een object zijn."]
     fouten = []
-    if set(r) != VELDEN:
+    if r.get('dienst_id') is not None and (not isinstance(r['dienst_id'],str) or not r['dienst_id'].strip()):fouten.append('Ongeldige dienst_id.')
+    if set(r)-{'dienst_id'} != VELDEN:
         fouten.append("Beschikbaarheidsregel mist velden of bevat onbekende velden.")
     for k in ("id", "aanbieder_id"):
         if not isinstance(r.get(k), str) or not r[k].strip():
@@ -106,12 +107,18 @@ def stop_actief(r: dict, op: date | None = None) -> bool:
                 (s.get("tot") is None or d <= _datum(s["tot"])))
 
 
-def relevante_regels(document: dict, aanbieder_id: str, *, gemeente=None, codes=(), leeftijden=(), locatie=None) -> list[dict]:
+def relevante_regels(document: dict, aanbieder_id: str, *, gemeente=None, codes=(), leeftijden=(), locatie=None, dienst=None) -> list[dict]:
     def canon(g):
         return KERN_NAAR_GEMEENTE.get(sleutel(g), sleutel(g))
     regels = []
     for r in document.get("beschikbaarheidsregister", []):
         if r["aanbieder_id"] != aanbieder_id:
+            continue
+        if dienst is None and r.get('dienst') and any(a.get('id')==aanbieder_id and a.get('diensten') for a in document.get('aanbieders',[])):
+            continue
+        if r.get('dienst_id') and (not dienst or r['dienst_id'] != dienst):
+            continue
+        if dienst is not None and r.get('dienst') is not None and r['dienst'] != dienst and r.get('dienst_id') != dienst:
             continue
         # Een beperkte scope is alleen toepasbaar met een overeenkomende vraag.
         if r["regios"] and (not gemeente or canon(gemeente) not in {canon(g) for g in r["regios"]}):
@@ -121,7 +128,7 @@ def relevante_regels(document: dict, aanbieder_id: str, *, gemeente=None, codes=
         if r["locatie"] and (not locatie or sleutel(locatie) != sleutel(r["locatie"])):
             continue
         if (r["leeftijd_van"] is not None or r["leeftijd_tot"] is not None) and (not leeftijden or
-                not all((r["leeftijd_van"] or 0) <= n <= (r["leeftijd_tot"] if r["leeftijd_tot"] is not None else 120) for n in leeftijden)):
+                not any((r["leeftijd_van"] or 0) <= n <= (r["leeftijd_tot"] if r["leeftijd_tot"] is not None else 120) for n in leeftijden)):
             continue
         regels.append(r)
     return regels

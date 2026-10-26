@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from zorgzoeker import __versie__
+from zorgzoeker.pilot import registreer as registreer_pilot
 from zorgzoeker.ai_web import registreer as registreer_ai, ingeschakeld as ai_ingeschakeld
 from zorgzoeker.kaarten import samenvatting
 from zorgzoeker.config import data_pad
@@ -56,6 +57,13 @@ def maak_app(pad: Path | None = None) -> FastAPI:
     application.state.index = None
     try:
         document = laad_document(bron_pad)
+        import os,json
+        from zorgzoeker.bewijs import hashwaarde,Kwaliteitslezing
+        if os.getenv('ZORGZOEKER_KWALITEIT_PAD'):
+            pakket=json.loads(Path(os.environ['ZORGZOEKER_KWALITEIT_PAD']).read_text())
+            if pakket['dataset_hash']!=hashwaarde(document):raise ValueError('Kwaliteitspakket hoort bij andere dataset')
+            document={**document,'kwaliteitsbeoordelingen':pakket['beoordelingen']}
+        Kwaliteitslezing(document)
         application.state.document = document
         application.state.validatiefouten = valideer_document(document)
         if application.state.validatiefouten:
@@ -63,7 +71,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
             raise ValueError("Ongeldige brongegevens")
         application.state.index = Index(document)
         application.state.fictief = _fictief(bron_pad, document)
-    except (OSError, ValueError) as fout:
+    except (OSError, ValueError, KeyError, TypeError) as fout:
         application.state.fout = application.state.fout or f"Het aanbiedersbestand kan niet worden gelezen ({bron_pad.name})."
         application.state.fictief = "fixture" in bron_pad.name
         # Bewust geen volledige fouttekst: die kan een pad of een zoekvraag bevatten.
@@ -279,6 +287,14 @@ def maak_app(pad: Path | None = None) -> FastAPI:
         )
 
     registreer_ai(application, SJABLONEN, basis)
+    registreer_pilot(application, SJABLONEN, basis)
+    @application.middleware('http')
+    async def privacy_headers(request,call_next):
+        response=await call_next(request)
+        response.headers['Cache-Control']='no-store'
+        response.headers['Referrer-Policy']='no-referrer'
+        response.headers['X-Content-Type-Options']='nosniff'
+        return response
     return application
 
 

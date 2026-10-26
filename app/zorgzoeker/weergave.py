@@ -257,4 +257,12 @@ def vergelijk_rijen(aanbieders: list[dict], contracttoetsen: list[dict] | None =
                                "toelichting": "Scope: " + "; ".join(str(r[k]) for k in ("dienst", "locatie", "productcode", "regios")) + ". Herbevestigen: " + r["herbevestigen_op"] if r else "Geen eenduidige actuele bevestiging voor deze zoekcontext."})
             rijen.append({"sleutel": sleutel, "label_nl": label, "cellen": cellen,
                           "verschilt": len({c["tekst"] for c in cellen}) > 1})
+    if contracttoetsen and all(t.get('beoordeling') for t in contracttoetsen):
+        for sleutel,label,lees in (
+            ('beslis_inhoud','Zorginhoudelijk bronbewijs',lambda b:b['inhoud']['status']+' · '+b['inhoud']['kwaliteit']),
+            ('beslis_contract','Contractbron en geldigheid',lambda b:b['contract']['bronstatus']+' · bronpeildatum '+str(b['contract']['peildatum'])+' · geldigheid '+b['contract']['geldigheid']),
+            ('beslis_instroom','Aanmelden/start bevestigd',lambda b:b['instroom']['status']),
+            ('beslis_versie','Bronversie',lambda b:b['context']['datasetversie'])):
+            cellen=[{'tekst':lees(t['beoordeling']),'onbekend':False,'label':'afgeleid','toelichting':'Geen toewijsgarantie; controleer open punten.','bron_url':None,'datum':None} for t in contracttoetsen]
+            rijen.insert(0,{'sleutel':sleutel,'label_nl':label,'cellen':cellen,'verschilt':len({c['tekst'] for c in cellen})>1})
     return rijen

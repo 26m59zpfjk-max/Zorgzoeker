@@ -381,3 +381,9 @@ a.naam-link:hover, a.naam-link:focus-visible { text-decoration-thickness: 2px; }
 .ai-pilot .kies { white-space:normal; max-width:100%; }
 #ai-interpretatie .kies { display:flex; align-items:flex-start; gap:.5rem; }
 .ai-pilot .kies input { flex-shrink:0; }
+
+.pilot-form { display:grid; gap:.7rem; }
+.pilot-form label { display:grid; min-width:0; gap:.3rem; }
+.pilot-form input,.pilot-form select { min-width:0; max-width:100%; font:inherit; }
+#pilot-resultaten { overflow-wrap:anywhere; }
+main { overflow-wrap:anywhere; }

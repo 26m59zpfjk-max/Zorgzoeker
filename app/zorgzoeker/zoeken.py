@@ -615,6 +615,9 @@ class Index:
     """Zoekindex over één geladen document. Klein genoeg om bij elke start te bouwen."""
 
     def __init__(self, document: dict):
+        self.bron_document = document
+        from zorgzoeker.bewijs import Kwaliteitslezing
+        document = Kwaliteitslezing(document).indexdocument(document)
         self.document = document
         self.contractregister = Contractregister(document)
         self.aanbieders = document.get("aanbieders") or []
@@ -833,6 +836,11 @@ class Index:
         toets["beschikbaarheidsregels"] = relevante_regels(self.document, profiel.id, gemeente=gemeente,
             codes=codes, leeftijden=analyse.leeftijden, locatie=filters.vestigingsplaats)
         toets["alle_beschikbaarheidsregels"] = [r for r in self.document.get("beschikbaarheidsregister", []) if r["aanbieder_id"] == profiel.id]
+        from zorgzoeker.beslissen import Beslisservice,Zoekcontext
+        if not hasattr(self,'_beslisservice'):self._beslisservice=Beslisservice(self.bron_document,self)
+        service=self._beslisservice
+        context=Zoekcontext(gemeente,analyse.leeftijden,analyse.concepten,analyse.uitgesloten,filters.productcode,filters.op_datum or analyse.op_datum or date.today().isoformat(),service.versie)
+        toets['beoordeling']=service.beoordeel(profiel.id,filters=filters,analyse=analyse,context=context)
         return toets
 
     def contracttoets_voor(self, aanbieder_id: str, vraag: str = "", filters: Filters | None = None) -> dict:

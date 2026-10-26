@@ -37,6 +37,9 @@ def samenvatting(treffer, vraag="") -> dict:
     velden = {k: toon_veld(k, ruw.get(k)) for k in KAART_VELDEN}
     stop = toets.get("stop_actief", False)
     waarschuwingen = []
+    for k,v in ruw.get('_kwaliteit',{}).items():
+        if v['status']=='tegenstrijdig_of_verouderd' or v.get('hash_gewijzigd'):
+            waarschuwingen.append(k + ': tegenstrijdig/verouderd bewijs; niet als bevestigd gebruikt.')
     if stop:
         waarschuwingen.append("STOP — nieuwe aanmeldingen/toeleiding voor deze vraag niet mogelijk.")
     elif any(r.get("toeleiding") == "geblokkeerd" for r in routes):

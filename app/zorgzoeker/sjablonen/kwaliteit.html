@@ -1,0 +1,7 @@
+{% extends "basis.html" %}
+{% block titel %}Kwaliteitswerklijst · Zorgzoeker{% endblock %}
+{% block inhoud %}<h1>Kwaliteitswerklijst — alleen lezen</h1><p>Geen broncorrecties vanuit deze pagina. Gebruik het bestaande offline voorstel- en goedkeuringsproces.</p>
+<p><a href="/werkplek">Naar de keuzewerkplek</a> · <a href="/kwaliteit?export=true">Exporteer controlepunten zonder casustekst</a></p>
+<p>{{ rapport.samenvatting.aanbieders }} profielen. {{ rapport.samenvatting.kern_voldoende }} volledig onderbouwde kernprofielen: deze strenge indicator vereist alle acht kernvelden en betekent niet dat andere gegevens fout zijn.</p>
+{% for a in rapport.aanbieders %}<details><summary>{{ a.naam }} — veldstatussen</summary>{% for k,v in a.velden.items() %}<p>{{ k }}: {{ v.status }} · laatste controle {{ v.laatste_controle or 'onbekend' }} · hercontrole {{ v.hercontrole_op or 'onbekend' }} · {{ v.methode }}{% if v.bron_url %} · <a href="{{ v.bron_url }}" rel="noreferrer noopener">Bron {{ k }} {{ a.naam }}</a>{% endif %}</p>{% endfor %}
+<ul>{% for p in rapport.problemen if p.aanbieder_id==a.id %}<li>Prioriteit {{ p.prioriteit }}: {{ p.veld }} — {{ p.toelichting }}</li>{% endfor %}</ul></details>{% endfor %}<p>Datasetversie {{ versie_data }}</p>{% endblock %}

@@ -111,7 +111,8 @@ def test_stop_vindbaar_op_naam_en_toon_alle_maar_niet_als_advies(echt):
     kern, details = html.split('<details class="meer">', 1)
     assert 'STOP' in kern and 'Aanmeldstop' in kern
     assert 'Kerstvakantie' in kern  # Geen verzonnen einddatum.
-    assert 'bron' not in kern.split('<article class="kaart')[1]
+    assert 'class="bron"' not in kern.split('<article class="kaart')[1]
+    assert 'bronpeildatum' in kern
     assert 'praktijk-sentio.nl/praktische-informatie' in details
 
 
@@ -292,7 +293,7 @@ def test_essentiele_kaartinfo_details_en_brondata_behouden(echt):
     for t in i.zoek(''):
         k=_kaart(t)
         assert {'contract_kort','route_kort','leeftijd_kort','wachttijd_kort','aanname_kort'} <= k.keys()
-        assert set(t.aanbieder)-{'id','gevonden_via'} <= {v['sleutel'] for v in k['detail_velden']}
+        assert set(t.aanbieder)-{'id','gevonden_via','_kwaliteit'} <= {v['sleutel'] for v in k['detail_velden']}
     assert doc == origineel
     assert 'Details, voorwaarden en bronnen' in html
     assert 'Productcodes' in html and 'Vestigingen' in html and 'KvK-nummer' in html

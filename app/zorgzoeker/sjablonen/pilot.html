@@ -1,0 +1,60 @@
+{% extends "basis.html" %}
+{% macro toestand(d,ids) %}
+{% for k,v in d.items() if k not in ['ids','actie'] %}{% if v is sequence and v is not string %}{% for x in v %}<input type="hidden" name="{{ k }}" value="{{ x }}">{% endfor %}{% else %}<input type="hidden" name="{{ k }}" value="{{ v }}">{% endif %}{% endfor %}
+{% for id in ids %}<input type="hidden" name="ids" value="{{ id }}">{% endfor %}
+{% endmacro %}
+{% macro oordeel(x) %}
+{% set b=x.beoordeling %}
+<h2>{{ x.naam }}</h2>
+<p>{{ x.reden }}</p>
+<dl class="kaart-kern">
+<div><dt>Zorginhoudelijk onderbouwd</dt><dd>{{ b.inhoud.status }} · {{ b.inhoud.kwaliteit }}</dd></div>
+<div><dt>Route voor deze context vastgesteld</dt><dd>{{ b.contract.bronstatus }} · bronpeildatum {{ b.contract.peildatum or 'onbekend' }}<br>Geldigheid op {{ b.context.op_datum }}: {{ b.contract.geldigheid }}. Geen toewijsgarantie.</dd></div>
+<div><dt>Aanmelden / start bevestigd</dt><dd>{{ b.instroom.status }}{% if b.instroom.stop %}<strong class="kaart-waarschuwing"> STOP</strong>{% endif %}</dd></div>
+</dl>
+{% for l in b.leeftijden %}<p>Leeftijd {{ l.leeftijd if l.leeftijd is not none else 'onbekend' }}: {{ l.status }}{% if l.stop %} — STOP{% endif %}</p>{% endfor %}
+{% for route in b.contract.routes %}<p>{{ route.productcode }} · {% if route.hoofdaannemer %}Via hoofdaannemer {{ route.hoofdaannemer }}{% else %}Rechtstreekse bronroute{% endif %}</p>{% endfor %}
+<details><summary>Open controlepunten en bronnen voor {{ x.naam }}</summary>
+<ul>{% for p in b.controlepunten %}<li>{{ p }}</li>{% endfor %}</ul>
+{% for k,v in b.kwaliteit.items() %}<p>{{ k }}: {{ v.status }} · {{ v.methode }} · laatste controle {{ v.laatste_controle or 'onbekend' }} · hercontrole {{ v.hercontrole_op or 'onbekend' }} · publicatie {{ v.publicatiedatum or 'onbekend' }}{% if v.bron_url %} <a href="{{ v.bron_url }}" rel="noreferrer noopener">Bron {{ k }} {{ x.naam }}</a>{% endif %}</p>{% endfor %}
+</details>
+{% endmacro %}
+{% block titel %}Keuzewerkplek · Zorgzoeker{% endblock %}
+{% block inhoud %}
+<h1>{{ 'Vergelijken' if vergelijk else 'Controleerbare keuzewerkplek' }}</h1>
+<p>Consulentenpilot: gebruik uitsluitend fictieve casussen, geen namen, BSN, adressen of herleidbare gegevens. Geen automatische toewijzing.</p>
+<p><a href="/kwaliteit">Kwaliteitswerklijst (alleen lezen)</a> · <a href="/">Bestaande zoekpagina</a></p>
+{% if vergelijk %}<form action="/zoeken" method="post">{{ toestand(d,ids) }}<button>Terug naar zoeken met selectie</button></form>{% else %}
+<form action="/zoeken" method="post" class="pilot-form">
+<label>Zorgvraag <input name="q" maxlength="500" value="{{ d.q or '' }}"></label>
+<label>Verantwoordelijke gemeente <input name="gemeente" value="{{ d.gemeente or '' }}" placeholder="Bijvoorbeeld Nijmegen"></label>
+<p>Bevestig de verantwoordelijke gemeente; Zorgzoeker bepaalt niet het woonplaatsbeginsel.</p>
+<details><summary>Aanvullende filters</summary>{% for k in ['productcode','doelgroep','vestigingsplaats','gecontracteerd','op_datum'] %}<label>{{ k }} <input name="{{ k }}" {% if k=='op_datum' %}type="date"{% endif %} value="{{ d[k] or '' }}"></label>{% endfor %}</details>
+{% for id in ids %}<input name="ids" type="hidden" value="{{ id }}">{% endfor %}
+<button>Zoek en controleer</button>
+</form>
+{% endif %}
+<section><h2>Begrepen vraag — controleer en pas aan</h2>
+<p>Gemeente: {{ r.context.gemeente or 'nog bevestigen' }} · beoordeling {{ r.context.op_datum }}</p>
+<details><summary>Interpretatie aanpassen: leeftijden {{ r.context.leeftijden|join("; ") }} · hulp {{ r.context.concepten|join(", ") }} · uitsluitingen {{ r.context.uitsluitingen|join(", ") }}</summary>
+<form action="/zoeken" method="post" class="pilot-form">
+{% for k in ['q','gemeente','productcode','doelgroep','vestigingsplaats','gecontracteerd','op_datum'] %}<input type="hidden" name="{{ k }}" value="{{ d[k] or '' }}">{% endfor %}
+<input type="hidden" name="aanpassing" value="1">
+<label>Leeftijden (scheiden met ; decimalen met komma)<input name="leeftijden" value="{{ r.context.leeftijden|join(';') }}"></label>
+<label>Hulpvraagbegrippen<select name="concepten" multiple size="6">{% for c,label in labels.items() %}<option value="{{ c }}" {% if c in r.context.concepten %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+<label>Uitsluitingen<select name="uitsluitingen" multiple size="4">{% for c,label in labels.items() %}<option value="{{ c }}" {% if c in r.context.uitsluitingen %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+{% for id in ids %}<input type="hidden" name="ids" value="{{ id }}">{% endfor %}<button>Gebruik aangepaste interpretatie</button></form></details>
+</section>
+{% for m in r.meldingen %}<p role="status">{{ m }}</p>{% endfor %}
+<form id="pilot-vergelijk" action="/vergelijken" method="post">{{ toestand(d,[]) }}
+<p id="pilot-teller">Selecteer twee of drie aanbieders.</p><button id="pilot-knop" {% if ids|length<2 %}disabled{% endif %}>Vergelijk selectie</button>
+<button formaction="/bronchecklijst">Download bronchecklijst zonder casustekst</button>
+</form>
+{% for x in buiten_selectie %}<label><input form="pilot-vergelijk" type="checkbox" name="ids" value="{{ x.id }}" checked> Selectie buiten huidige resultaten: {{ x.naam }}</label>{% endfor %}
+<section id="pilot-resultaten"><h2>{{ r.resultaten|length }} resultaten binnen de vraag en filters</h2>
+{% for x in r.resultaten %}<article class="kaart"><label><input type="checkbox" form="pilot-vergelijk" name="ids" value="{{ x.id }}" {% if x.id in ids %}checked{% endif %}> Vergelijk {{ x.naam }}</label>{{ oordeel(x) }}</article>{% endfor %}
+</section>
+{% if r.afgevallen and not vergelijk %}<details><summary>Afgevallen door leeftijd of stop ({{ r.afgevallen|length }}) — niet als beschikbare aanbeveling</summary>{% for x in r.afgevallen %}<article class="kaart">{{ oordeel(x) }}</article>{% endfor %}</details>{% endif %}
+<p>Dataversie {{ r.context.datasetversie }}</p>
+<script src="/statisch/pilot.js"></script>
+{% endblock %}
