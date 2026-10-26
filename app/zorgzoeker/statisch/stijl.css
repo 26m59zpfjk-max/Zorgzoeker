@@ -371,3 +371,13 @@ a.naam-link:hover, a.naam-link:focus-visible { text-decoration-thickness: 2px; }
 .kaart details.meer > summary { min-height: 44px; cursor: pointer; }
 .contractdetails, .beschikbaarheidsregel { overflow-wrap: anywhere; }
 @media (max-width: 600px) { .kaart-kern { grid-template-columns: minmax(0, 1fr); gap: .55rem; } }
+
+#ai-vraag { display:block; width:100%; max-width:100%; min-height:8rem; font:inherit; padding:.6rem; }
+#ai-interpretatie form { display:grid; gap:.8rem; }
+#ai-interpretatie label { display:grid; gap:.3rem; min-width:0; }
+#ai-interpretatie select { width:100%; }
+#ai-interpretatie input, #ai-resultaten { max-width:100%; overflow-wrap:anywhere; }
+
+.ai-pilot .kies { white-space:normal; max-width:100%; }
+#ai-interpretatie .kies { display:flex; align-items:flex-start; gap:.5rem; }
+.ai-pilot .kies input { flex-shrink:0; }

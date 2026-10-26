@@ -1,0 +1,1333 @@
+[
+  {
+    "id": 1,
+    "vraag": "Een meisje van 14 is bang voor besmetting, wast steeds haar handen en durft nauwelijks naar school. Ouders willen behandeling zonder medicatie.",
+    "concepten": [
+      "angst",
+      "dwang",
+      "school"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "dwang/dienst",
+      "school/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "dwang/dienst",
+      "school/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 2,
+    "vraag": "Jongen van 12 wordt snel boos en is thuis agressief.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 3,
+    "vraag": "Puber van 15 heeft angstklachten.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      15
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 4,
+    "vraag": "Kinderen van 6 en 14 hebben allebei ondersteuning nodig.",
+    "concepten": [],
+    "relevante_diensten": [],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      6,
+      14
+    ],
+    "beste_diensten": []
+  },
+  {
+    "id": 5,
+    "vraag": "Geen medicatie, wel behandeling voor angst bij een kind van 12.",
+    "concepten": [
+      "angst",
+      "behandeling"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 6,
+    "vraag": "Ouders zijn verwikkeld in een vechtscheiding en hun kind van 9 heeft hulp nodig.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 7,
+    "vraag": "Jongere van 16 met ASS en vermoedelijke ADHD zoekt begeleiding.",
+    "concepten": [
+      "ass",
+      "adhd"
+    ],
+    "relevante_diensten": [
+      "ass/dienst",
+      "adhd/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      16
+    ],
+    "beste_diensten": [
+      "assadhd/dienst"
+    ]
+  },
+  {
+    "id": 8,
+    "vraag": "Een kind van 10 is dagelijks bang dat er iets naars gebeurt.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 9,
+    "vraag": "Meisje van 13 raakt in paniek zodra ze alleen moet slapen.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      13
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 10,
+    "vraag": "Jongen van 11 vermijdt alles omdat hij voortdurend bang is.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      11
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 11,
+    "vraag": "Dochter van 9 piekert de hele dag en durft niets nieuws te proberen.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 12,
+    "vraag": "Kind van 7 voelt overal gevaar en wil leren omgaan met die angst.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      7
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 13,
+    "vraag": "Een tiener van 16 zoekt hulp voor paniekaanvallen.",
+    "concepten": [
+      "angst"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      16
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 14,
+    "vraag": "Kind van 8 controleert steeds of de deur echt dicht is en kan niet stoppen.",
+    "concepten": [
+      "dwang"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      8
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 15,
+    "vraag": "Jongere van 15 moet alles zeven keer aanraken om zich veilig te voelen.",
+    "concepten": [
+      "dwang"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      15
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 16,
+    "vraag": "Een jongen van 12 wast zijn handen tot de huid stuk is uit vrees voor vuil.",
+    "concepten": [
+      "dwang"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 17,
+    "vraag": "Meisje van 14 heeft OCD en zoekt behandeling.",
+    "concepten": [
+      "dwang",
+      "behandeling"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 18,
+    "vraag": "Kind van 11 wordt beheerst door dwanggedachten.",
+    "concepten": [
+      "dwang"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      11
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 19,
+    "vraag": "Jongen van 10 heeft smetvrees.",
+    "concepten": [
+      "dwang"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 20,
+    "vraag": "Meisje van 13 heeft dwanghandelingen, zonder medicatie.",
+    "concepten": [
+      "dwang"
+    ],
+    "relevante_diensten": [
+      "dwang/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      13
+    ],
+    "beste_diensten": [
+      "dwang/dienst"
+    ]
+  },
+  {
+    "id": 21,
+    "vraag": "Sinds een ongeluk beleeft een kind van 9 de nare gebeurtenis telkens opnieuw.",
+    "concepten": [
+      "trauma"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 22,
+    "vraag": "Kind van 10 zoekt EMDR voor trauma.",
+    "concepten": [
+      "emdr",
+      "trauma"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 23,
+    "vraag": "Na geweld blijft een meisje van 14 herbelevingen houden.",
+    "concepten": [
+      "trauma"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 24,
+    "vraag": "Jongen van 12 heeft PTSS.",
+    "concepten": [
+      "trauma"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 25,
+    "vraag": "Een kind van 8 wil traumabehandeling.",
+    "concepten": [
+      "trauma"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      8
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 26,
+    "vraag": "Meisje van 11 zoekt EMDR na een ingrijpende ervaring.",
+    "concepten": [
+      "emdr"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      11
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 27,
+    "vraag": "Jongen van 15 schrikt sinds een overval van ieder geluid en heeft herbelevingen.",
+    "concepten": [
+      "trauma"
+    ],
+    "relevante_diensten": [
+      "trauma/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      15
+    ],
+    "beste_diensten": [
+      "trauma/dienst"
+    ]
+  },
+  {
+    "id": 28,
+    "vraag": "Kind van 9 slaat zijn broer wanneer iets niet lukt.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 29,
+    "vraag": "Een tiener van 14 heeft dagelijks driftbuien.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 30,
+    "vraag": "Jongen van 10 heeft moeite zijn boosheid te reguleren.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 31,
+    "vraag": "Meisje van 12 zoekt hulp voor agressie.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 32,
+    "vraag": "Een kind van 8 heeft ernstige gedragsproblemen thuis.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      8
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 33,
+    "vraag": "Puber van 16 ontploft bij iedere grens die ouders stellen.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [
+      "gedrag/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      16
+    ],
+    "beste_diensten": [
+      "gedrag/dienst"
+    ]
+  },
+  {
+    "id": 34,
+    "vraag": "Een kind van 11 zit al maanden thuis en gaat niet naar de lessen.",
+    "concepten": [
+      "school"
+    ],
+    "relevante_diensten": [
+      "school/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      11
+    ],
+    "beste_diensten": [
+      "school/dienst"
+    ]
+  },
+  {
+    "id": 35,
+    "vraag": "Meisje van 14 weigert iedere ochtend naar school te gaan.",
+    "concepten": [
+      "school"
+    ],
+    "relevante_diensten": [
+      "school/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "school/dienst"
+    ]
+  },
+  {
+    "id": 36,
+    "vraag": "Jongen van 13 is een thuiszitter.",
+    "concepten": [
+      "school"
+    ],
+    "relevante_diensten": [
+      "school/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      13
+    ],
+    "beste_diensten": [
+      "school/dienst"
+    ]
+  },
+  {
+    "id": 37,
+    "vraag": "Een kind van 10 wil weer onderwijs volgen na langdurige schooluitval.",
+    "concepten": [
+      "school"
+    ],
+    "relevante_diensten": [
+      "school/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "school/dienst"
+    ]
+  },
+  {
+    "id": 38,
+    "vraag": "Puber van 15 zoekt hulp voor schoolweigering.",
+    "concepten": [
+      "school"
+    ],
+    "relevante_diensten": [
+      "school/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      15
+    ],
+    "beste_diensten": [
+      "school/dienst"
+    ]
+  },
+  {
+    "id": 39,
+    "vraag": "Kind van 12 komt het schoolgebouw niet meer in.",
+    "concepten": [
+      "school"
+    ],
+    "relevante_diensten": [
+      "school/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "school/dienst"
+    ]
+  },
+  {
+    "id": 40,
+    "vraag": "Een meisje van 9 met autisme zoekt ambulante begeleiding.",
+    "concepten": [
+      "ass",
+      "ambulant"
+    ],
+    "relevante_diensten": [
+      "ass/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "ass/dienst",
+      "assadhd/dienst"
+    ]
+  },
+  {
+    "id": 41,
+    "vraag": "Jongen van 11 met ASS heeft ondersteuning nodig.",
+    "concepten": [
+      "ass"
+    ],
+    "relevante_diensten": [
+      "ass/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      11
+    ],
+    "beste_diensten": [
+      "ass/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 42,
+    "vraag": "Kind van 13 met AD(H)D zoekt begeleiding.",
+    "concepten": [
+      "adhd"
+    ],
+    "relevante_diensten": [
+      "adhd/dienst",
+      "assadhd/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      13
+    ],
+    "beste_diensten": [
+      "adhd/dienst",
+      "assadhd/dienst"
+    ]
+  },
+  {
+    "id": 43,
+    "vraag": "Puber van 15 met ADHD heeft moeite met plannen.",
+    "concepten": [
+      "adhd"
+    ],
+    "relevante_diensten": [
+      "adhd/dienst",
+      "assadhd/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      15
+    ],
+    "beste_diensten": [
+      "adhd/dienst",
+      "assadhd/dienst"
+    ]
+  },
+  {
+    "id": 44,
+    "vraag": "Een kind van 10 met autisme en ADHD zoekt hulp.",
+    "concepten": [
+      "ass",
+      "adhd"
+    ],
+    "relevante_diensten": [
+      "ass/dienst",
+      "adhd/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "assadhd/dienst"
+    ]
+  },
+  {
+    "id": 45,
+    "vraag": "Jongen van 12 met ADD heeft concentratieproblemen.",
+    "concepten": [
+      "adhd"
+    ],
+    "relevante_diensten": [
+      "adhd/dienst",
+      "assadhd/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "adhd/dienst",
+      "assadhd/dienst"
+    ]
+  },
+  {
+    "id": 46,
+    "vraag": "Meisje van 14 met ASS wil meer zelfstandigheid leren.",
+    "concepten": [
+      "ass"
+    ],
+    "relevante_diensten": [
+      "ass/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "ass/dienst",
+      "assadhd/dienst",
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 47,
+    "vraag": "Kind van 9 raakt klem tussen ouders die voortdurend ruzie maken over de scheiding.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 48,
+    "vraag": "Ouders van een kind van 6 zitten in een complexe scheiding.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      6
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 49,
+    "vraag": "Jongere van 14 zoekt hulp bij de echtscheiding van ouders.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      14
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 50,
+    "vraag": "Na het uit elkaar gaan van ouders heeft een kind van 8 gezinsbegeleiding nodig.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      8
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 51,
+    "vraag": "Een kind van 10 heeft last van een vechtscheiding.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 52,
+    "vraag": "Meisje van 12 zit tussen twee strijdende gescheiden ouders in.",
+    "concepten": [
+      "echtscheiding"
+    ],
+    "relevante_diensten": [
+      "scheiding/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "scheiding/dienst"
+    ]
+  },
+  {
+    "id": 53,
+    "vraag": "Ouders zoeken een logeerweekend voor hun kind van 9.",
+    "concepten": [
+      "logeer"
+    ],
+    "relevante_diensten": [
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      9
+    ],
+    "beste_diensten": [
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 54,
+    "vraag": "Kind van 8 met LVB heeft respijtzorg nodig.",
+    "concepten": [
+      "lvb",
+      "logeer"
+    ],
+    "relevante_diensten": [
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      8
+    ],
+    "beste_diensten": [
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 55,
+    "vraag": "Een gezin heeft tijdelijk ontlasting nodig, hun kind van 10 zoekt logeeropvang.",
+    "concepten": [
+      "logeer"
+    ],
+    "relevante_diensten": [
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      10
+    ],
+    "beste_diensten": [
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 56,
+    "vraag": "Jongere van 16 met autisme zoekt een logeerhuis.",
+    "concepten": [
+      "ass",
+      "logeer"
+    ],
+    "relevante_diensten": [
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      16
+    ],
+    "beste_diensten": [
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 57,
+    "vraag": "Een jongen van 12 wil in het weekend logeren zodat ouders op adem komen.",
+    "concepten": [
+      "logeer"
+    ],
+    "relevante_diensten": [
+      "respijt/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      12
+    ],
+    "beste_diensten": [
+      "respijt/dienst"
+    ]
+  },
+  {
+    "id": 58,
+    "vraag": "Jongere van 18 zoekt behandeling voor angst.",
+    "concepten": [
+      "angst",
+      "behandeling"
+    ],
+    "relevante_diensten": [
+      "volwassen/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      18
+    ],
+    "beste_diensten": [
+      "volwassen/dienst"
+    ]
+  },
+  {
+    "id": 59,
+    "vraag": "Kinderen van 6 en 14 zoeken behandeling voor angst.",
+    "concepten": [
+      "angst",
+      "behandeling"
+    ],
+    "relevante_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      6,
+      14
+    ],
+    "beste_diensten": [
+      "angst/dienst",
+      "stop/dienst",
+      "onder/dienst"
+    ]
+  },
+  {
+    "id": 60,
+    "vraag": "Kind van 3 met gedragsproblemen zoekt hulp.",
+    "concepten": [
+      "gedrag"
+    ],
+    "relevante_diensten": [],
+    "filters": {
+      "gemeente": "Nijmegen",
+      "op_datum": "2026-10-26"
+    },
+    "beoordeling": "Handmatig door implementerende AI vastgelegd op basis van expliciete fictieve profielen; niet door een onafhankelijke jeugdprofessional beoordeeld.",
+    "leeftijden": [
+      3
+    ],
+    "beste_diensten": []
+  }
+]

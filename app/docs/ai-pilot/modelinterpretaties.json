@@ -1,0 +1,1644 @@
+{
+  "samenvatting": {
+    "model": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "embeddings_sha256": "f80102d3f2a1229f387d3c81909990d8945513e347b0eab049f7de3c6f98c193",
+    "llama_cpp": "b11890 a07421535",
+    "uitgevoerd_op": "2026-10-26",
+    "vragen": 60,
+    "waarschuwing": "Werkelijk lokaal uitgevoerde modelinterpretaties en oorspronkelijke looptijden. Na validatie/terugval, geen ruwe LLM-antwoorden. Finale zoeklaag wordt hiermee opnieuw uitgevoerd; geen nieuwe modelcalls."
+  },
+  "resultaten": [
+    {
+      "id": 1,
+      "vraag": "Een meisje van 14 is bang voor besmetting, wast steeds haar handen en durft nauwelijks naar school. Ouders willen behandeling zonder medicatie.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "behandeling",
+            "citaat": "Een meisje van 14 is bang voor besmetting, wast steeds haar handen en durft nauwelijks naar school. Ouders willen behandeling zonder medicatie.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [
+          {
+            "concept": "medicatie",
+            "citaat": "Een meisje van 14 is bang voor besmetting, wast steeds haar handen en durft nauwelijks naar school. Ouders willen behandeling zonder medicatie.",
+            "bron": "zoekregels"
+          }
+        ],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 13541.1516879999
+    },
+    {
+      "id": 2,
+      "vraag": "Jongen van 12 wordt snel boos en is thuis agressief.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 4968.297451999661
+    },
+    {
+      "id": 3,
+      "vraag": "Puber van 15 heeft angstklachten.",
+      "interpretatie": {
+        "leeftijden": [
+          15
+        ],
+        "signalen": [
+          {
+            "concept": "angst",
+            "citaat": "Puber van 15 heeft angstklachten.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 4751.743940999859
+    },
+    {
+      "id": 4,
+      "vraag": "Kinderen van 6 en 14 hebben allebei ondersteuning nodig.",
+      "interpretatie": {
+        "leeftijden": [
+          6.0,
+          14.0
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Kinderen van 6 en 14 hebben allebei ondersteuning nodig.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6248.905686999933
+    },
+    {
+      "id": 5,
+      "vraag": "Geen medicatie, wel behandeling voor angst bij een kind van 12.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "behandeling",
+            "citaat": "Geen medicatie, wel behandeling voor angst bij een kind van 12.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "angst",
+            "citaat": "Geen medicatie, wel behandeling voor angst bij een kind van 12.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [
+          {
+            "concept": "medicatie",
+            "citaat": "Geen medicatie, wel behandeling voor angst bij een kind van 12.",
+            "bron": "zoekregels"
+          }
+        ],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 21833.818421999695
+    },
+    {
+      "id": 6,
+      "vraag": "Ouders zijn verwikkeld in een vechtscheiding en hun kind van 9 heeft hulp nodig.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Ouders zijn verwikkeld in een vechtscheiding en hun kind van 9 heeft hulp nodig.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 9001.495180999882
+    },
+    {
+      "id": 7,
+      "vraag": "Jongere van 16 met ASS en vermoedelijke ADHD zoekt begeleiding.",
+      "interpretatie": {
+        "leeftijden": [
+          16
+        ],
+        "signalen": [
+          {
+            "concept": "ass",
+            "citaat": "Jongere van 16 met ASS en vermoedelijke ADHD zoekt begeleiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "adhd",
+            "citaat": "Jongere van 16 met ASS en vermoedelijke ADHD zoekt begeleiding.",
+            "status": "mogelijk",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 14383.780511999703
+    },
+    {
+      "id": 8,
+      "vraag": "Een kind van 10 is dagelijks bang dat er iets naars gebeurt.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "dagelijks bang dat er iets naars gebeurt",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5680.775900000299
+    },
+    {
+      "id": 9,
+      "vraag": "Meisje van 13 raakt in paniek zodra ze alleen moet slapen.",
+      "interpretatie": {
+        "leeftijden": [
+          13
+        ],
+        "signalen": [
+          {
+            "concept": "angst",
+            "citaat": "Meisje van 13 raakt in paniek zodra ze alleen moet slapen.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Meisje van 13 raakt in paniek zodra ze alleen moet slapen.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 7970.096196999748
+    },
+    {
+      "id": 10,
+      "vraag": "Jongen van 11 vermijdt alles omdat hij voortdurend bang is.",
+      "interpretatie": {
+        "leeftijden": [
+          11
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Jongen van 11 vermijdt alles omdat hij voortdurend bang is.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6362.368358999902
+    },
+    {
+      "id": 11,
+      "vraag": "Dochter van 9 piekert de hele dag en durft niets nieuws te proberen.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "piekert de hele dag",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          },
+          {
+            "concept": "verslaving",
+            "citaat": "durft niets nieuws te proberen",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 8032.709673000227
+    },
+    {
+      "id": 12,
+      "vraag": "Kind van 7 voelt overal gevaar en wil leren omgaan met die angst.",
+      "interpretatie": {
+        "leeftijden": [
+          7
+        ],
+        "signalen": [
+          {
+            "concept": "angst",
+            "citaat": "Kind van 7 voelt overal gevaar en wil leren omgaan met die angst.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Kind van 7 voelt overal gevaar",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          },
+          {
+            "concept": "verslaving",
+            "citaat": "wil leren omgaan met die angst",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 9057.631338999727
+    },
+    {
+      "id": 13,
+      "vraag": "Een tiener van 16 zoekt hulp voor paniekaanvallen.",
+      "interpretatie": {
+        "leeftijden": [
+          16
+        ],
+        "signalen": [
+          {
+            "concept": "angst",
+            "citaat": "Een tiener van 16 zoekt hulp voor paniekaanvallen.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "paniekaanvallen",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          },
+          {
+            "concept": "verslaving",
+            "citaat": "paniekaanvallen",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          },
+          {
+            "concept": "echtscheiding",
+            "citaat": "paniekaanvallen",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 16916.492889999972
+    },
+    {
+      "id": 14,
+      "vraag": "Kind van 8 controleert steeds of de deur echt dicht is en kan niet stoppen.",
+      "interpretatie": {
+        "leeftijden": [
+          8
+        ],
+        "signalen": [],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6974.399829000049
+    },
+    {
+      "id": 15,
+      "vraag": "Jongere van 15 moet alles zeven keer aanraken om zich veilig te voelen.",
+      "interpretatie": {
+        "leeftijden": [
+          15
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Jongere van 15 moet alles zeven keer aanraken om zich veilig te voelen.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6594.66456500013
+    },
+    {
+      "id": 16,
+      "vraag": "Een jongen van 12 wast zijn handen tot de huid stuk is uit vrees voor vuil.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "wast zijn handen tot de huid stuk is uit vrees voor vuil",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6181.7869799997425
+    },
+    {
+      "id": 17,
+      "vraag": "Meisje van 14 heeft OCD en zoekt behandeling.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Meisje van 14 heeft OCD en zoekt behandeling.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "behandeling",
+            "citaat": "Meisje van 14 heeft OCD en zoekt behandeling.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 12538.95968300003
+    },
+    {
+      "id": 18,
+      "vraag": "Kind van 11 wordt beheerst door dwanggedachten.",
+      "interpretatie": {
+        "leeftijden": [
+          11
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Kind van 11 wordt beheerst door dwanggedachten.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6028.411107000011
+    },
+    {
+      "id": 19,
+      "vraag": "Jongen van 10 heeft smetvrees.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Jongen van 10 heeft smetvrees.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5692.263011999785
+    },
+    {
+      "id": 20,
+      "vraag": "Meisje van 13 heeft dwanghandelingen, zonder medicatie.",
+      "interpretatie": {
+        "leeftijden": [
+          13
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Meisje van 13 heeft dwanghandelingen, zonder medicatie.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [
+          {
+            "concept": "medicatie",
+            "citaat": "Meisje van 13 heeft dwanghandelingen, zonder medicatie.",
+            "bron": "zoekregels"
+          }
+        ],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6026.833475999865
+    },
+    {
+      "id": 21,
+      "vraag": "Sinds een ongeluk beleeft een kind van 9 de nare gebeurtenis telkens opnieuw.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "trauma",
+            "citaat": "Sinds een ongeluk beleeft een kind van 9 de nare gebeurtenis telkens opnieuw.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Sinds een ongeluk beleeft een kind van 9 de nare gebeurtenis telkens opnieuw",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 7567.174066000007
+    },
+    {
+      "id": 22,
+      "vraag": "Kind van 10 zoekt EMDR voor trauma.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "emdr",
+            "citaat": "Kind van 10 zoekt EMDR voor trauma.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "trauma",
+            "citaat": "Kind van 10 zoekt EMDR voor trauma.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6459.215798000059
+    },
+    {
+      "id": 23,
+      "vraag": "Na geweld blijft een meisje van 14 herbelevingen houden.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Na geweld blijft een meisje van 14 herbelevingen houden",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 7417.1176820000255
+    },
+    {
+      "id": 24,
+      "vraag": "Jongen van 12 heeft PTSS.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "trauma",
+            "citaat": "Jongen van 12 heeft PTSS.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 9949.923245000264
+    },
+    {
+      "id": 25,
+      "vraag": "Een kind van 8 wil traumabehandeling.",
+      "interpretatie": {
+        "leeftijden": [
+          8
+        ],
+        "signalen": [
+          {
+            "concept": "trauma",
+            "citaat": "Een kind van 8 wil traumabehandeling.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5611.128973000177
+    },
+    {
+      "id": 26,
+      "vraag": "Meisje van 11 zoekt EMDR na een ingrijpende ervaring.",
+      "interpretatie": {
+        "leeftijden": [
+          11
+        ],
+        "signalen": [
+          {
+            "concept": "emdr",
+            "citaat": "Meisje van 11 zoekt EMDR na een ingrijpende ervaring.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "echtscheiding",
+            "citaat": "Meisje van 11 zoekt EMDR na een ingrijpende ervaring",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6225.547086999995
+    },
+    {
+      "id": 27,
+      "vraag": "Jongen van 15 schrikt sinds een overval van ieder geluid en heeft herbelevingen.",
+      "interpretatie": {
+        "leeftijden": [
+          15
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Jongen van 15 schrikt sinds een overval van ieder geluid",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          },
+          {
+            "concept": "verslaving",
+            "citaat": "herbelevingen",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 10783.416511999803
+    },
+    {
+      "id": 28,
+      "vraag": "Kind van 9 slaat zijn broer wanneer iets niet lukt.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "slaat zijn broer wanneer iets niet lukt",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5415.096684999753
+    },
+    {
+      "id": 29,
+      "vraag": "Een tiener van 14 heeft dagelijks driftbuien.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "gedrag",
+            "citaat": "Een tiener van 14 heeft dagelijks driftbuien.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "driftbuien",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 4534.866824000346
+    },
+    {
+      "id": 30,
+      "vraag": "Jongen van 10 heeft moeite zijn boosheid te reguleren.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "gedrag",
+            "citaat": "Jongen van 10 heeft moeite zijn boosheid te reguleren.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5730.513351999889
+    },
+    {
+      "id": 31,
+      "vraag": "Meisje van 12 zoekt hulp voor agressie.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "gedrag",
+            "citaat": "Meisje van 12 zoekt hulp voor agressie.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Meisje van 12 zoekt hulp voor agressie.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5387.733400000343
+    },
+    {
+      "id": 32,
+      "vraag": "Een kind van 8 heeft ernstige gedragsproblemen thuis.",
+      "interpretatie": {
+        "leeftijden": [
+          8
+        ],
+        "signalen": [
+          {
+            "concept": "gedrag",
+            "citaat": "Een kind van 8 heeft ernstige gedragsproblemen thuis.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 12672.708689000046
+    },
+    {
+      "id": 33,
+      "vraag": "Puber van 16 ontploft bij iedere grens die ouders stellen.",
+      "interpretatie": {
+        "leeftijden": [
+          16
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Puber van 16 ontploft bij iedere grens die ouders stellen.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6338.906276000216
+    },
+    {
+      "id": 34,
+      "vraag": "Een kind van 11 zit al maanden thuis en gaat niet naar de lessen.",
+      "interpretatie": {
+        "leeftijden": [
+          11
+        ],
+        "signalen": [],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 14771.34757299973
+    },
+    {
+      "id": 35,
+      "vraag": "Meisje van 14 weigert iedere ochtend naar school te gaan.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "dwang",
+            "citaat": "Meisje van 14 weigert iedere ochtend naar school te gaan",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6236.050962000263
+    },
+    {
+      "id": 36,
+      "vraag": "Jongen van 13 is een thuiszitter.",
+      "interpretatie": {
+        "leeftijden": [
+          13
+        ],
+        "signalen": [
+          {
+            "concept": "school",
+            "citaat": "Jongen van 13 is een thuiszitter.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Jongen van 13 is een thuiszitter.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5196.405455999866
+    },
+    {
+      "id": 37,
+      "vraag": "Een kind van 10 wil weer onderwijs volgen na langdurige schooluitval.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "school",
+            "citaat": "Een kind van 10 wil weer onderwijs volgen na langdurige schooluitval.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 12804.121759000282
+    },
+    {
+      "id": 38,
+      "vraag": "Puber van 15 zoekt hulp voor schoolweigering.",
+      "interpretatie": {
+        "leeftijden": [
+          15
+        ],
+        "signalen": [
+          {
+            "concept": "school",
+            "citaat": "Puber van 15 zoekt hulp voor schoolweigering.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Puber van 15 zoekt hulp voor schoolweigering.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 8127.919441999893
+    },
+    {
+      "id": 39,
+      "vraag": "Kind van 12 komt het schoolgebouw niet meer in.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "school",
+            "citaat": "school",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5750.2587349999885
+    },
+    {
+      "id": 40,
+      "vraag": "Een meisje van 9 met autisme zoekt ambulante begeleiding.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "ass",
+            "citaat": "Een meisje van 9 met autisme zoekt ambulante begeleiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "ambulant",
+            "citaat": "Een meisje van 9 met autisme zoekt ambulante begeleiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 32519.010167000033
+    },
+    {
+      "id": 41,
+      "vraag": "Jongen van 11 met ASS heeft ondersteuning nodig.",
+      "interpretatie": {
+        "leeftijden": [
+          11
+        ],
+        "signalen": [
+          {
+            "concept": "ass",
+            "citaat": "Jongen van 11 met ASS heeft ondersteuning nodig.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 23360.701704999883
+    },
+    {
+      "id": 42,
+      "vraag": "Kind van 13 met AD(H)D zoekt begeleiding.",
+      "interpretatie": {
+        "leeftijden": [
+          13
+        ],
+        "signalen": [
+          {
+            "concept": "adhd",
+            "citaat": "Kind van 13 met AD(H)D zoekt begeleiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Kind van 13 met AD(H)D zoekt begeleiding.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 8836.772002000089
+    },
+    {
+      "id": 43,
+      "vraag": "Puber van 15 met ADHD heeft moeite met plannen.",
+      "interpretatie": {
+        "leeftijden": [
+          15
+        ],
+        "signalen": [
+          {
+            "concept": "adhd",
+            "citaat": "Puber van 15 met ADHD heeft moeite met plannen.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 9142.329731000245
+    },
+    {
+      "id": 44,
+      "vraag": "Een kind van 10 met autisme en ADHD zoekt hulp.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "ass",
+            "citaat": "Een kind van 10 met autisme en ADHD zoekt hulp.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "adhd",
+            "citaat": "Een kind van 10 met autisme en ADHD zoekt hulp.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 31518.015789999936
+    },
+    {
+      "id": 45,
+      "vraag": "Jongen van 12 met ADD heeft concentratieproblemen.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "adhd",
+            "citaat": "Jongen van 12 met ADD heeft concentratieproblemen.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dyscalculie",
+            "citaat": "Jongen van 12 met ADD heeft concentratieproblemen.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          },
+          {
+            "concept": "dyslexie",
+            "citaat": "Jongen van 12 met ADD heeft concentratieproblemen.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 22882.16281599989
+    },
+    {
+      "id": 46,
+      "vraag": "Meisje van 14 met ASS wil meer zelfstandigheid leren.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "ass",
+            "citaat": "Meisje van 14 met ASS wil meer zelfstandigheid leren.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Meisje van 14 met ASS wil meer zelfstandigheid leren.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 9268.696897000154
+    },
+    {
+      "id": 47,
+      "vraag": "Kind van 9 raakt klem tussen ouders die voortdurend ruzie maken over de scheiding.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Kind van 9 raakt klem tussen ouders die voortdurend ruzie maken over de scheiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "ouders die voortdurend ruzie maken over de scheiding",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 14686.007996000171
+    },
+    {
+      "id": 48,
+      "vraag": "Ouders van een kind van 6 zitten in een complexe scheiding.",
+      "interpretatie": {
+        "leeftijden": [
+          6
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Ouders van een kind van 6 zitten in een complexe scheiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6463.448718000109
+    },
+    {
+      "id": 49,
+      "vraag": "Jongere van 14 zoekt hulp bij de echtscheiding van ouders.",
+      "interpretatie": {
+        "leeftijden": [
+          14
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Jongere van 14 zoekt hulp bij de echtscheiding van ouders.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 13694.06059999983
+    },
+    {
+      "id": 50,
+      "vraag": "Na het uit elkaar gaan van ouders heeft een kind van 8 gezinsbegeleiding nodig.",
+      "interpretatie": {
+        "leeftijden": [
+          8
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Na het uit elkaar gaan van ouders heeft een kind van 8 gezinsbegeleiding nodig.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6854.036501999872
+    },
+    {
+      "id": 51,
+      "vraag": "Een kind van 10 heeft last van een vechtscheiding.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Een kind van 10 heeft last van een vechtscheiding.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 12311.394220999773
+    },
+    {
+      "id": 52,
+      "vraag": "Meisje van 12 zit tussen twee strijdende gescheiden ouders in.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "echtscheiding",
+            "citaat": "Meisje van 12 zit tussen twee strijdende gescheiden ouders in.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 6249.599922000016
+    },
+    {
+      "id": 53,
+      "vraag": "Ouders zoeken een logeerweekend voor hun kind van 9.",
+      "interpretatie": {
+        "leeftijden": [
+          9
+        ],
+        "signalen": [
+          {
+            "concept": "logeer",
+            "citaat": "Ouders zoeken een logeerweekend voor hun kind van 9.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 22624.41506999994
+    },
+    {
+      "id": 54,
+      "vraag": "Kind van 8 met LVB heeft respijtzorg nodig.",
+      "interpretatie": {
+        "leeftijden": [
+          8
+        ],
+        "signalen": [
+          {
+            "concept": "lvb",
+            "citaat": "Kind van 8 met LVB heeft respijtzorg nodig.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "logeer",
+            "citaat": "Kind van 8 met LVB heeft respijtzorg nodig.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 4962.953594999817
+    },
+    {
+      "id": 55,
+      "vraag": "Een gezin heeft tijdelijk ontlasting nodig, hun kind van 10 zoekt logeeropvang.",
+      "interpretatie": {
+        "leeftijden": [
+          10
+        ],
+        "signalen": [
+          {
+            "concept": "logeer",
+            "citaat": "Een gezin heeft tijdelijk ontlasting nodig, hun kind van 10 zoekt logeeropvang.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 9786.971138999888
+    },
+    {
+      "id": 56,
+      "vraag": "Jongere van 16 met autisme zoekt een logeerhuis.",
+      "interpretatie": {
+        "leeftijden": [
+          16
+        ],
+        "signalen": [
+          {
+            "concept": "ass",
+            "citaat": "Jongere van 16 met autisme zoekt een logeerhuis.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "logeer",
+            "citaat": "Jongere van 16 met autisme zoekt een logeerhuis.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 8231.273044999853
+    },
+    {
+      "id": 57,
+      "vraag": "Een jongen van 12 wil in het weekend logeren zodat ouders op adem komen.",
+      "interpretatie": {
+        "leeftijden": [
+          12
+        ],
+        "signalen": [
+          {
+            "concept": "logeer",
+            "citaat": "Een jongen van 12 wil in het weekend logeren zodat ouders op adem komen.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "school",
+            "citaat": "Een jongen van 12 wil in het weekend logeren zodat ouders op adem komen.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 13927.754879000076
+    },
+    {
+      "id": 58,
+      "vraag": "Jongere van 18 zoekt behandeling voor angst.",
+      "interpretatie": {
+        "leeftijden": [
+          18
+        ],
+        "signalen": [
+          {
+            "concept": "behandeling",
+            "citaat": "Jongere van 18 zoekt behandeling voor angst.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "angst",
+            "citaat": "Jongere van 18 zoekt behandeling voor angst.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Jongere van 18 zoekt behandeling voor angst.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5512.0107739999185
+    },
+    {
+      "id": 59,
+      "vraag": "Kinderen van 6 en 14 zoeken behandeling voor angst.",
+      "interpretatie": {
+        "leeftijden": [
+          6.0,
+          14.0
+        ],
+        "signalen": [
+          {
+            "concept": "behandeling",
+            "citaat": "Kinderen van 6 en 14 zoeken behandeling voor angst.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "angst",
+            "citaat": "Kinderen van 6 en 14 zoeken behandeling voor angst.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          },
+          {
+            "concept": "dwang",
+            "citaat": "Kinderen van 6 en 14 zoeken behandeling voor angst.",
+            "status": "mogelijk",
+            "bron": "modelinterpretatie"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Interpretatievoorstel, geen diagnose. Controleer en bevestig vóór zoeken."
+        ],
+        "backend": "lokaal_taalmodel",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 5544.172937999974
+    },
+    {
+      "id": 60,
+      "vraag": "Kind van 3 met gedragsproblemen zoekt hulp.",
+      "interpretatie": {
+        "leeftijden": [
+          3
+        ],
+        "signalen": [
+          {
+            "concept": "gedrag",
+            "citaat": "Kind van 3 met gedragsproblemen zoekt hulp.",
+            "status": "genoemd",
+            "bron": "zoekregels"
+          }
+        ],
+        "uitsluitingen": [],
+        "waarschuwingen": [
+          "Modelantwoord onbruikbaar; bestaande zoekregels gebruikt."
+        ],
+        "backend": "regel_fallback",
+        "bevestigd": false
+      },
+      "interpretatie_ms": 14655.953769999996
+    }
+  ]
+}

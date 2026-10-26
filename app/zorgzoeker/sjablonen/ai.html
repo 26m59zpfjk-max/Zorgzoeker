@@ -1,0 +1,66 @@
+{% extends "basis.html" %}
+{% block titel %}Lokale AI-pilot · Zorgzoeker{% endblock %}
+{% block inhoud %}
+<section class="zoekblok ai-pilot">
+  <h1>AI-zoekpilot — alleen fictieve casussen</h1>
+  <p>Gebruik geen echte of herleidbare cliëntgegevens. Deze pilot stelt geen diagnoses. <a href="/">Bestaande zoekmachine</a></p>
+  {% if ai_fout %}<p class="kaart-waarschuwing" role="alert">{{ ai_fout }}</p>{% endif %}
+  <form method="post" action="/ai">
+    <label for="ai-vraag">Fictieve zorgvraag</label>
+    <textarea id="ai-vraag" name="q" maxlength="500" rows="4" required>{{ q }}</textarea>
+    <label class="kies"><input type="checkbox" name="fictief" value="1" required> Dit is uitsluitend een fictieve casus</label>
+    <button name="actie" value="interpreteer">Toon interpretatie</button>
+  </form>
+</section>
+{% if interpretatie %}
+<section class="zoekblok ai-pilot" id="ai-interpretatie">
+  <h2>Zo is de hulpvraag begrepen</h2>
+  <p>Gebruikte methode: {{ interpretatie.backend }}. Controleer mogelijke signalen; dit zijn geen vastgestelde diagnoses.</p>
+  {% for melding in interpretatie.waarschuwingen %}<p>{{ melding }}</p>{% endfor %}
+  <ul>{% for s in interpretatie.signalen %}<li>{{ conceptlabels[s.concept] }} · {{ s.status }} · “{{ s.citaat }}”</li>{% endfor %}</ul>
+  <form method="post" action="/ai">
+    <input type="hidden" name="q" value="{{ q }}">
+    <input type="hidden" name="fictief" value="1">
+    <input type="hidden" name="interpretatie" value="{{ interpretatie|tojson|forceescape }}">
+    <label>Leeftijden (scheiden met ; — bijvoorbeeld 6;14 of 17,5)
+      <input name="leeftijden" value="{{ interpretatie.leeftijden|join(';') }}">
+    </label>
+    <label>Problematiek en gewenste hulp (meerdere keuzes mogelijk)
+      <select name="concepten" multiple size="8">{% for c,label in conceptlabels.items() %}<option value="{{ c }}" {% if c in interpretatie.signalen|map(attribute='concept')|list %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+    </label>
+    <label>Uitgesloten methoden / zoekbegrippen
+      <select name="uitsluitingen" multiple size="4">{% for c,label in conceptlabels.items() %}<option value="{{ c }}" {% if c in interpretatie.uitsluitingen|map(attribute='concept')|list %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+    </label>
+    <label>Gemeente <input name="gemeente" placeholder="bijvoorbeeld Nijmegen"></label>
+    <label>Productcode <input name="productcode" placeholder="alleen indien bekend"></label>
+    <label class="kies"><input type="checkbox" name="bevestigd" value="1" required> Ik heb de interpretatie gecontroleerd en zo nodig aangepast</label>
+    <button name="actie" value="zoek">Zoek met deze interpretatie</button>
+  </form>
+</section>
+{% endif %}
+{% if ai_resultaat %}
+<section class="resultaten" id="ai-resultaten"><h2>{{ ai_resultaat.resultaten|length }} brongebonden resultaten</h2>
+  <p>Methode: {{ ai_resultaat.backend }}. Een inhoudelijke match geeft geen garantie op geschiktheid, contractgeldigheid of instroom.</p>
+  {% for waarschuwing in ai_resultaat.waarschuwingen %}<p>{{ waarschuwing }}</p>{% endfor %}
+  <ol class="kaarten">{% for r in ai_resultaat.resultaten %}<li><article class="kaart">
+    <h3>{{ r.naam }} · {{ r.dienst }}</h3>
+    {% if r.stop %}<p class="kaart-waarschuwing"><strong>STOP — niet toeleiden via de gestopte route.</strong></p>{% endif %}
+    <p>{{ r.reden }}</p>
+    <dl class="kaart-kern">
+      <div><dt>Inhoudelijke overeenkomst</dt><dd>{{ r.inhoudelijk or 'Volgens bestaande zoekregels' }}</dd></div>
+      <div><dt>Contract voor deze context</dt><dd>{{ r.contract.status }} · bronpeildatum {{ r.contract.peildatum or 'onbekend' }}, geen bewezen geldigheidsperiode</dd></div>
+      <div><dt>Momenteel beschikbaar</dt><dd>{{ r.beschikbaar }}</dd></div>
+      <div><dt>Leeftijd</dt><dd>{{ r.leeftijd or 'Controleer het bronprofiel' }}</dd></div>
+    </dl>
+    {% if not r.dienstscope_bevestigd %}<p class="kaart-waarschuwing">Dienstspecifieke scope niet bevestigd; expertise niet automatisch aan een productcode koppelen.</p>{% endif %}
+    {% if r.ontbreekt %}<p class="kaart-waarschuwing">Niet bevestigd: {{ r.ontbreekt|join(', ') }}</p>{% endif %}
+    {% for v in r.toelatingsvoorwaarden %}<p class="kaart-waarschuwing">Toelatingsvoorwaarde: {{ v }}</p>{% endfor %}
+    <details class="meer"><summary>Bronbewijs en routes</summary>
+      {% for b in r.bronbewijs %}<p>“{{ b.citaat }}” · {{ b.opgehaald_op }} · <a class="bron" href="{{ b.bron_url }}" rel="noopener noreferrer">bron</a></p>{% endfor %}
+      {% for route in r.contract.routes %}<p>{{ route.productcode }} · {% if route.hoofdaannemer %}Via hoofdaannemer {{ route.hoofdaannemer }}{% else %}Rechtstreekse route{% endif %} · {{ route.toeleiding }}</p>{% endfor %}
+      {% for w in r.contract.waarschuwingen %}<p>{{ w }}</p>{% endfor %}
+    </details>
+  </article></li>{% endfor %}</ol>
+</section>
+{% endif %}
+{% endblock %}

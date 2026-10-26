@@ -1,0 +1,4 @@
+# Optioneel; de bestaande applicatie heeft deze pakketten niet nodig.
+onnxruntime>=1.20,<2
+tokenizers>=0.20,<1
+numpy>=1.26,<3

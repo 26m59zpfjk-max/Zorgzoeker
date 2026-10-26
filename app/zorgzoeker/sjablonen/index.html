@@ -2,6 +2,7 @@
 {% from "macros.html" import veldblok, naamlink %}
 {% block titel %}{% if q %}{{ q }} · {% endif %}Zorgzoeker{% endblock %}
 {% block inhoud %}
+{% if ai_ingeschakeld %}<p><a class="tikdoel" href="/ai">Probeer de lokale AI-pilot met een fictieve casus</a></p>{% endif %}
 <section class="zoekblok">
   <form class="zoekform" method="get" action="/">
     <label for="q">Zorgvraag</label>

@@ -1,0 +1,2085 @@
+{
+  "meta": {
+    "schema_versie": "0.1",
+    "regio": "Rijk van Nijmegen",
+    "gegenereerd_op": "2026-10-25"
+  },
+  "bronnen": [
+    {
+      "id": "src-minimaal",
+      "naam": "Minimale bron",
+      "url": "https://example.org/minimaal",
+      "opgehaald_op": "2026-10-25",
+      "soort": "overig",
+      "opmerking": "Alleen voor de validatietest."
+    }
+  ],
+  "aanbieders": [
+    {
+      "id": "angst",
+      "naam": {
+        "waarde": "FICTIEF - angst",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/angst",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Angst",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF angst dienst",
+          "expertise": {
+            "waarde": [
+              "Angst",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dwang",
+      "naam": {
+        "waarde": "FICTIEF - dwang",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/dwang",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "OCD",
+          "Dwangstoornis",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF dwang dienst",
+          "expertise": {
+            "waarde": [
+              "OCD",
+              "Dwangstoornis",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trauma",
+      "naam": {
+        "waarde": "FICTIEF - trauma",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/trauma",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Trauma",
+          "EMDR",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen vanaf 4 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF trauma dienst",
+          "expertise": {
+            "waarde": [
+              "Trauma",
+              "EMDR",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen vanaf 4 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gedrag",
+      "naam": {
+        "waarde": "FICTIEF - gedrag",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/gedrag",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Gedragsproblemen",
+          "Agressie",
+          "Ambulante begeleiding"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen 6 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF gedrag dienst",
+          "expertise": {
+            "waarde": [
+              "Gedragsproblemen",
+              "Agressie",
+              "Ambulante begeleiding"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen 6 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "naam": {
+        "waarde": "FICTIEF - school",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/school",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Schoolweigering",
+          "Thuiszitters",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen 5 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF school dienst",
+          "expertise": {
+            "waarde": [
+              "Schoolweigering",
+              "Thuiszitters",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen 5 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ass",
+      "naam": {
+        "waarde": "FICTIEF - ass",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/ass",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Autisme",
+          "Ambulante begeleiding"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen 6 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF ass dienst",
+          "expertise": {
+            "waarde": [
+              "Autisme",
+              "Ambulante begeleiding"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen 6 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "adhd",
+      "naam": {
+        "waarde": "FICTIEF - adhd",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/adhd",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "ADHD",
+          "Ambulante begeleiding"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen 6 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF adhd dienst",
+          "expertise": {
+            "waarde": [
+              "ADHD",
+              "Ambulante begeleiding"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen 6 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "assadhd",
+      "naam": {
+        "waarde": "FICTIEF - assadhd",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/assadhd",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Autisme",
+          "ADHD",
+          "Ambulante begeleiding"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen 6 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF assadhd dienst",
+          "expertise": {
+            "waarde": [
+              "Autisme",
+              "ADHD",
+              "Ambulante begeleiding"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen 6 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scheiding",
+      "naam": {
+        "waarde": "FICTIEF - scheiding",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/scheiding",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Echtscheiding",
+          "Gezinstherapie"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF scheiding dienst",
+          "expertise": {
+            "waarde": [
+              "Echtscheiding",
+              "Gezinstherapie"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "respijt",
+      "naam": {
+        "waarde": "FICTIEF - respijt",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/respijt",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "LVB",
+          "Autisme",
+          "Respijtzorg",
+          "Logeeropvang"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen 4 tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF respijt dienst",
+          "expertise": {
+            "waarde": [
+              "LVB",
+              "Autisme",
+              "Respijtzorg",
+              "Logeeropvang"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen 4 tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stop",
+      "naam": {
+        "waarde": "FICTIEF - stop",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/stop",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Angst",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF stop dienst",
+          "expertise": {
+            "waarde": [
+              "Angst",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "onder",
+      "naam": {
+        "waarde": "FICTIEF - onder",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/onder",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Angst",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF onder dienst",
+          "expertise": {
+            "waarde": [
+              "Angst",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "volwassen",
+      "naam": {
+        "waarde": "FICTIEF - volwassen",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/volwassen",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Angst",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Volwassenen vanaf 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF volwassen dienst",
+          "expertise": {
+            "waarde": [
+              "Angst",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Volwassenen vanaf 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "buiten",
+      "naam": {
+        "waarde": "FICTIEF - buiten",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "kvk_nummer": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "vestigingen": {
+        "waarde": [
+          {
+            "plaats": "Nijmegen"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "website": {
+        "waarde": "https://example.org/buiten",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "type_aanbod": {
+        "waarde": [
+          "FICTIEF zorgvorm"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "gecontracteerd_regio": {
+        "waarde": "ja",
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "productcodes": {
+        "waarde": [
+          {
+            "code": "JW 54001",
+            "omschrijving": "FICTIEF jeugdhulp"
+          }
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "expertise": {
+        "waarde": [
+          "Angst",
+          "Behandeling"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "doelgroepen": {
+        "waarde": [
+          "Kinderen tot 18 jaar"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "werkgebied": {
+        "waarde": [
+          "Nijmegen"
+        ],
+        "label": "geverifieerd",
+        "bron_url": "https://example.org/zorg",
+        "opgehaald_op": "2026-10-23"
+      },
+      "wachttijd": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "beschikbaarheid": {
+        "waarde": "onbekend",
+        "bron_url": null,
+        "opgehaald_op": null,
+        "label": "onbekend"
+      },
+      "gevonden_via": [
+        "src-minimaal"
+      ],
+      "diensten": [
+        {
+          "id": "dienst",
+          "naam": "FICTIEF buiten dienst",
+          "expertise": {
+            "waarde": [
+              "Angst",
+              "Behandeling"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "doelgroepen": {
+            "waarde": [
+              "Kinderen tot 18 jaar"
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          },
+          "productcodes": {
+            "waarde": [
+              {
+                "code": "JW 54001",
+                "omschrijving": "FICTIEF jeugdhulp"
+              }
+            ],
+            "label": "geverifieerd",
+            "bron_url": "https://example.org/zorg",
+            "opgehaald_op": "2026-10-23"
+          }
+        }
+      ]
+    }
+  ],
+  "contractregister": {
+    "bron_url": "https://example.org/contractregister",
+    "peildatum": "2026-10-26",
+    "opgehaald_op": "2026-10-26",
+    "regels": [
+      {
+        "aanbieder_id": "angst",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "dwang",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "trauma",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "gedrag",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "school",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "ass",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "adhd",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "assadhd",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "scheiding",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "respijt",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "stop",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [
+          "Aanmeldstop voor gemeente Nijmegen per 1-10-2026 tot 1-12-2026"
+        ],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "onder",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": "FICTIEF Hoofdaannemer",
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "volwassen",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "nijmegen",
+          "berg en dal"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      },
+      {
+        "aanbieder_id": "buiten",
+        "productcode": "JW 54001",
+        "gemeenten": [
+          "arnhem"
+        ],
+        "hoofdaannemer": null,
+        "opmerkingen": [],
+        "bewijs": [
+          {
+            "tabblad": "FICTIEF",
+            "rij": 3
+          }
+        ]
+      }
+    ]
+  }
+}

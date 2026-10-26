@@ -109,3 +109,7 @@ Er staan geen cliëntgegevens in de code, de fixtures of de logs.
 
 Zie [overdracht en optioneel beschikbaarheidsregister](docs/ronde3.md).
 Bestaande brondata blijven ongewijzigd.
+
+## Ronde 4
+
+[Profielkwaliteit](docs/profielkwaliteit.md) en [optionele lokale AI-pilot](docs/ai-zoeken.md). AI staat standaard uit; uitsluitend fictieve tests.

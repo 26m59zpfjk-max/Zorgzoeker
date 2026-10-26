@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from zorgzoeker import __versie__
+from zorgzoeker.ai_web import registreer as registreer_ai, ingeschakeld as ai_ingeschakeld
 from zorgzoeker.kaarten import samenvatting
 from zorgzoeker.config import data_pad
 from zorgzoeker.laden import laad_document
@@ -77,6 +78,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
         document = application.state.document or {}
         meta = document.get("meta") or {}
         return {
+            "ai_ingeschakeld": ai_ingeschakeld(),
             "versie": application.state.versie,
             "fictief": application.state.fictief,
             "bestand": application.state.pad.name,
@@ -276,6 +278,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
             }
         )
 
+    registreer_ai(application, SJABLONEN, basis)
     return application
 
 
