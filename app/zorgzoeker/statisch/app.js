@@ -1,12 +1,3 @@
-// Op brede schermen staan de details van elke kaart meteen open.
-(function () {
-  if (window.matchMedia && window.matchMedia("(min-width: 801px)").matches) {
-    document.querySelectorAll("details.meer").forEach((blok) => {
-      blok.open = true;
-    });
-  }
-})();
-
 // Vergelijking: maximaal drie aanbieders. Het formulier werkt ook zonder dit script.
 (function () {
   const vakjes = document.querySelectorAll('input[name="ids"]');

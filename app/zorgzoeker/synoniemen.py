@@ -199,5 +199,6 @@ CONCEPT_LABEL = {cid: label for cid, label, _frases in CONCEPTEN}
 def concept_frases() -> list[tuple[str, str]]:
     """(frase, concept-id), langste frase eerst."""
     paren = [(frase, cid) for cid, _label, frases in CONCEPTEN for frase in frases]
+    paren.extend([("medicatie", "medicatie"), ("medicamenteuze behandeling", "medicatie")])
     paren.sort(key=lambda paar: len(paar[0]), reverse=True)
     return paren

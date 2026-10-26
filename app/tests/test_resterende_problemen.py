@@ -24,7 +24,11 @@ def stop_index():
 @pytest.mark.parametrize("vraag", ["FICTIEF gestopt Nijmegen", "gestopt", "angst", ""])
 def test_stop_geldt_ook_bij_vrije_tekst_en_zonder_onderwerp(vraag):
     index = stop_index()
-    assert "gestopt" not in {t.id for t in index.zoek(vraag, Filters(gemeente="Nijmegen"))}
+    resultaten = index.zoek(vraag, Filters(gemeente="Nijmegen"))
+    if vraag in {"gestopt", ""}:
+        assert next(t for t in resultaten if t.id == "gestopt").contracttoets["stop_actief"]
+    else:
+        assert "gestopt" not in {t.id for t in resultaten}
     assert "gestopt" in {t.id for t in index.zoek("gestopt", Filters(gemeente="Heumen"))}
 
 
@@ -72,7 +76,7 @@ def test_zeventien_en_half_is_nog_zeventien_jaar_oud(doelgroep):
     assert not index.zoek("18jr met angst")
 
 
-@pytest.mark.parametrize("tekst", ["± 6 weken", "~6 weken", "indicatie: 6 weken", "verwachte wachttijd: 6 weken", "indicatieve wachttijd 6 weken", "naar verwachting 6 weken", "≈6 weken", "+/- 6 weken"])
+@pytest.mark.parametrize("tekst", ["± 6 weken", "~6 weken", "verwachte wachttijd: 6 weken", "indicatieve wachttijd 6 weken", "naar verwachting 6 weken", "≈6 weken", "+/- 6 weken"])
 def test_schattingswoorden_en_symbolen_worden_geweigerd(tekst):
     from zorgzoeker.valideer import _valideer_wachttijd
     from zorgzoeker.weergave import toon_veld

@@ -12,10 +12,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from zorgzoeker import __versie__
+from zorgzoeker.kaarten import samenvatting
 from zorgzoeker.config import data_pad
 from zorgzoeker.laden import laad_document
 from zorgzoeker.valideer import valideer_document
-from zorgzoeker.weergave import KAART_VELDEN, onderaannemer_zin, toon_veld, vergelijk_rijen, website_url
+from zorgzoeker.weergave import toon_veld, vergelijk_rijen, website_url
 from zorgzoeker.zoeken import Filters, Index, Treffer
 
 PAKKET = Path(__file__).resolve().parent
@@ -153,7 +154,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                 "opties": opties(),
                 "gezocht": gezocht,
                 "meldingen": index().meldingen(q, filters),
-                "kaarten": [_kaart(treffer) for treffer in treffers],
+                "kaarten": [_kaart(treffer, q) for treffer in treffers],
                 "alleen_gedeeltelijk": bool(treffers) and all(t.ontbrekende_expertise for t in treffers),
                 "voorbeelden": VOORBEELDEN,
             },
@@ -278,77 +279,10 @@ def maak_app(pad: Path | None = None) -> FastAPI:
     return application
 
 
-# Velden die op de compacte kaart altijd zichtbaar zijn (als ze bekend zijn).
-# De rest, ook alles wat onbekend is, staat in het uitklapblok.
-KERN_VELDEN = ("gecontracteerd_regio", "wachttijd", "beschikbaarheid", "expertise")
-
-
-def _kaart(treffer: Treffer) -> dict:
-    ruw = treffer.aanbieder
-    contract_veld = ruw.get("gecontracteerd_regio") or {}
-    contract = contract_veld.get("waarde")
-    contract_label = str(contract_veld.get("label") or "onbekend")
-    contract_tekst = {"ja": "Gecontracteerd", "nee": "Niet gecontracteerd"}.get(
-        str(contract), "Contract onbekend"
-    )
-    contract_toelichting = None
-    onderaannemer = onderaannemer_zin(ruw, treffer.contracttoets)
-    if onderaannemer:
-        contract_tekst = onderaannemer
-        contract_label = "onderaannemer"
-    elif contract_label == "afgeleid":
-        tekst = contract_veld.get("toelichting")
-        if isinstance(tekst, str) and tekst.strip():
-            contract_toelichting = tekst.strip()
-    toets = treffer.contracttoets
-    if toets:
-        contract_toelichting = "Contractbron op " + str(toets.get("peildatum") or "onbekende datum") + "; dit is geen geldigheidsperiode."
-        if toets.get("status") == "onbekend":
-            contract_tekst = "Contract voor deze vraag onbekend"
-            contract_label = "onbekend"
-        elif toets.get("status") == "nee" and contract_label == "afgeleid":
-            contract_tekst = "Niet aangetroffen in contractlijst"
-    plaatsen = []
-    for vestiging in (ruw.get("vestigingen") or {}).get("waarde") or []:
-        if isinstance(vestiging, dict) and vestiging.get("plaats"):
-            plaatsen.append(str(vestiging["plaats"]))
-    types = (ruw.get("type_aanbod") or {}).get("waarde") or []
-    velden = [toon_veld(sleutel, ruw.get(sleutel)) for sleutel in KAART_VELDEN]
-    if onderaannemer:
-        for veld in velden:
-            if veld["sleutel"] == "gecontracteerd_regio":
-                veld["tekst"] = onderaannemer
-                veld["label"] = "onderaannemer"
-                veld["toelichting"] = None
-    if toets and toets.get("status") == "onbekend":
-        for veld in velden:
-            if veld["sleutel"] == "gecontracteerd_regio":
-                veld.update(tekst="onbekend voor deze vraag", label="onbekend", onbekend=True)
-    kern_velden = [
-        veld for veld in velden if veld["sleutel"] in KERN_VELDEN and not veld["onbekend"]
-    ]
-    overige_velden = [veld for veld in velden if veld not in kern_velden]
-    return {
-        "id": treffer.id,
-        "rang": treffer.rang,
-        "naam": treffer.naam,
-        "website": website_url(ruw),
-        "reden": treffer.reden,
-        "naamveld": toon_veld("naam", ruw.get("naam")),
-        "contract_tekst": contract_tekst,
-        "contract": toets.get("status", str(contract or "onbekend")),
-        "contracttoets": toets,
-        "gedeeltelijk": bool(treffer.ontbrekende_expertise),
-        "contract_label": contract_label,
-        "contract_toelichting": contract_toelichting,
-        "plaatsen": plaatsen,
-        "types": [str(item) for item in types] if isinstance(types, list) else [],
-        "velden": velden,
-        "kern_velden": kern_velden,
-        "overige_velden": overige_velden,
-        "aantal_onbekend": sum(1 for veld in overige_velden if veld["onbekend"]),
-        "breder": treffer.breder,
-    }
+def _kaart(treffer: Treffer, vraag: str = "") -> dict:
+    return {**samenvatting(treffer, vraag), "id": treffer.id, "rang": treffer.rang,
+            "naam": treffer.naam, "website": website_url(treffer.aanbieder),
+            "reden": treffer.reden, "contracttoets": treffer.contracttoets}
 
 
 app = maak_app()

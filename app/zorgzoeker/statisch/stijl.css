@@ -359,3 +359,15 @@ a.naam-link { color: inherit; text-decoration: underline; text-decoration-thickn
 a.naam-link:hover, a.naam-link:focus-visible { text-decoration-thickness: 2px; }
 .geen-website { font-family: system-ui, sans-serif; font-size: 0.72rem; font-weight: 400; color: var(--zacht); letter-spacing: 0; white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Besliskaart: op ieder scherm alleen de kern, details op verzoek. */
+.zorg-kort { margin: .75rem 0; overflow-wrap: anywhere; }
+.kaart-kern { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem 1.25rem; margin: .75rem 0; }
+.kaart-kern > div { min-width: 0; }
+.kaart-kern dt { color: var(--zacht); font-size: .85rem; }
+.kaart-kern dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
+.kaart-waarschuwing { border-left: 4px solid #94500b; background: #fff0d8; color: #603305; padding: .65rem .8rem; margin: .5rem 0; overflow-wrap: anywhere; }
+.kaart details.meer { margin-top: .8rem; }
+.kaart details.meer > summary { min-height: 44px; cursor: pointer; }
+.contractdetails, .beschikbaarheidsregel { overflow-wrap: anywhere; }
+@media (max-width: 600px) { .kaart-kern { grid-template-columns: minmax(0, 1fr); gap: .55rem; } }

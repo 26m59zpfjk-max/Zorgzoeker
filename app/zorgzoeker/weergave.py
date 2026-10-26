@@ -4,7 +4,7 @@ from __future__ import annotations
 from datetime import date
 from urllib.parse import urlsplit
 
-from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, peildatum_veld, wachttijd_ouderdom, wachttijd_verouderd
+from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, peildatum_veld, wachttijd_ouderdom, wachttijd_verouderd, indicatieve_publicatie
 
 MAANDEN = (
     "",
@@ -24,6 +24,12 @@ MAANDEN = (
 
 VELD_LABELS = {
     "naam": "Naam",
+    "hoofdaannemer": "Hoofdaannemer",
+    "aanmeldprocedure": "Aanmeldprocedure",
+    "verwijzingsprocedure": "Verwijzingsprocedure",
+    "contactgegevens": "Contactgegevens",
+    "uitsluitingscriteria": "Uitsluitingscriteria",
+    "toelatingsvoorwaarden": "Toelatingsvoorwaarden",
     "kvk_nummer": "KvK-nummer",
     "vestigingen": "Vestigingen",
     "website": "Website",
@@ -155,8 +161,9 @@ def toon_veld(sleutel: str, veld: dict | None, *, referentiedatum: date | None =
         tekst = "onbekend"
     geldig_gegeven = not onbekend
     verouderd = sleutel == "wachttijd" and geldig_gegeven and wachttijd_verouderd(bron, referentiedatum)
-    publicatie_tekst = tekst if verouderd else None
-    if verouderd:
+    indicatief = sleutel == "wachttijd" and geldig_gegeven and indicatieve_publicatie(bron)
+    publicatie_tekst = tekst if verouderd or indicatief else None
+    if verouderd or indicatief:
         tekst, onbekend = "onbekend", True
     return {
         "sleutel": sleutel,
@@ -168,6 +175,8 @@ def toon_veld(sleutel: str, veld: dict | None, *, referentiedatum: date | None =
         "peildatum": peildatum_veld(bron) if geldig_gegeven else None,
         "toelichting": (bron.get("toelichting") or None) if geldig_gegeven else None,
         "verouderd": verouderd,
+        "indicatief": indicatief,
+        "actualiteit": "alleen gepubliceerd" if geldig_gegeven else "onbekend",
         "peildatum_leeftijd_dagen": wachttijd_ouderdom(bron, referentiedatum) if sleutel == "wachttijd" and geldig_gegeven else None,
         "publicatie_tekst": publicatie_tekst,
         "onbekend": onbekend or tekst == "onbekend",
@@ -229,4 +238,23 @@ def vergelijk_rijen(aanbieders: list[dict], contracttoetsen: list[dict] | None =
                 "verschilt": len(set(teksten)) > 1,
             }
         )
+    if contracttoetsen and any(t.get("alle_beschikbaarheidsregels") for t in contracttoetsen):
+        from zorgzoeker.beschikbaarheid import actueel, stop_actief
+        for sleutel, label in (("intake_weken", "Actueel bevestigd: intake"),
+                               ("start_behandeling_weken", "Actueel bevestigd: start behandeling"),
+                               ("nieuwe_clienten", "Actueel bevestigd: nieuwe cliënten")):
+            cellen = []
+            for toets in contracttoetsen:
+                regels = toets.get("beschikbaarheidsregels", [])
+                r = regels[0] if len(regels) == 1 and actueel(regels[0]) else None
+                waarde = r.get(sleutel) if r else None
+                if sleutel == "nieuwe_clienten" and any(stop_actief(x) for x in regels):
+                    waarde = "nee — relevante stop"
+                tekst = f"{waarde:g} weken" if isinstance(waarde, (int, float)) else waarde or "onbekend"
+                cellen.append({"tekst": tekst, "onbekend": tekst == "onbekend", "label": "geverifieerd" if r else "onbekend",
+                               "bron_url": veilige_url(r.get("bron_url")) if r else None,
+                               "datum": format_datum(r.get("bevestigd_op")) if r else None,
+                               "toelichting": "Scope: " + "; ".join(str(r[k]) for k in ("dienst", "locatie", "productcode", "regios")) + ". Herbevestigen: " + r["herbevestigen_op"] if r else "Geen eenduidige actuele bevestiging voor deze zoekcontext."})
+            rijen.append({"sleutel": sleutel, "label_nl": label, "cellen": cellen,
+                          "verschilt": len({c["tekst"] for c in cellen}) > 1})
     return rijen

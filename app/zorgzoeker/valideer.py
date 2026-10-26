@@ -58,6 +58,13 @@ def peildatum_veld(veld: dict) -> str | None:
     return lees_datum(match[1]) if match else None
 
 
+def indicatieve_publicatie(veld: dict) -> bool:
+    """Letterlijke, gemarkeerde publicatie; nooit een actuele instroomtoezegging."""
+    tekst = str(veld.get("waarde") or "")
+    return veld.get("publicatie_type") == "indicatief" or bool(re.match(
+        r"^\s*(?:gemiddeld|indicatie)\s*:?\s*\d+(?:\s*[-–—]\s*\d+)?\s*(?:weken|week|dagen|dag)\b", tekst, re.I))
+
+
 def wachttijd_ouderdom(veld: dict, referentiedatum: date | None = None) -> int | None:
     peil = peildatum_veld(veld)
     return ((referentiedatum or date.today()) - date.fromisoformat(peil)).days if peil else None
@@ -176,6 +183,21 @@ def valideer_document(document: object) -> list[str]:
         fouten.extend(_valideer_wachttijd(pad, aanbieder))
 
     fouten.extend(_valideer_contractregister(document))
+    from zorgzoeker.beschikbaarheid import valideer_regel
+    register = document.get("beschikbaarheidsregister", [])
+    if not isinstance(register, list):
+        fouten.append("beschikbaarheidsregister moet een lijst zijn.")
+    else:
+        ids = set()
+        for regel in register:
+            fouten.extend(valideer_regel(regel))
+            if isinstance(regel, dict):
+                if not isinstance(regel.get("id"), str) or regel["id"] in ids:
+                    fouten.append("Beschikbaarheidsregel-id ontbreekt of is dubbel.")
+                else:
+                    ids.add(regel["id"])
+                if not isinstance(regel.get("aanbieder_id"), str) or regel["aanbieder_id"] not in geziene_ids:
+                    fouten.append("Beschikbaarheidsregel verwijst naar onbekende aanbieder.")
     return fouten
 
 
@@ -251,7 +273,9 @@ def _valideer_wachttijd(pad: str, aanbieder: dict) -> list[str]:
         elif _is_datum(veld.get("opgehaald_op")) and peil > veld["opgehaald_op"]:
             fouten.append(f"{waar}: peildatum ligt na de ophaaldatum.")
         waarde = veld.get("waarde")
-        if isinstance(waarde, str) and SCHATTING.search(waarde):
+        if isinstance(waarde, str) and SCHATTING.search(waarde) and not (sleutel == "wachttijd" and indicatieve_publicatie(veld)):
+            # Een expliciet gemarkeerde, letterlijk gepubliceerde indicatie
+            # mag bewaard blijven, maar is nooit actuele beschikbaarheid.
             fouten.append(f"{waar}: de tekst lijkt op een schatting. Alleen een gepubliceerd gegeven mag.")
     return fouten
 

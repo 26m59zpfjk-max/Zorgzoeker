@@ -10,11 +10,13 @@
       <button type="submit">Zoek aanbieders</button>
     </div>
     <div class="filters">
-      <label>Gecontracteerd door de regio
+      <label>Contractstatus
         <select name="gecontracteerd">
           <option value="">Alle</option>
-          <option value="ja" {% if filters.gecontracteerd == "ja" %}selected{% endif %}>Ja</option>
-          <option value="nee" {% if filters.gecontracteerd == "nee" %}selected{% endif %}>Nee</option>
+          <option value="ja" {% if filters.gecontracteerd == "ja" %}selected{% endif %}>Gecontracteerd (bron)</option>
+          <option value="bevestigd_nee" {% if filters.gecontracteerd == "bevestigd_nee" %}selected{% endif %}>Bevestigd niet-gecontracteerd</option>
+          <option value="niet_aangetroffen" {% if filters.gecontracteerd == "niet_aangetroffen" %}selected{% endif %}>Niet aangetroffen in contractbronnen</option>
+          {% if filters.gecontracteerd == 'nee' %}<option value="nee" selected>Niet gecontracteerd / niet aangetroffen (oud filter)</option>{% endif %}
           <option value="onbekend" {% if filters.gecontracteerd == "onbekend" %}selected{% endif %}>Onbekend</option>
         </select>
       </label>
@@ -81,7 +83,7 @@
 <section class="resultaten">
   <div class="resultaatkop">
     <h1>{% if q %}{{ kaarten|length }} aanbieders voor “{{ q }}”{% else %}{{ kaarten|length }} aanbieders{% endif %}</h1>
-    <p>Eerst de aangetoonde zorginhoudelijke dekking, daarna tekstovereenkomst, leeftijd en plaats. Ontbrekende zorgkenmerken blijven gemarkeerd.</p>
+    <p>Overeenkomst met de hulpvraag is geen garantie op geschiktheid. Controleer toelating, toewijzing en instroom.</p>
     {% if alleen_gedeeltelijk %}<p class="reden-letop">Geen aanbieder met alle gevraagde zorgkenmerken in de bron gevonden. Controleer de ontbrekende kenmerken bij de aanbieder.</p>{% endif %}
   </div>
   <ol class="kaarten">
@@ -92,49 +94,41 @@
           <span class="rang" aria-label="Plaats {{ kaart.rang }}">{{ kaart.rang }}</span>
           <div>
             <h2>{{ naamlink(kaart.naam, kaart.website) }}</h2>
-            <p class="naam-bron">
-              <span class="badge {{ kaart.naamveld.label }}">{{ kaart.naamveld.label }}</span>
-              {% if kaart.naamveld.datum %}<span>opgehaald {{ kaart.naamveld.datum }}</span>{% endif %}
-              {% if kaart.naamveld.bron_url %}<a class="bron" href="{{ kaart.naamveld.bron_url }}" rel="noopener noreferrer">bron</a>{% endif %}
-            </p>
           </div>
           <label class="kies"><input form="vergelijk" type="checkbox" name="ids" value="{{ kaart.id }}"> Vergelijk</label>
         </header>
-        <p class="reden {% if 'Let op' in kaart.reden %}reden-letop{% endif %} {% if kaart.breder %}reden-breder{% endif %}">{{ kaart.reden }}</p>
-        <ul class="chips">
-          {% if kaart.gedeeltelijk %}<li class="chip breder">gedeeltelijke match · niet alles bevestigd</li>{% endif %}
-          {% if kaart.breder %}<li class="chip breder">breder resultaat</li>{% endif %}
-          <li class="chip contract-{{ kaart.contract }}">{{ kaart.contract_tekst }}{% if kaart.contract_label == "afgeleid" %} · afgeleid{% endif %}</li>
-          {% for plaats in kaart.plaatsen %}<li class="chip">{{ plaats }}</li>{% endfor %}
-          {% for soort in kaart.types[:3] %}<li class="chip zacht">{{ soort }}</li>{% endfor %}
-          {% if kaart.types|length > 3 %}<li class="chip zacht">+ {{ kaart.types|length - 3 }} producten</li>{% endif %}
-        </ul>
-        {% if kaart.contract_toelichting %}
-        <p class="contract-toelichting">{{ kaart.contract_toelichting }}</p>
-        {% endif %}
-        {% if kaart.contracttoets.waarschuwingen %}
-        <details><summary>Contractvoorwaarden en onzekerheden</summary>
-          <ul>{% for melding in kaart.contracttoets.waarschuwingen %}<li>{{ melding }}</li>{% endfor %}</ul>
-          {% if kaart.contracttoets.bron_url %}<a href="{{ kaart.contracttoets.bron_url }}" rel="noopener noreferrer">Contractbron</a>{% endif %}
-        </details>
-        {% endif %}
-        {% if kaart.kern_velden %}
-        <div class="velden kern">
-          {% for veld in kaart.kern_velden %}
-          {{ veldblok(veld) }}
-          {% endfor %}
-        </div>
-        {% endif %}
-        {% if kaart.overige_velden %}
+        <p class="zorg-kort"><strong>{{ kaart.expertise_kort }}</strong> · {{ kaart.hulpvorm_kort }}</p>
+        {% for waarschuwing in kaart.waarschuwingen_kort %}<p class="kaart-waarschuwing"><strong>Let op:</strong> {{ waarschuwing }}</p>{% endfor %}
+        <dl class="kaart-kern">
+          <div><dt>Contract · {{ kaart.gemeente_kort }}</dt><dd>{{ kaart.contract_kort }}</dd></div>
+          <div><dt>Toewijzingsroute</dt><dd>{{ kaart.route_kort }}</dd></div>
+          <div><dt>Bevestigde producten</dt><dd>{{ kaart.codes_kort|join(', ') if kaart.codes_kort else 'Onbekend voor deze vraag' }}{% if kaart.meer_codes %} · meer bij details{% endif %}</dd></div>
+          <div><dt>Leeftijd / toelating</dt><dd>{{ kaart.leeftijd_kort }}</dd></div>
+          <div><dt>Wachttijd</dt><dd>{{ kaart.wachttijd_kort }}</dd></div>
+          <div><dt>Nieuwe aanmeldingen</dt><dd>{{ kaart.aanname_kort }}</dd></div>
+        </dl>
         <details class="meer">
-          <summary>Alle gegevens, bronnen en datums <span class="meer-tel">({{ kaart.overige_velden|length }} velden{% if kaart.aantal_onbekend %}, waarvan {{ kaart.aantal_onbekend }} onbekend{% endif %})</span></summary>
-          <div class="velden">
-            {% for veld in kaart.overige_velden %}
-            {{ veldblok(veld) }}
-            {% endfor %}
-          </div>
+          <summary>Details, voorwaarden en bronnen</summary>
+          <p class="reden">{{ kaart.reden }}</p>
+          <p>Zorginhoudelijke overeenkomst is geen garantie op geschiktheid of toewijzing. Controleer toelating en actuele instroom.</p>
+          {% if kaart.contracttoets %}
+          <section class="contractdetails"><h3>Contract en routes</h3>
+            <p>Bronpeildatum: {{ kaart.contracttoets.peildatum or 'onbekend' }}. Dit bewijst geen geldigheidsperiode.</p>
+            {% if kaart.contracttoets.waarschuwingen %}<ul>{% for melding in kaart.contracttoets.waarschuwingen %}<li>{{ melding }}</li>{% endfor %}</ul>{% endif %}
+            {% if kaart.contracttoets.bron_url %}<a class="bron" href="{{ kaart.contracttoets.bron_url }}" rel="noopener noreferrer">Contractbron</a>{% endif %}
+            <ul>{% for route in kaart.contracttoets.routes %}<li>{{ route.productcode }} · {% if route.hoofdaannemer %}Hoofdaannemer: {{ route.hoofdaannemer }}{% else %}Rechtstreekse route{% endif %} · {{ route.toeleiding }}
+              <p>Gemeenten: {{ route.gemeenten|join(', ') }}</p>
+              {% if route.opmerkingen %}<p>{{ route.opmerkingen|join('; ') }}</p>{% endif %}
+            </li>{% endfor %}</ul>
+          </section>
+          {% endif %}
+          {% if kaart.beschikbaarheidsdetails %}<section><h3>Beschikbaarheid per dienst en locatie</h3>
+          {% for regel in kaart.beschikbaarheidsdetails %}
+            <div class="beschikbaarheidsregel"><p>{{ regel.dienst or 'Dienst onbekend' }} · {{ regel.locatie or 'Locatie onbekend' }} · {{ 'actueel bevestigd' if regel.actueel else 'historisch / alleen gepubliceerd / herbevestiging nodig' }}</p>
+            <dl>{% for sleutel, waarde in regel.items() if sleutel != 'actueel' %}<div><dt>{{ sleutel }}</dt><dd>{{ waarde if waarde is not none else 'onbekend' }}</dd></div>{% endfor %}</dl></div>
+          {% endfor %}</section>{% endif %}
+          <div class="velden">{% for veld in kaart.detail_velden %}{{ veldblok(veld) }}{% endfor %}</div>
         </details>
-        {% endif %}
       </article>
     </li>
     {% endfor %}

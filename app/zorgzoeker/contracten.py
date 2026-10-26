@@ -8,6 +8,8 @@ from datetime import date
 import re
 import unicodedata
 
+from zorgzoeker.synoniemen import KERN_NAAR_GEMEENTE
+
 
 ROB_GEMEENTEN = frozenset({"berg en dal", "beuningen", "druten", "heumen", "mook en middelaar", "nijmegen", "wijchen"})
 MAANDEN = {m: n for n, m in enumerate(("januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"), 1)}
@@ -48,12 +50,14 @@ def zoekdatum(tekst: str) -> str | None:
 
 def _stop(tekst: str, gemeente: str | None, peildatum: str) -> bool:
     laag = tekst.lower()
+    laag = re.sub(r"\b(?:geen|zonder)\s+(?:toeleidingsstop|aanmeldstop|cliëntenstop)\b", "", laag)
     if "toeleidingsstop" not in laag and "aanmeldstop" not in laag and "cliëntenstop" not in laag:
         return False
-    gemeenten = {g for g in ROB_GEMEENTEN if re.search(rf"\b{re.escape(g)}\b", laag)}
+    gemeenten = {KERN_NAAR_GEMEENTE[g] for g in KERN_NAAR_GEMEENTE if re.search(rf"\b{re.escape(g)}\b", laag)}
+    gemeente = KERN_NAAR_GEMEENTE.get(sleutel(gemeente), sleutel(gemeente)) if gemeente else None
     if "hele regio" not in laag and gemeenten and (not gemeente or sleutel(gemeente) not in gemeenten):
         return False
-    tot = re.search(r"\btot( en met)?\s+((?:\d{4}-\d{1,2}-\d{1,2})|(?:\d{1,2}-\d{1,2}-\d{4}))", laag)
+    tot = re.search(r"\btot( en met)?\s+((?:\d{4}-\d{1,2}-\d{1,2})|(?:\d{1,2}-\d{1,2}-\d{4})|(?:\d{1,2}\s+(?:" + "|".join(MAANDEN) + r")\s+20\d{2}))", laag)
     if tot and (einde := lees_datum(tot[2])):
         if peildatum > einde or (peildatum == einde and not tot[1]):
             return False
@@ -70,6 +74,7 @@ class Contractregister:
 
     def oordeel(self, aanbieder: dict, *, gemeente: str | None = None,
                 codes: list[str] = (), op_datum: str | None = None) -> dict:
+        gemeente = KERN_NAAR_GEMEENTE.get(sleutel(gemeente), sleutel(gemeente)) if gemeente else None
         bron = aanbieder.get("gecontracteerd_regio") or {}
         peil = self.register.get("peildatum") or bron.get("opgehaald_op")
         resultaat = {"status": "onbekend", "toeleiding": "onbekend", "peildatum": peil,
@@ -89,7 +94,7 @@ class Contractregister:
                 return resultaat
             gezocht = {code_sleutel(c.removeprefix("code_")) for c in codes}
             regels = [r for r in regels if (not gezocht or code_sleutel(r["productcode"]) in gezocht)
-                      and (not gemeente or gemeente in r["gemeenten"])]
+                      and (not gemeente or gemeente in {KERN_NAAR_GEMEENTE.get(sleutel(g), sleutel(g)) for g in r["gemeenten"]})]
             if not regels or (gezocht and not gezocht.issubset({code_sleutel(r["productcode"]) for r in regels})):
                 return resultaat
             resultaat["status"] = "onbekend" if datum_onbevestigd else "ja"
@@ -98,7 +103,7 @@ class Contractregister:
                 opmerkingen = r.get("opmerkingen", [])
                 # Een onbevestigd contract wist een bekende stop niet. Zonder
                 # aantoonbare einddatum/opheffing blijft de beperking gelden.
-                toetsdatum = op_datum if op_datum and len(op_datum) == 10 else peil
+                toetsdatum = op_datum if op_datum and len(op_datum) == 10 else date.today().isoformat()
                 dicht = any(_stop(t, gemeente, toetsdatum) for t in opmerkingen)
                 if not dicht:
                     open_codes.add(code_sleutel(r["productcode"]))
@@ -118,7 +123,7 @@ class Contractregister:
 
 
 def algemene_stop(aanbieder: dict, gemeente: str | None, op_datum: str | None = None,
-                  leeftijd: int | None = None) -> bool:
+                  leeftijd: int | float | None = None, codes: list[str] = ()) -> bool:
     """Alleen een expliciete algemene aanmeldstop, geen productgebonden stop."""
     veld = aanbieder.get("beschikbaarheid") or {}
     wacht = aanbieder.get("wachttijd") or {}
@@ -128,16 +133,18 @@ def algemene_stop(aanbieder: dict, gemeente: str | None, op_datum: str | None = 
     if leeftijd is not None and leeftijd >= 18 and re.search(r"18\s*\+\s*:\s*aanmeldstop", wachttekst, re.I):
         if wacht.get("label") == "geverifieerd" and wacht.get("bron_url"):
             if not op_datum or op_datum >= wacht.get("opgehaald_op", ""):
-                return True
+                toetsdatum = op_datum if op_datum and len(op_datum) == 10 else date.today().isoformat()
+                return _stop(wachttekst, gemeente, toetsdatum)
     if veld.get("label") != "geverifieerd" or not veld.get("bron_url"):
         return False
     tekst = str(veld.get("waarde") or "")
     if leeftijd is not None and leeftijd < 18 and re.search(r"(?:<\s*18|onder de 18|onder 18).*niet meer aangenomen", tekst, re.I):
         if not op_datum or op_datum >= veld.get("opgehaald_op", ""):
             return True
-    if re.search(r"\bJW\s*\d", tekst, re.I):
+    productcodes = re.findall(r"\bJW\s*(\d{2}[A-Z]\d{2})\b", tekst, re.I)
+    if productcodes and not ({code_sleutel(c) for c in codes} & {code_sleutel(c) for c in productcodes}):
         return False
-    peil = op_datum if op_datum and len(op_datum) == 10 else veld.get("opgehaald_op")
+    peil = op_datum if op_datum and len(op_datum) == 10 else date.today().isoformat()
     if not peil or len(peil) != 10:
         return False
     # Vóór de waarneming is een ongedateerde stop niet bewezen. Na de

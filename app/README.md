@@ -104,3 +104,8 @@ Alles blijft in dit proces. Er gaat geen zoekvraag naar een externe dienst.
 - `zorgzoeker/app.py` serveert de pagina's. Kaarten en de vergelijking tonen per veld het label, de bronlink en de ophaaldatum.
 
 Er staan geen cliëntgegevens in de code, de fixtures of de logs.
+
+## Ronde 3
+
+Zie [overdracht en optioneel beschikbaarheidsregister](docs/ronde3.md).
+Bestaande brondata blijven ongewijzigd.

@@ -52,7 +52,8 @@ def test_interface_op_definitieve_dataset() -> None:
     assert gezondheid.json()["aanbieders"] == 189
     antwoord = client.get("/", params={"q": "AlkaZorg"})
     assert antwoord.status_code == 200
-    assert "Gecontracteerd als onderaannemer van Vooruit met zorg" in antwoord.text
+    assert "Via hoofdaannemer (onderaannemer)" in antwoord.text
+    assert "Hoofdaannemer: Vooruit met zorg" in antwoord.text
     assert "onderaannemer van Vooruit met zorg · afgeleid" not in antwoord.text
     vergelijking = client.get("/vergelijken", params=[("ids", "alkazorg"), ("ids", "0-tot-18")])
     assert vergelijking.status_code == 200

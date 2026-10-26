@@ -3,7 +3,7 @@
 import re
 
 
-METHODEN = frozenset({"emdr", "dagbesteding", "logeer", "residentieel", "pleegzorg", "gezinshuis", "speltherapie"})
+METHODEN = frozenset({"medicatie", "emdr", "dagbesteding", "logeer", "residentieel", "pleegzorg", "gezinshuis", "speltherapie"})
 
 
 def splits_negaties(tekst: str, frases: list[tuple[str, str]]) -> tuple[str, list[str], list[str]]:

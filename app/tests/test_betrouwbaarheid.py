@@ -129,7 +129,10 @@ def test_onderaannemer_stop_is_product_en_gemeentegebonden(echte_index, id):
     assert toets["status"] == "ja"  # contract en toelating zijn aparte feiten
     assert toets["toeleiding"] == "geblokkeerd"
     assert toets["routes"][0]["hoofdaannemer"]
-    assert not echte_index.zoek(id.replace("-", " "), Filters(gemeente="Nijmegen", productcode="JW 45A04", gecontracteerd="ja"))
+    # Ronde 3: expliciet naamzoeken toont de stop; zorgvragen blijven beschermd.
+    rs = echte_index.zoek(id.replace("-", " "), Filters(gemeente="Nijmegen", productcode="JW 45A04", gecontracteerd="ja"))
+    assert next(t for t in rs if t.id == id).contracttoets["stop_actief"]
+    assert id not in {t.id for t in echte_index.zoek("begeleiding", Filters(gemeente="Nijmegen", productcode="JW 45A04"))}
     assert id in {t.id for t in echte_index.zoek(id.replace("-", " "), Filters(gemeente="Berg en Dal", productcode="JW 45A04", gecontracteerd="ja"))}
     if id == "apollis-zorg":
         assert id in {t.id for t in echte_index.zoek("Apollis Zorg", Filters(gemeente="Nijmegen", productcode="JW 45A55", gecontracteerd="ja"))}
@@ -153,7 +156,7 @@ def test_alternatieve_hoofdaannemerroute_blijft_beschikbaar():
 def test_regionale_aanbieders_niet_verdwenen_door_vestigingsplaats(echte_index):
     rs = echte_index.zoek("", Filters(gemeente="Nijmegen", gecontracteerd="ja"))
     assert {"1-1-vier", "stichting-pro-persona-ggz"} <= {t.id for t in rs}
-    assert "alkazorg" not in {t.id for t in rs}  # bekende stop telt nu ook bij alleen filters
+    assert next(t for t in rs if t.id == "alkazorg").contracttoets["stop_actief"]  # Toon alle: vindbaar met stop
     assert "0-tot-18" not in {t.id for t in rs}
 
 
@@ -268,7 +271,7 @@ def test_api_gemeente_en_vestiging_zijn_apart(echte_client):
     r = echte_client.get("/api/zoek", params={"gemeente": "Nijmegen", "gecontracteerd": "ja"})
     assert r.status_code == 200
     assert {"1-1-vier", "stichting-pro-persona-ggz"} <= {t["id"] for t in r.json()["resultaten"]}
-    assert "alkazorg" not in {t["id"] for t in r.json()["resultaten"]}
+    assert next(t for t in r.json()["resultaten"] if t["id"] == "alkazorg")["contracttoets"]["stop_actief"]
     r = echte_client.get("/api/zoek", params={"vestigingsplaats": "Nijmegen"})
     ids = {t["id"] for t in r.json()["resultaten"]}
     assert "0-tot-18" in ids

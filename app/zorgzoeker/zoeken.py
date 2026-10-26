@@ -23,8 +23,10 @@ from dataclasses import dataclass, field, replace
 
 from zorgzoeker.config import PROJECT_ROOT
 from zorgzoeker.negatie import splits_negaties
+from zorgzoeker.beschikbaarheid import relevante_regels, actueel, stop_actief
+from datetime import date
 from zorgzoeker.contracten import Contractregister, ROB_GEMEENTEN, algemene_stop, zoekdatum
-from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, wachttijd_verouderd
+from zorgzoeker.valideer import _valideer_veld, _valideer_wachttijd, wachttijd_verouderd, indicatieve_publicatie
 from zorgzoeker.synoniemen import (
     BOVEN,
     CONCEPT_LABEL,
@@ -43,13 +45,13 @@ AANBOD_WEGING = 2.6
 # onder een algemenere (trauma) zakt door een langere tekst.
 ZELDZAAMHEID = 1.2
 KLINISCH = frozenset({"angst", "dwang", "depressie", "zelfbeschadiging", "adhd", "ass", "trauma", "eet", "hechting", "gedrag", "lvb", "verslaving", "gamen", "school", "echtscheiding", "kopp", "gezin", "dyslexie", "dyscalculie", "opvoed", "slaap", "psychose", "rouw", "hoogbegaafd"})
-BEHANDELMETHODEN = frozenset({"emdr", "speltherapie", "reflexintegratie"})
+BEHANDELMETHODEN = frozenset({"medicatie", "emdr", "speltherapie", "reflexintegratie"})
 
 TOKEN_RE = re.compile(r"c_[a-z0-9_]+|p_[a-z0-9_]+|code_[a-z0-9]+|[a-z0-9]+")
 CODE_RE = re.compile(r"\b(?=[a-z0-9-]*\d)[a-z]{2,8}(?:-[a-z0-9]{1,8})+\b")
 LEEFTIJD_JAAR = re.compile(r"\b(\d{1,3}(?:decimal\d+)?)\s*(?:jaar|jr|[- ]?jarig(?:e|en)?)\b")
 LEEFTIJD_PERSOON = re.compile(
-    r"\b(?:jongen|meisje|kind|jongere|zoon|dochter|leeftijd)\s+(?:van\s+)?(\d{1,3}(?:decimal\d+)?)\b"
+    r"\b(?:jongen|meisje|kind|jongere|zoon|dochter|puber|tiener|leeftijd)\s+(?:van\s+)?(\d{1,3}(?:decimal\d+)?)\b"
 )
 LEEFTIJD_RANGE = re.compile(r"\b(\d{1,3})\s*(?:-|tot en met|tot)\s*(\d{1,3})\s*jaar\b")
 VANAF = re.compile(r"\bvanaf\s+(\d{1,2})\b")
@@ -73,6 +75,7 @@ def normaliseer(tekst: str) -> str:
     """Kleine letters, zonder accenten, leestekens weg."""
     tekst = unicodedata.normalize("NFKD", tekst or "")
     tekst = "".join(teken for teken in tekst if not unicodedata.combining(teken))
+    tekst = re.sub(r"\bad\s*\(\s*h\s*\)\s*d\b", "adhd", tekst, flags=re.I)
     tekst = tekst.lower().replace("/", " ")
     tekst = re.sub(r"[^a-z0-9+\-\s]", " ", tekst)
     return re.sub(r"\s+", " ", tekst).strip()
@@ -451,6 +454,7 @@ class Vraag:
     uitgesloten: list[str] = field(default_factory=list)
     op_datum: str | None = None
     max_wachttijd: int | None = None
+    leeftijden: list[int | float] = field(default_factory=list)
 
     def leeg(self) -> bool:
         return not any(
@@ -539,6 +543,16 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
     leeftijd = None
     band = None
     leeftijd_label = ""
+    leeftijden = []
+    meervoud = re.search(r"\b(?:kinderen|jongeren|pubers)\s+van\s+(\d{1,3}(?:decimal\d+)?)(?:\s*(?:en|maar)\s*(\d{1,3}(?:decimal\d+)?))+(?:\s*(?:jaar|jr))?\b", werk)
+    if meervoud:
+        leeftijden = [float(n.replace("decimal", ".")) for n in re.findall(r"\d{1,3}(?:decimal\d+)?", meervoud[0])]
+        if all(0 <= n <= 120 for n in leeftijden):
+            band = (min(leeftijden), max(leeftijden))
+            leeftijd_label = " en ".join(f"{n:g}".replace(".", ",") for n in leeftijden) + " jaar"
+            werk = werk[:meervoud.start()] + " " + werk[meervoud.end():]
+        else:
+            leeftijden = []
     bereik = LEEFTIJD_RANGE.search(werk)
     if bereik and 0 <= int(bereik[1]) <= int(bereik[2]) <= 120:
         band = (int(bereik[1]), int(bereik[2]))
@@ -579,6 +593,7 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
     return Vraag(
         tekst=origineel,
         leeftijd=leeftijd,
+        leeftijden=leeftijden or ([leeftijd] if leeftijd is not None else []),
         plaatsen=plaatsen,
         gemeenten=gemeenten,
         contract=contract,
@@ -811,8 +826,14 @@ class Index:
         plaats = filters.gemeente or (analyse.gemeenten[0] if len(analyse.gemeenten) == 1 else None)
         gemeente = self.plaatstabel.get(normaliseer(plaats), normaliseer(plaats)) if plaats else None
         codes = list(analyse.codes) + ([filters.productcode] if filters.productcode else [])
-        return self.contractregister.oordeel(profiel.ruw, gemeente=gemeente, codes=codes,
+        toets = self.contractregister.oordeel(profiel.ruw, gemeente=gemeente, codes=codes,
                                             op_datum=filters.op_datum or analyse.op_datum)
+        toets["gemeente"] = gemeente
+        toets["op_datum"] = filters.op_datum or analyse.op_datum
+        toets["beschikbaarheidsregels"] = relevante_regels(self.document, profiel.id, gemeente=gemeente,
+            codes=codes, leeftijden=analyse.leeftijden, locatie=filters.vestigingsplaats)
+        toets["alle_beschikbaarheidsregels"] = [r for r in self.document.get("beschikbaarheidsregister", []) if r["aanbieder_id"] == profiel.id]
+        return toets
 
     def contracttoets_voor(self, aanbieder_id: str, vraag: str = "", filters: Filters | None = None) -> dict:
         analyse = analyseer_vraag(vraag, self.plaatstabel, self.bekende_codes)
@@ -840,25 +861,55 @@ class Index:
         return True, ontbreekt
 
     def _zoek_geanalyseerd(self, analyse: Vraag, filters: Filters) -> list[Treffer]:
+        namen = {p.id for p in self.profielen if self._naamvraag(analyse, p)}
         kandidaten = [profiel for profiel in self.profielen if self._past(profiel, filters)]
         kandidaten = [profiel for profiel in kandidaten
                       if not set(analyse.uitgesloten).intersection(profiel.bewijzen)]
         if analyse.leeftijdsband is not None:
             kandidaten = [profiel for profiel in kandidaten
-                          if leeftijd_oordeel(*analyse.leeftijdsband, profiel.doel_bereiken)[0] != "buiten"]
-        if analyse.max_wachttijd is not None:
-            kandidaten = [p for p in kandidaten if _past_wachttijd(p.ruw.get("wachttijd"), analyse.max_wachttijd)]
+                          if (all(leeftijd_oordeel(n, n, profiel.doel_bereiken)[0] != "buiten" for n in analyse.leeftijden)
+                              if analyse.leeftijden else leeftijd_oordeel(*analyse.leeftijdsband, profiel.doel_bereiken)[0] != "buiten")]
         toetsen = {p.id: self._contracttoets(p, analyse, filters) for p in kandidaten}
-        contractwens = normaliseer(filters.gecontracteerd or analyse.contract or "")
+        if analyse.max_wachttijd is not None:
+            def wachtpast(p):
+                regels = toetsen[p.id]["beschikbaarheidsregels"]
+                if regels:
+                    # Intake is geen start behandeling. Tegenstrijdige of oude
+                    # bevestigingen worden niet vervangen door een gunstige publicatie.
+                    return len(regels) == 1 and actueel(regels[0]) and regels[0]["start_behandeling_weken"] is not None and regels[0]["start_behandeling_weken"] <= analyse.max_wachttijd
+                return _past_wachttijd(p.ruw.get("wachttijd"), analyse.max_wachttijd)
+            kandidaten = [p for p in kandidaten if wachtpast(p)]
+        contractwens = normaliseer(filters.gecontracteerd or analyse.contract or "").replace(" ", "_")
         if contractwens:
-            kandidaten = [p for p in kandidaten if toetsen[p.id]["status"] == contractwens]
+            def contractpast(p):
+                toets = toetsen[p.id]
+                bron = p.ruw.get("gecontracteerd_regio") or {}
+                if contractwens == "bevestigd_nee":
+                    return toets["status"] == "nee" and bron.get("label") == "geverifieerd"
+                if contractwens == "niet_aangetroffen":
+                    return toets["status"] == "nee" and bron.get("label") == "afgeleid"
+                return toets["status"] == contractwens
+            kandidaten = [p for p in kandidaten if contractpast(p)]
         contextplaats = filters.gemeente or (analyse.gemeenten[0] if len(analyse.gemeenten) == 1 else None)
         if contextplaats:
             contextplaats = self.plaatstabel.get(normaliseer(contextplaats), normaliseer(contextplaats))
         # Informatie op naam blijft opvraagbaar, maar een expliciet gestopte
         # route mag geen zorginhoudelijke aanbeveling worden.
-        kandidaten = [p for p in kandidaten if toetsen[p.id]["toeleiding"] != "geblokkeerd"
-                      and not algemene_stop(p.ruw, contextplaats, filters.op_datum or analyse.op_datum, analyse.leeftijd)]
+        for p in kandidaten:
+            toets = toetsen[p.id]
+            algemeen = any(algemene_stop(p.ruw, contextplaats, filters.op_datum or analyse.op_datum, n, [] if toets["routes"] else list(analyse.codes) + ([filters.productcode] if filters.productcode else []))
+                          for n in (analyse.leeftijden or [analyse.leeftijd]))
+            toets["algemene_stop"] = algemeen
+            toets["gemeente"] = contextplaats
+            datum = filters.op_datum or analyse.op_datum
+            stopdatum = date.fromisoformat(datum) if datum and len(datum) == 10 else date.today()
+            registerstop = any(stop_actief(r, stopdatum) or (actueel(r, stopdatum) and r["nieuwe_clienten"] == "nee") for r in toets["beschikbaarheidsregels"])
+            toets["stop_actief"] = algemeen or toets["toeleiding"] == "geblokkeerd" or registerstop
+            if registerstop:
+                toets["waarschuwingen"].append("Aanmeld-/toeleidingsstop of geen nieuwe cliënten in het beschikbaarheidsregister.")
+            if algemeen:
+                toets["waarschuwingen"].append("Aanmeldstop: nieuwe aanmeldingen zijn voor deze vraag niet mogelijk; controleer de bron.")
+        kandidaten = [p for p in kandidaten if analyse.leeg() or p.id in namen or not toetsen[p.id]["stop_actief"]]
         if analyse.leeg():
             kandidaten.sort(key=lambda profiel: profiel.naam.lower())
             reden = (
@@ -871,7 +922,7 @@ class Index:
                 for rang, profiel in enumerate(kandidaten, start=1)
             ]
 
-        dekkingen = {p.id: self._inhoudelijke_dekking(p, analyse) for p in kandidaten}
+        dekkingen = {p.id: ((True, []) if p.id in namen else self._inhoudelijke_dekking(p, analyse)) for p in kandidaten}
         kandidaten = [p for p in kandidaten if dekkingen[p.id][0]]
 
         # Gebruik één vaste corpusbasis. Anders maakt een toelatingsfilter
@@ -882,6 +933,9 @@ class Index:
         for profiel in kandidaten:
             tekstscore = per_id_score[profiel.id]
             score, reden = self._beoordeel(analyse, profiel, tekstscore, filters)
+            if profiel.id in namen:
+                score = max(score, 100.0)
+                reden = "Gevonden op naam; dit is geen beoordeling van geschiktheid."
             toets = toetsen[profiel.id]
             if toets["status"] == "onbekend":
                 reden += " Contractgeldigheid voor deze vraag is onbekend."
@@ -901,6 +955,13 @@ class Index:
             treffer.rang = rang
         return treffers
 
+    @staticmethod
+    def _naamvraag(analyse: Vraag, profiel: Profiel) -> bool:
+        # Alleen een expliciete naam, nooit een willekeurige vrije tekstmatch.
+        naam = normaliseer(profiel.naam).removeprefix("fictief - ").strip()
+        vraag = analyse.tekst.removeprefix("fictief - ").strip()
+        return bool(naam and (vraag == naam or vraag == normaliseer(profiel.id).replace("-", " ")))
+
     def op_id(self, aanbieder_id: str) -> dict | None:
         profiel = self._op_id.get(aanbieder_id)
         return profiel.ruw if profiel else None
@@ -919,7 +980,7 @@ class Index:
                 if code:
                     producten[code] = str(product.get("omschrijving") or "")
         return {
-            "plaatsen": sorted((mooie_plaats(plaats) for plaats in plaatsen | ROB_GEMEENTEN), key=str.lower),
+            "plaatsen": sorted({mooie_plaats(self.plaatstabel.get(plaats, plaats)) for plaats in plaatsen | ROB_GEMEENTEN}, key=str.lower),
             "vestigingsplaatsen": sorted({mooie_plaats(p) for profiel in self.profielen for p in profiel.vestiging_plaatsen}),
             "doelgroepen": sorted(doelgroepen, key=str.lower),
             "productcodes": [
@@ -954,7 +1015,7 @@ class Index:
         if any(plaats_match(sleutel, plaats) for plaats in profiel.alle_plaatsen):
             return True
         canon = self.plaatstabel.get(sleutel, sleutel)
-        return canon == sleutel and canon in profiel.gemeenten
+        return canon in profiel.gemeenten or any(self.plaatstabel.get(p, p) == canon for p in profiel.alle_plaatsen)
 
     def _beoordeel(
         self,
@@ -1019,6 +1080,10 @@ class Index:
         if vraag.leeftijdsband is not None:
             laag, hoog = vraag.leeftijdsband
             leeftijd_status, leeftijd_citaat = leeftijd_oordeel(laag, hoog, profiel.doel_bereiken)
+            if len(vraag.leeftijden) > 1:
+                oordelen = [leeftijd_oordeel(n, n, profiel.doel_bereiken) for n in vraag.leeftijden]
+                leeftijd_status = "binnen" if all(s == "binnen" for s, _ in oordelen) else "onbekend"
+                leeftijd_citaat = "; ".join(dict.fromkeys(c for _, c in oordelen if c))
             if leeftijd_status == "binnen":
                 # Een expliciete jeugddoelgroep weegt zwaarder dan een
                 # algemene vermelding 'alle leeftijden (0 tot 100+)'.
@@ -1074,7 +1139,7 @@ class Index:
 def _past_wachttijd(veld: dict | None, maximum: int) -> bool:
     if not isinstance(veld, dict) or _valideer_veld("wachttijd", "wachttijd", veld) or _valideer_wachttijd("zoek", {"wachttijd": veld}):
         return False
-    if wachttijd_verouderd(veld):
+    if indicatieve_publicatie(veld) or wachttijd_verouderd(veld):
         return False
     tekst = normaliseer(str(veld.get("waarde", "")))
     if tekst == "geen wachtlijst":

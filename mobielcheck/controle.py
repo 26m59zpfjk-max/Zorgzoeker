@@ -13,9 +13,9 @@ from urllib.parse import quote
 from playwright.sync_api import sync_playwright
 
 BASIS = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8741"
-MAP = Path(__file__).parent / "screenshots"
+MAP = Path(os.environ.get("ZORGZOEKER_SCREENSHOTS", str(Path(__file__).parent / "screenshots")))
 MAP.mkdir(parents=True, exist_ok=True)
-CHROME = os.environ.get("CHROME", "/usr/bin/google-chrome")
+CHROME = os.environ.get("CHROME", "/usr/bin/chromium")
 fouten: list[str] = []
 
 
@@ -67,7 +67,7 @@ with sync_playwright() as p:
     pagina.screenshot(path=str(MAP / "mobiel-zoek-boven.png"))
 
     tikdoel(pagina, ".kies", "vergelijk-label")
-    tikdoel(pagina, ".kaart a.bron", "bron-links (zichtbaar)")
+    check(not pagina.locator(".kaart a.bron").first.is_visible(), "bronlabels pas zichtbaar bij details")
     tikdoel(pagina, ".filters select", "filters")
     tikdoel(pagina, ".wis a", "Wis zoekvraag en filters")
     tikdoel(pagina, ".meer > summary", "uitklap-samenvatting")
@@ -127,7 +127,7 @@ with sync_playwright() as p:
     d.goto(f"{BASIS}/?q={quote('autisme en angst')}")
     sw = breedte(d)
     check(sw <= 1280, f"desktop zoekpagina scrollWidth = {sw}")
-    check(d.locator(".kaart details.meer").first.evaluate("e => e.open"), "desktop: details standaard open")
+    check(not d.locator(".kaart details.meer").first.evaluate("e => e.open"), "desktop: details standaard dicht")
     d.screenshot(path=str(MAP / "desktop-zoek.png"))
     ids = d.eval_on_selector_all('input[name="ids"]', "els => els.slice(0,2).map(e => e.value)")
     d.goto(f"{BASIS}/vergelijken?ids={quote(ids[0])}&ids={quote(ids[1])}")

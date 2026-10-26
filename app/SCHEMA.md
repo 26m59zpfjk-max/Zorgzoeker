@@ -73,3 +73,8 @@ beschikbaar; de zoekmachine rekent ze niet om tot een algemene belofte. De
 interface toont ophaaldatum en peildatum afzonderlijk. Een ongeldig bestand
 wordt niet geïndexeerd; gezondheid meldt `fout`, zoeken geeft HTTP 500 met
 validatiefouten. Losse veldweergave onderdrukt ongeldige wachttijden eveneens.
+
+## Ronde 3
+
+Zie [overdracht en optioneel beschikbaarheidsregister](docs/ronde3.md).
+Bestaande brondata blijven ongewijzigd.
