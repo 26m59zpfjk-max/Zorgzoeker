@@ -6,6 +6,7 @@
   <script>document.documentElement.classList.add("js");</script>
   <title>{% block titel %}Zorgzoeker{% endblock %}</title>
   <link rel="stylesheet" href="/statisch/stijl.css">
+  <link rel="stylesheet" href="/statisch/5b.css">
 </head>
 <body>
   <a class="overslaan" href="#inhoud">Naar de inhoud</a>
@@ -24,14 +25,14 @@
           <span class="merk-sub">Jeugdhulp in het Rijk van Nijmegen</span>
         </span>
       </a>
-      <p class="kop-meta">{{ aantal_totaal }} aanbieders · {{ bestand }}</p>
+      <p class="kop-meta">{{ aantal_totaal }} aanbieders · Rijk van Nijmegen</p>
     </div>
   </header>
   <main id="inhoud">
     {% block inhoud %}{% endblock %}
   </main>
   <footer class="voet">
-    <p>Elk gegeven toont een label (geverifieerd, afgeleid of onbekend), de bron en de ophaaldatum. Wachttijd en beschikbaarheid blijven onbekend als ze niet openbaar zijn gepubliceerd.</p>
+    <p>Een bekende bron is geen inhoudelijke verificatie. Controleer bron, geldigheid en aanmeldinformatie vóór een vervolgstap; Zorgzoeker geeft geen toewijsgarantie.</p>
     <p>Schema {{ meta.schema_versie or "0.1" }} · regio {{ meta.regio or "Rijk van Nijmegen" }}{% if meta.gegenereerd_op %} · dataset {{ meta.gegenereerd_op }}{% endif %} · versie {{ versie }}. Gebruik geen herleidbare cliëntgegevens. Zorgzoeker heeft geen casusdossier; browsers en infrastructuur vallen buiten die garantie.</p>
   </footer>
   <script src="/statisch/app.js"></script>

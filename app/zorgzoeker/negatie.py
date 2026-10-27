@@ -26,23 +26,24 @@ def splits_negaties(tekst: str, frases: list[tuple[str, str]]) -> tuple[str, lis
             hits.append((m.start(), m.end(), cid))
     ontkend, uitgesloten = [], []
     stukken, cursor = [], 0
+    vorige = None
+    vorige_negatief = False
     for start, eind, cid in sorted(hits):
-        # Negatie strekt zich uit over 'en/of', maar niet over een nieuwe
-        # bijzin of een nieuwe hulpvraag ('voor trauma', 'maar angst').
-        prefix = list(tekst[:start])
-        for begin, einde, _ in hits:
-            if einde <= start:
-                prefix[begin:einde] = " " * (einde - begin)
-                # 'EMDR niet gewenst' hoort bij EMDR, niet bij het volgende
-                # begrip ('bij trauma', 'en angst', ...).
-                achter = re.match(r"\s+(?:is\s+)?niet\s+(?:gewenst|vastgesteld|nodig|aangetoond)\b", tekst[einde:start])
-                if achter:
-                    prefix[einde:einde + achter.end()] = " " * achter.end()
-        voor = re.split(r"[,;.!?]|\b(?:maar|echter|wel|voor|vanwege|met|bij)\b", "".join(prefix))[-1]
+        # A negation belongs to a concept span, not every subsequent concept.
+        # Only an explicit coordination of like concepts extends its scope.
+        begin = vorige[1] if vorige else 0
+        tussen = tekst[begin:start]
+        tussen = re.sub(r"^\s+(?:is\s+)?niet\s+(?:gewenst|vastgesteld|nodig|aangetoond)\b", "", tussen)
+        voor = re.split(r"[,;.!?]|\b(?:maar|echter|wel|voor|vanwege|met|bij)\b", tussen)[-1]
         voor = re.sub(r"\bniet alleen\b", "", voor)
         na = tekst[eind:eind + 45]
+        zelfde_soort = vorige is not None and ((cid in METHODEN) == (vorige[2] in METHODEN))
+        coordinatie = bool(re.fullmatch(r"\s*(?:en|of|en of)\s*", tussen))
         negatief = bool(re.search(r"\b(?:geen|zonder|niet)\b", voor) or
-                        re.match(r"\s+(?:is\s+)?niet\s+(?:gewenst|vastgesteld|nodig|aangetoond)", na))
+                        re.match(r"\s+(?:is\s+)?niet\s+(?:gewenst|vastgesteld|nodig|aangetoond)\b", na) or
+                        (vorige_negatief and zelfde_soort and coordinatie))
+        vorige = (start, eind, cid)
+        vorige_negatief = negatief
         if not negatief:
             continue
         ontkend.append(cid)

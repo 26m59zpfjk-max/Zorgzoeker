@@ -18,7 +18,7 @@ from zorgzoeker.valideer import peildatum_veld, wachttijd_ouderdom, valideer_doc
 from zorgzoeker.zoeken import leeftijdsgrenzen
 
 KERN=('naam','website','expertise','doelgroepen','gecontracteerd_regio','productcodes','beschikbaarheid','wachttijd')
-VELDEN=KERN+('handelsnamen','type_aanbod','vestigingen','werkgebied','hoofdaannemer','toelatingsvoorwaarden')
+VELDEN=KERN+('handelsnamen','type_aanbod','vestigingen','werkgebied','hoofdaannemer','toelatingsvoorwaarden','uitsluitingscriteria','aanmeldprocedure')
 STATUSSEN={'geverifieerd','bron_te_controleren','tegenstrijdig_of_verouderd','ontbrekend'}
 METHODEN={'openbare_bron_gecontroleerd','rechtstreeks_bevestigd','afgeleid','onbekend'}
 
@@ -73,39 +73,28 @@ def analyseer(document, *, beoordelingen=(), waarnemingen=(), vandaag=None):
         for k in VELDEN:
             v=a.get(k) or {};w=v.get('waarde');bron=v.get('bron_url')
             ontbreekt=w in (None,'','onbekend',[])
-            status='ontbrekend' if ontbreekt else 'bron_te_controleren'
-            kandidaten=[b for b in reviews.get((a['id'],k),[]) if b['waarde_hash']==hashwaarde(v)]
-            b=max(kandidaten,key=lambda b:b['gecontroleerd_op']) if kandidaten else None
-            redenen=[]
-            if b and not ontbreekt:
-                status=b['status']
-                if b['hercontrole_op']<=vandaag.isoformat() or (b.get('geldig_tot') and b['geldig_tot']<vandaag.isoformat()):
-                    status='tegenstrijdig_of_verouderd';redenen.append('Hercontrole/geldigheid verstreken.')
+            from zorgzoeker.bewijs import beoordeel_veld
+            oordeel = beoordeel_veld(a, k, reviews.get((a['id'], k), []), vandaag)
+            status = oordeel['status']
+            redenen = oordeel['redenen']
             if v and not ontbreekt and not openbare_url(bron):
-                status='tegenstrijdig_of_verouderd';redenen.append('Geen bruikbare bron.')
                 probleem(a,k,'bron_ontbreekt',1,'Waarde heeft geen openbare herleidbare bron.')
             oud=wachttijd_ouderdom(v,vandaag) if k=='wachttijd' else None
-            if oud is not None and oud>max_wachttijd_dagen():
-                status='tegenstrijdig_of_verouderd';redenen.append(f'Wachttijdpublicatie {oud} dagen oud.')
-                probleem(a,k,'wachttijd_verouderd',1,redenen[-1])
+            if oud is not None and (oud>max_wachttijd_dagen() or oud<0):
+                probleem(a,k,'wachttijd_verouderd',1,'Wachttijdpublicatie verouderd of peildatum ligt in de toekomst.')
             if ontbreekt and k in KERN:probleem(a,k,'kerngegeven_ontbreekt',1 if k in {'expertise','doelgroepen','beschikbaarheid'} else 2,'Ontbreekt; niet door AI invullen.')
             if status=='bron_te_controleren' and k in KERN:probleem(a,k,'inhoudelijke_controle_nodig',2,'Bronlabel alleen is onvoldoende; vergelijk het veld met de bron.')
+            if status=='tegenstrijdig_of_verouderd':
+                probleem(a,k,'bewijs_hercontroleren',1,'; '.join(redenen) or 'Inhoudelijk bewijs opnieuw controleren.')
             if k=='website' and not ontbreekt:
                 if not openbare_url(w):
-                    status='tegenstrijdig_of_verouderd';probleem(a,k,'website_ongeldig',1,'Website is geen veilige openbare http(s)-URL.')
+                    probleem(a,k,'website_ongeldig',1,'Website is geen veilige openbare http(s)-URL.')
                 if v.get('label')=='afgeleid':probleem(a,k,'website_identiteit_onbevestigd',1,'Koppeling op naam afgeleid; controleer identiteit vóór expertise aan deze website toe te schrijven.')
                 obs=observaties.get(w)
                 if obs and obs['status']!='opgehaald':
                     redenen.append('Website niet bereikbaar tijdens controle; dit bewijst geen bedrijfsbeëindiging.')
                     probleem(a,k,'website_niet_bereikbaar',1,redenen[-1])
-            velden[k]={'status':status,'legacy_label':v.get('label','onbekend'),'waarde_hash':hashwaarde(v),
-                       'bron_url':bron,'bron':(b.get('bron') if b else None),'gepubliceerd_op':b.get('gepubliceerd_op') if b else peildatum_veld(v),
-                       'geldig_van':b.get('geldig_van') if b else None,'geldig_tot':b.get('geldig_tot') if b else None,
-                       'laatste_controle':b['gecontroleerd_op'] if b else None,'laatste_ophaal':v.get('opgehaald_op'),
-                       'methode':b['methode'] if b else ('afgeleid' if v.get('label')=='afgeleid' else 'onbekend'),
-                       'beoordelaar':b['beoordelaar'] if b else None,'tegenstrijdigheden':b.get('tegenstrijdigheden',[]) if b else [],
-                       'hercontrole_nodig':status!='geverifieerd','hercontrole_op':b['hercontrole_op'] if b else vandaag.isoformat(),
-                       'redenen':redenen,'waarneming':observaties.get(w if k=='website' and isinstance(w,str) else bron)}
+            velden[k]={**oordeel, 'waarneming':observaties.get(w if k=='website' and isinstance(w,str) else bron)}
         # Leeftijdsteksten met expliciet omgekeerde grenzen; meerdere diensten zijn geen bewezen tegenspraak.
         doelen=(a.get('doelgroepen') or {}).get('waarde') or []
         for t in doelen if isinstance(doelen,list) else []:

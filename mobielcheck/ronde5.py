@@ -1,0 +1,122 @@
+"""Fictieve 5B browservalidatie. Geen sleeps, alleen toestandasserties."""
+import os, sys, json
+from playwright.sync_api import sync_playwright, expect
+BASE=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:8775'
+checks=[]
+def check(ok,label):
+    assert ok,label
+    checks.append(label);print('OK',label,flush=True)
+def fits(page,label):
+    page.wait_for_function('document.documentElement.scrollWidth <= window.innerWidth + 1')
+    check(page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),label)
+def submit(page, button, path):
+    with page.expect_response(lambda r:r.request.method=='POST' and r.url.split('?')[0].endswith(path)) as response:
+        button.click()
+    check(response.value.status==200,'POST '+path+' status200')
+    expect(page).to_have_url(BASE+path)
+def search(page,q='14 jaar angst'):
+    page.goto(BASE+'/werkplek')
+    page.get_by_role('textbox',name='Zorgvraag',exact=True).fill(q)
+    municipality=page.get_by_label('Verantwoordelijke gemeente',exact=True)
+    if municipality.evaluate('e=>e.tagName')=='SELECT':municipality.select_option(label='Nijmegen')
+    else:municipality.fill('Nijmegen')
+    submit(page,page.get_by_role('button',name='Zoek en controleer',exact=True),'/zoeken')
+    expect(page.locator('h1')).to_be_visible()
+def selected(page):return page.locator('input[form="pilot-vergelijk"][name="ids"]:checked')
+def boxes(page):return page.locator('input[form="pilot-vergelijk"][name="ids"]')
+def comparison(page,count):
+    expect(page.locator('#pilot-knop')).to_be_enabled()
+    ids=selected(page).evaluate_all('xs=>xs.map(x=>x.value)')
+    submit(page,page.locator('#pilot-knop'),'/vergelijken')
+    expect(page.locator('h1')).to_contain_text('Vergelijk')
+    return ids
+with sync_playwright() as p:
+    browser=p.chromium.launch(executable_path=os.getenv('CHROME','/usr/bin/chromium'),headless=True)
+    for width in (320,390,768,1280):
+        page=browser.new_page(viewport={'width':width,'height':900});page.set_default_timeout(15000)
+        requests=[];page.on('request',lambda r:requests.append(r.url))
+        page.goto(BASE+'/')
+        expect(page.get_by_role('textbox',name='Zorgvraag',exact=True)).to_be_visible()
+        check('q=' not in page.url,f'{width} rootwerkplek')
+        search(page)
+        expect(boxes(page).first).to_be_visible()
+        check(boxes(page).count()>=3,f'{width} selectieopties')
+        expect(page.locator('#pilot-knop')).to_be_disabled()
+        boxes(page).nth(0).check();expect(page.locator('#pilot-knop')).to_be_disabled()
+        boxes(page).nth(1).check();expect(page.locator('#pilot-knop')).to_be_enabled()
+        boxes(page).nth(2).check()
+        if boxes(page).count()>3:
+            boxes(page).nth(3).click()
+            expect(selected(page)).to_have_count(3)
+            expect(page.locator('#pilot-selectiefout')).to_contain_text('maximaal drie')
+            check('3' in page.locator('#pilot-teller').inner_text(),f'{width} max3 feedback')
+        ids=comparison(page,3)
+        fits(page,f'{width} vergelijkingreflow')
+        check(page.locator('table').count()>0,f'{width} matrixaanwezig')
+        page.locator('#z-verschillen').check()
+        check(page.locator('[data-waarschuwing]').evaluate_all('xs=>xs.length>0 && xs.every(x=>!x.hidden)'),f'{width} verschillen behoudt waarschuwingen')
+        if width<=600:
+            expect(page.locator('.z-compare-mobile')).to_be_visible()
+        else:expect(page.locator('.z-compare-desktop')).to_be_visible()
+        submit(page,page.get_by_role('button',name='Terug naar zoeken met selectie',exact=True),'/zoeken')
+        expect(selected(page)).to_have_count(3)
+        check(selected(page).evaluate_all('xs=>xs.map(x=>x.value)')==ids,f'{width} selectiebehoud')
+        expect(page.get_by_role('textbox',name='Zorgvraag',exact=True)).to_have_value('14 jaar angst')
+        check(not any('q=' in u or 'jarige' in u for u in requests),f'{width} vraagbuitenURL')
+        fits(page,f'{width} zoekreflow')
+        page.screenshot(path=f'/tmp/ronde5b-{width}.png',full_page=False)
+        page.goto(BASE+'/kwaliteit')
+        expect(page.locator('h1')).to_contain_text('Kwaliteit')
+        fits(page,f'{width} kwaliteitreflow')
+        expect(page.locator('.z-quality-item')).to_have_count(25)
+        page.get_by_role('link',name='Volgende pagina',exact=True).click()
+        expect(page).to_have_url(__import__('re').compile(r'pagina=2'))
+        expect(page.locator('.z-pagination')).to_contain_text('Pagina 2')
+        page.get_by_label('Aanbieder zoeken',exact=True).fill('0 tot 18')
+        page.get_by_role('button',name='Filter controlepunten',exact=True).click()
+        expect(page.locator('.z-quality-item')).to_have_count(1)
+        expect(page.locator('.z-quality-item').first).to_contain_text('0 tot 18')
+        check(True,f'{width} kwaliteitsfilters en paginering')
+        page.close()
+    page=browser.new_page(viewport={'width':1280,'height':900});page.set_default_timeout(15000)
+    search(page,'geen medicatie angst')
+    check(boxes(page).count()>0,'negatie behoudt angstkandidaten')
+    search(page,'angst maximaal 20 weken')
+    check('controle' in page.locator('main').inner_text().lower(),'wachttijd onzekerheid uitgelegd')
+    check(boxes(page).count()>0,'onbekende wachttijdkandidaten zichtbaar')
+    search(page,'kinderen van 6 en 14 met angst')
+    check('afzonderlijk' in page.locator('main').inner_text().lower(),'meerdere kinderen keuze')
+    expect(boxes(page)).to_have_count(0)
+    submit(page,page.get_by_role('button',name='Afzonderlijk per leeftijd',exact=True),'/zoeken')
+    expect(page.get_by_role('heading',name=__import__('re').compile('Route voor 6'))).to_be_visible()
+    expect(page.get_by_role('heading',name=__import__('re').compile('Route voor 14'))).to_be_visible()
+    submit(page,page.get_by_role('button',name=__import__('re').compile('Open route voor 6')),'/zoeken')
+    expect(boxes(page).first).to_be_visible()
+    check('Leeftijd: 6' in page.locator('main').inner_text(),'afzonderlijke route behoudt eigen leeftijd')
+    invalid=page.request.post(BASE+'/zoeken',form={'q':'FICTIEF','op_datum':'ongeldige-datum'})
+    check(invalid.status==400 and 'text/html' in invalid.headers.get('content-type',''),'browserfout is HTML400')
+    check('FICTIEF' in invalid.text(),'browserfout behoudt invoer')
+    # Keyboard rather than scripted click for comparison.
+    search(page)
+    boxes(page).nth(0).focus();page.keyboard.press('Space')
+    boxes(page).nth(1).focus();page.keyboard.press('Space')
+    page.locator('#pilot-knop').focus()
+    with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/vergelijken')):
+        page.keyboard.press('Enter')
+    expect(page).to_have_url(BASE+'/vergelijken')
+    check(True,'toetsenbordvergelijking')
+    for zoom in (2,4):
+        page.evaluate('(z)=>document.body.style.zoom=z',str(zoom));fits(page,f'zoom{zoom*100}% reflow')
+    page.evaluate("document.body.style.zoom='1'")
+    # Repeated flow with deliberately delayed responses uses condition assertions.
+    for n in range(20):
+        if n==10:
+            cdp=page.context.new_cdp_session(page);cdp.send('Network.enable');cdp.send('Network.emulateNetworkConditions',{'offline':False,'latency':250,'downloadThroughput':1000000,'uploadThroughput':1000000})
+        search(page)
+        boxes(page).nth(0).check();boxes(page).nth(1).check()
+        comparison(page,2)
+        submit(page,page.get_by_role('button',name='Terug naar zoeken met selectie',exact=True),'/zoeken')
+        expect(selected(page)).to_have_count(2)
+        check(True,f'herhaaldevergelijkstroom{n+1}')
+    browser.close()
+print(json.dumps({'checks':len(checks),'passed':len(checks)},ensure_ascii=False))

@@ -1,0 +1,4 @@
+{% extends 'basis.html' %}
+{% block titel %}Bronchecklijst · Zorgzoeker{% endblock %}
+{% block inhoud %}<h1>Bronchecklijst</h1><p>Openbare aanbiedergegevens en controlepunten. Geen casus, verwijzing of toewijzing.</p>
+{% for r in regels %}<section><h2>{{ r.naam }}</h2><p>Gemeente {{ r.gemeente or 'niet opgegeven' }} · beoordeling {{ r.datum }}</p><p>{{ r.contract.bronstatus }} · bronpeildatum {{ r.contract.peildatum or 'onbekend' }} · geldigheid {{ r.contract.geldigheid }}</p><ul>{% for k,v in r.kwaliteit.items() %}<li>{{ k|replace('_',' ') }}: {{ v.controle }} · {{ v.actualiteit }}{% if v.bron_url %} · <a href="{{ v.bron_url }}" rel="noreferrer">Bron</a>{% endif %}</li>{% endfor %}</ul><p>Bronversie <code>{{ r.datasetversie }}</code></p></section>{% endfor %}<p>Gebruik de afdrukfunctie van uw browser. Controleer de bronnen vóór vervolgstappen.</p>{% endblock %}

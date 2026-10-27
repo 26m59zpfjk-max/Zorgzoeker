@@ -137,7 +137,7 @@ class HybrideZoeker:
         if not r.get('bevestigd'):raise ValueError('Bevestig of corrigeer eerst de interpretatie.')
         start=time.perf_counter();filters=filters or Filters()
         analyse=analyseer_vraag(q,self.index.plaatstabel,self.index.bekende_codes)
-        plaats=filters.gemeente or (analyse.gemeenten[0] if len(analyse.gemeenten)==1 else None)
+        plaats=filters.gemeente
         gemeente=self.index.plaatstabel.get(normaliseer(plaats),normaliseer(plaats)) if plaats else None
         codes=list(analyse.codes)+([filters.productcode] if filters.productcode else [])
         wenst={s['concept'] for s in r['signalen']};uit={s['concept'] for s in r['uitsluitingen']}

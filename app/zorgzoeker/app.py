@@ -109,6 +109,7 @@ def maak_app(pad: Path | None = None) -> FastAPI:
             "bestand": application.state.pad.name,
         }
 
+    @application.get("/klassiek", response_class=HTMLResponse)
     @application.get("/", response_class=HTMLResponse)
     def home(
         request: Request,
@@ -121,6 +122,9 @@ def maak_app(pad: Path | None = None) -> FastAPI:
         op_datum: str = "",
         alles: str = "",
     ) -> HTMLResponse:
+        if request.url.path=='/' and not request.query_params and not application.state.fout:
+            from fastapi.responses import RedirectResponse
+            return RedirectResponse('/werkplek',status_code=307)
         omgeving = basis()
         if application.state.fout:
             return SJABLONEN.TemplateResponse(
@@ -276,6 +280,8 @@ def maak_app(pad: Path | None = None) -> FastAPI:
                         "contracttoets": treffer.contracttoets,
                         "ontbrekende_expertise": treffer.ontbrekende_expertise,
                         "volledige_match": not treffer.ontbrekende_expertise,
+                        "volledige_match_betekenis":"alleen tekstuele dekking, geen inzetbaarheid",
+                        "resultaatstatus":treffer.contracttoets["beoordeling"]["groep"],
                         "wachttijd": toon_veld("wachttijd", treffer.aanbieder.get("wachttijd")),
                         "beschikbaarheid": toon_veld(
                             "beschikbaarheid", treffer.aanbieder.get("beschikbaarheid")
@@ -288,6 +294,8 @@ def maak_app(pad: Path | None = None) -> FastAPI:
 
     registreer_ai(application, SJABLONEN, basis)
     registreer_pilot(application, SJABLONEN, basis)
+    from zorgzoeker.review_web import registreer as registreer_review
+    registreer_review(application, SJABLONEN, basis)
     @application.middleware('http')
     async def privacy_headers(request,call_next):
         response=await call_next(request)

@@ -19,7 +19,7 @@ def test_startpagina(fixture_pad: Path) -> None:
     assert antwoord.status_code == 200
     assert "Zorgvraag" in antwoord.text
     assert 'name="q"' in antwoord.text
-    assert "Gecontracteerd" in antwoord.text
+    assert "Contractvermelding in bron" in antwoord.text
 
 
 def test_zoekpagina_toont_reden_en_label(fixture_pad: Path) -> None:

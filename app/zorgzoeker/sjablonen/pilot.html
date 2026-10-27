@@ -1,60 +1,44 @@
-{% extends "basis.html" %}
-{% macro toestand(d,ids) %}
-{% for k,v in d.items() if k not in ['ids','actie'] %}{% if v is sequence and v is not string %}{% for x in v %}<input type="hidden" name="{{ k }}" value="{{ x }}">{% endfor %}{% else %}<input type="hidden" name="{{ k }}" value="{{ v }}">{% endif %}{% endfor %}
-{% for id in ids %}<input type="hidden" name="ids" value="{{ id }}">{% endfor %}
-{% endmacro %}
-{% macro oordeel(x) %}
-{% set b=x.beoordeling %}
-<h2>{{ x.naam }}</h2>
-<p>{{ x.reden }}</p>
-<dl class="kaart-kern">
-<div><dt>Zorginhoudelijk onderbouwd</dt><dd>{{ b.inhoud.status }} · {{ b.inhoud.kwaliteit }}</dd></div>
-<div><dt>Route voor deze context vastgesteld</dt><dd>{{ b.contract.bronstatus }} · bronpeildatum {{ b.contract.peildatum or 'onbekend' }}<br>Geldigheid op {{ b.context.op_datum }}: {{ b.contract.geldigheid }}. Geen toewijsgarantie.</dd></div>
-<div><dt>Aanmelden / start bevestigd</dt><dd>{{ b.instroom.status }}{% if b.instroom.stop %}<strong class="kaart-waarschuwing"> STOP</strong>{% endif %}</dd></div>
-</dl>
-{% for l in b.leeftijden %}<p>Leeftijd {{ l.leeftijd if l.leeftijd is not none else 'onbekend' }}: {{ l.status }}{% if l.stop %} — STOP{% endif %}</p>{% endfor %}
-{% for route in b.contract.routes %}<p>{{ route.productcode }} · {% if route.hoofdaannemer %}Via hoofdaannemer {{ route.hoofdaannemer }}{% else %}Rechtstreekse bronroute{% endif %}</p>{% endfor %}
-<details><summary>Open controlepunten en bronnen voor {{ x.naam }}</summary>
-<ul>{% for p in b.controlepunten %}<li>{{ p }}</li>{% endfor %}</ul>
-{% for k,v in b.kwaliteit.items() %}<p>{{ k }}: {{ v.status }} · {{ v.methode }} · laatste controle {{ v.laatste_controle or 'onbekend' }} · hercontrole {{ v.hercontrole_op or 'onbekend' }} · publicatie {{ v.publicatiedatum or 'onbekend' }}{% if v.bron_url %} <a href="{{ v.bron_url }}" rel="noreferrer noopener">Bron {{ k }} {{ x.naam }}</a>{% endif %}</p>{% endfor %}
-</details>
-{% endmacro %}
-{% block titel %}Keuzewerkplek · Zorgzoeker{% endblock %}
+{% extends "search_basis.html" %}
+{% from "werkplek_macros.html" import toestand,kaart,cel,label,details with context %}
+{% block titel %}{{ 'Vergelijken' if vergelijk else 'Zoeken' }} · Zorgzoeker{% endblock %}
 {% block inhoud %}
-<h1>{{ 'Vergelijken' if vergelijk else 'Controleerbare keuzewerkplek' }}</h1>
-<p>Consulentenpilot: gebruik uitsluitend fictieve casussen, geen namen, BSN, adressen of herleidbare gegevens. Geen automatische toewijzing.</p>
-<p><a href="/kwaliteit">Kwaliteitswerklijst (alleen lezen)</a> · <a href="/">Bestaande zoekpagina</a></p>
-{% if vergelijk %}<form action="/zoeken" method="post">{{ toestand(d,ids) }}<button>Terug naar zoeken met selectie</button></form>{% else %}
-<form action="/zoeken" method="post" class="pilot-form">
-<label>Zorgvraag <input name="q" maxlength="500" value="{{ d.q or '' }}"></label>
-<label>Verantwoordelijke gemeente <input name="gemeente" value="{{ d.gemeente or '' }}" placeholder="Bijvoorbeeld Nijmegen"></label>
-<p>Bevestig de verantwoordelijke gemeente; Zorgzoeker bepaalt niet het woonplaatsbeginsel.</p>
-<details><summary>Aanvullende filters</summary>{% for k in ['productcode','doelgroep','vestigingsplaats','gecontracteerd','op_datum'] %}<label>{{ k }} <input name="{{ k }}" {% if k=='op_datum' %}type="date"{% endif %} value="{{ d[k] or '' }}"></label>{% endfor %}</details>
-{% for id in ids %}<input name="ids" type="hidden" value="{{ id }}">{% endfor %}
-<button>Zoek en controleer</button>
-</form>
+<div class="z-workspace {% if d.q and not vergelijk and not detail %}heeft-resultaten{% endif %}">
+<div class="z-pagehead"><h1>{{ 'Aanbieder bekijken' if detail else 'Vergelijken' if vergelijk else 'Welke hulp zoekt u?' }}</h1>{% if not vergelijk and not detail %}<p>Beschrijf de hulpvraag. Ontdek welke aanbieders aansluiten.</p>{% endif %}</div>
+{% if fout %}<div class="z-error" role="alert" tabindex="-1" id="foutoverzicht"><h2>Controleer de invoer</h2><p>{{ fout }}</p></div>{% endif %}
+{% if vergelijk or detail %}<form action="/zoeken" method="post" class="z-back">{{ toestand(d,ids) }}<button class="z-secondary">Terug naar zoeken met selectie</button></form>
+{% else %}
+<form action="/zoeken" method="post" class="z-search">
+<div class="z-search-main"><label class="query-label">Zorgvraag <textarea name="q" maxlength="500" rows="2" placeholder="Bijvoorbeeld: 14-jarige met angst, behandeling zonder medicatie">{{ d.q or '' }}</textarea></label><label>Verantwoordelijke gemeente <input name="gemeente" list="z-gemeenten" value="{{ d.gemeente or '' }}" placeholder="Kies of typ een gemeente"><datalist id="z-gemeenten">{% for naam in (opties.plaatsen if opties is defined else ['Nijmegen','Berg en Dal','Beuningen','Druten','Heumen','Mook en Middelaar','Wijchen']) %}<option value="{{ naam }}">{% endfor %}</datalist></label><button>Zoek en controleer</button></div>
+<p class="z-hint">Gemeente en leeftijd helpen de route beoordelen. Zorgzoeker bepaalt het woonplaatsbeginsel niet.</p>
+<details class="z-filters"><summary>Aanvullende filters{% if d.productcode or d.doelgroep or d.vestigingsplaats or d.gecontracteerd or d.op_datum %} — actief{% endif %}</summary><div class="z-filtergrid">
+<label>Productcode <input name="productcode" value="{{ d.productcode or '' }}" list="z-producten"><datalist id="z-producten">{% if opties is defined %}{% for p in opties.productcodes %}<option value="{{ p.code }}">{{ p.omschrijving }}</option>{% endfor %}{% endif %}</datalist></label>
+<label>Doelgroeptekst <input name="doelgroep" value="{{ d.doelgroep or '' }}"></label><label>Vestigingsplaats <input name="vestigingsplaats" value="{{ d.vestigingsplaats or '' }}"></label>
+<label>Contractvermelding in bron <select name="gecontracteerd"><option value="">Alle statussen</option>{% for value,text in [('ja','Vermeld in contractbron'),('bevestigd_nee','Bevestigd niet-gecontracteerd'),('niet_aangetroffen','Niet aangetroffen in contractbron'),('onbekend','Onbekend')] %}<option value="{{ value }}" {% if d.gecontracteerd==value %}selected{% endif %}>{{ text }}</option>{% endfor %}</select></label><label>Afwijkende beoordelingsdatum <input name="op_datum" type="date" value="{{ d.op_datum or '' }}"></label></div><p class="z-hint">Een bronvermelding op een peildatum bewijst geen actuele contractgeldigheid.</p></details>
+{% for id in ids %}<input name="ids" type="hidden" value="{{ id }}">{% endfor %}{% if d.zoekdoel %}<input name="zoekdoel" type="hidden" value="{{ d.zoekdoel }}">{% endif %}
+</form>{% endif %}
+{% if not vergelijk %}<div class="z-activefilters">{% for k,text in [('gemeente','Gemeente'),('productcode','Productcode'),('doelgroep','Doelgroep'),('vestigingsplaats','Vestiging'),('gecontracteerd','Contractfilter'),('op_datum','Datum')] if d.get(k) %}<form method="post" action="/zoeken">{{ toestand(d,ids,['wis_filter']) }}<button class="z-secondary" name="wis_filter" value="{{ k }}">{{ text }}: {{ label(d[k]) }} ×<span class="sr-only"> verwijderen</span></button></form>{% endfor %}</div>{% endif %}
+{% if d.q or d.aanpassing or vergelijk %}
+<p class="gemeente-context">{% if r.context.gemeente %}Verantwoordelijke gemeente: <strong>{{ r.context.gemeente|title }}</strong>{% else %}Verantwoordelijke gemeente nog kiezen.{% if r.context.genoemde_plaatsen %} Genoemde locatie: {{ r.context.genoemde_plaatsen|join(', ') }}.{% endif %}{% endif %}</p><section class="z-interpretatie" aria-label="Begrepen vraag"><div class="z-chips"><strong>Begrepen vraag</strong><span>Leeftijd: {{ r.context.leeftijden|map('leeftijd_nl')|join(' en ') or 'niet opgegeven' }}{% if r.context.leeftijden %} jaar{% endif %}</span><span>Hulp: {% for c in r.context.concepten %}{{ labels.get(c,c) }}{{ ', ' if not loop.last }}{% else %}nog verduidelijken{% endfor %}</span>{% if r.context.uitsluitingen %}<span>Uitgesloten: {% for c in r.context.uitsluitingen %}{{ labels.get(c,c) }}{{ ', ' if not loop.last }}{% endfor %}</span>{% endif %}{% if r.context.max_wachttijd is defined and r.context.max_wachttijd is not none %}<span>Maximaal {{ r.context.max_wachttijd }} weken tot {{ 'intake' if r.context.wachttijd_soort=='intake' else 'behandelstart' }}</span>{% endif %}</div>
+{% for f in r.interpretatie|default([]) if f.zekerheid=='mogelijk' %}<p class="z-hint">{{ labels.get(f.begrip,f.begrip) }} is als vermoeden genoemd; geen vastgestelde diagnose.</p>{% endfor %}<details><summary>Interpretatie aanpassen</summary><form action="/zoeken" method="post" class="pilot-form">{{ toestand(d,ids,['aanpassing','leeftijden','concepten','uitsluitingen','max_wachttijd','wachttijd_soort']) }}<input name="aanpassing" type="hidden" value="1"><label>Leeftijden (scheiden met ; decimalen met komma)<input name="leeftijden" value="{{ r.context.leeftijden|join(';') }}"></label><div class="z-filtergrid">{% for key,title,chosen in [('concepten','Hulpvraagbegrippen',r.context.concepten),('uitsluitingen','Uitsluitingen',r.context.uitsluitingen)] %}<fieldset><legend>{{ title }}</legend><div class="z-checkboxgrid">{% for c,text in labels.items() %}<label><input type="checkbox" name="{{ key }}" value="{{ c }}" {% if c in chosen %}checked{% endif %}> {{ text }}</label>{% endfor %}</div></fieldset>{% endfor %}</div><label>Wachttijdsoort <select name="wachttijd_soort"><option value="start_behandeling" {% if r.context.wachttijd_soort=='start_behandeling' %}selected{% endif %}>Start behandeling</option><option value="intake" {% if r.context.wachttijd_soort=='intake' %}selected{% endif %}>Intake</option></select></label><label>Maximale weken (leeg = geen grens)<input type="number" min="0" max="520" name="max_wachttijd" value="{{ r.context.max_wachttijd if r.context.max_wachttijd is defined and r.context.max_wachttijd is not none else '' }}"></label><button>Gebruik aangepaste interpretatie</button></form></details></section>{% endif %}
+{% if meerkeuze|default(false) %}<section class="z-choice"><h2>Zoekt u één aanbieder of een route per kind?</h2><p>De leeftijden zijn herkend. Eén gezamenlijke aanbieder hoeft niet uw bedoeling te zijn.</p><form method="post" action="/zoeken">{{ toestand(d,ids,['zoekdoel']) }}<button name="zoekdoel" value="gezamenlijk">Eén gezamenlijke aanbieder</button> <button class="z-secondary" name="zoekdoel" value="afzonderlijk">Afzonderlijk per leeftijd</button></form></section>{% endif %}
+{% for m in r.meldingen %}<p class="z-notice" role="status">{{ m }}</p>{% endfor %}
+{% if not vergelijk and d.q and not r.context.concepten %}<form method="post" action="/zoeken">{{ toestand(d,ids,['zoekdoel']) }}<button class="z-secondary" name="zoekdoel" value="verkennen">Verken aanbieders voor deze leeftijd</button></form>{% endif %}
+<form id="pilot-vergelijk" class="z-selection" action="/vergelijken" method="post">{{ toestand(d,[]) }}<div><p id="pilot-teller" aria-live="polite">Selecteer twee of drie aanbieders.</p><p id="pilot-selectienamen" class="z-hint"></p><p id="pilot-selectiefout" role="status"></p></div><div class="z-actions"><button id="pilot-knop" {% if ids|length<2 %}disabled{% endif %}>Vergelijk selectie</button><button class="z-secondary" formaction="/bronchecklijst">Download bronchecklijst zonder casustekst</button><button class="z-secondary" formaction="/bronchecklijst?weergave=print">Print bronchecklijst</button></div></form>
+{% for x in buiten_selectie %}<label class="z-select z-outside"><input form="pilot-vergelijk" type="checkbox" name="ids" value="{{ x.id }}" checked data-naam="{{ x.naam }}"> {{ 'Vergelijkselectie:' if detail else 'Selectie buiten huidige resultaten:' }} {{ x.naam }}</label>{% endfor %}
+{% if detail %}<section class="provider-detail">{% for x in r.resultaten %}<h2>{{ x.naam }}</h2>{{ details(x,true) }}{% endfor %}</section>{% elif vergelijk %}
+{% set rijen=[('inhoud','Aansluiting op hulpvraag'),('expertise','Expertise in profiel'),('leeftijd','Leeftijd en doelgroep'),('hulpvorm','Hulpvorm'),('regio','Werkgebied'),('contract','Contractbron en geldigheid'),('route','Productcode en contractroute'),('instroom','Aanmelden en stops'),('wacht','Wachttijd'),('controle','Nog controleren')] %}
+<section id="pilot-resultaten" class="z-comparison"><h2>{{ r.resultaten|length }} aanbieders naast elkaar</h2><label class="z-select"><input type="checkbox" id="z-verschillen"> Toon alleen verschillen (waarschuwingen blijven zichtbaar)</label><div class="z-compare-desktop"><table><caption>Vergelijking voor dezelfde zoekcontext; onbekende informatie blijft onbekend.</caption><thead><tr><th scope="col">Criterium</th>{% for x in r.resultaten %}<th scope="col">{{ x.naam }}<label class="z-select"><input type="checkbox" form="pilot-vergelijk" name="ids" value="{{ x.id }}" checked data-naam="{{ x.naam }}"> Geselecteerd <span class="sr-only">{{ x.naam }}</span></label></th>{% endfor %}</tr></thead><tbody>{% for k,title in rijen %}<tr data-vergelijkrij {% if k in ['contract','instroom','wacht','controle','leeftijd'] %}data-waarschuwing="1"{% endif %}><th scope="row">{{ title }}</th>{% for x in r.resultaten %}<td>{{ cel(x,k) }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+<div class="z-compare-mobile">{% for k,title in rijen %}<section data-vergelijkgroep {% if k in ['contract','instroom','wacht','controle','leeftijd'] %}data-waarschuwing="1"{% endif %}><h3>{{ title }}</h3>{% for x in r.resultaten %}<div class="z-mobile-cell"><h4>{{ x.naam }}</h4><div>{{ cel(x,k) }}</div></div>{% endfor %}</section>{% endfor %}</div>
+{% for x in r.resultaten %}{{ details(x) }}{% endfor %}</section>
+{% else %}
+<section id="pilot-resultaten" aria-label="Zoekresultaten">
+{% if r.deelopdrachten %}{% for groep in r.deelopdrachten %}<section class="z-choice"><h2>Route voor {{ groep.context.leeftijden|map('leeftijd_nl')|join(' en ') }} jaar</h2><p>{{ groep.resultaten|length }} zoekresultaten; voorwaarden moeten per kind beoordeeld worden.</p><form action="/zoeken" method="post" data-reset-selectie="1">{{ toestand(d,[],['aanpassing','leeftijden','concepten','uitsluitingen','zoekdoel']) }}<input type="hidden" name="aanpassing" value="1"><input type="hidden" name="leeftijden" value="{{ groep.context.leeftijden|join(';') }}"><input type="hidden" name="zoekdoel" value="gezamenlijk">{% for c in r.context.concepten %}<input type="hidden" name="concepten" value="{{ c }}">{% endfor %}{% for c in r.context.uitsluitingen %}<input type="hidden" name="uitsluitingen" value="{{ c }}">{% endfor %}<button>Open route voor {{ groep.context.leeftijden|map('leeftijd_nl')|join(' en ') }} jaar</button></form></section>{% endfor %}
+{% else %}
+{% set hoofd=r.onderbouwd if r.onderbouwd is defined else r.resultaten %}{% if hoofd %}<h2>{{ hoofd|length }} uitkomsten met onderbouwde voorwaarden</h2><p class="z-hint">Geen automatische garantie op geschiktheid of zorgtoewijzing.</p>{% elif false %}{% endif %}{% for x in hoofd %}{{ kaart(x,ids) }}{% endfor %}
+{% if r.kandidaten %}<section class="z-candidates"><h2>Kandidaten voor uw hulpvraag ({{ r.kandidaten|length }})</h2><p>Inhoud of inzetbaarheid is nog niet volledig vastgesteld.</p>{% for x in r.kandidaten %}{{ kaart(x,ids) }}{% endfor %}</section>{% endif %}
 {% endif %}
-<section><h2>Begrepen vraag — controleer en pas aan</h2>
-<p>Gemeente: {{ r.context.gemeente or 'nog bevestigen' }} · beoordeling {{ r.context.op_datum }}</p>
-<details><summary>Interpretatie aanpassen: leeftijden {{ r.context.leeftijden|join("; ") }} · hulp {{ r.context.concepten|join(", ") }} · uitsluitingen {{ r.context.uitsluitingen|join(", ") }}</summary>
-<form action="/zoeken" method="post" class="pilot-form">
-{% for k in ['q','gemeente','productcode','doelgroep','vestigingsplaats','gecontracteerd','op_datum'] %}<input type="hidden" name="{{ k }}" value="{{ d[k] or '' }}">{% endfor %}
-<input type="hidden" name="aanpassing" value="1">
-<label>Leeftijden (scheiden met ; decimalen met komma)<input name="leeftijden" value="{{ r.context.leeftijden|join(';') }}"></label>
-<label>Hulpvraagbegrippen<select name="concepten" multiple size="6">{% for c,label in labels.items() %}<option value="{{ c }}" {% if c in r.context.concepten %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
-<label>Uitsluitingen<select name="uitsluitingen" multiple size="4">{% for c,label in labels.items() %}<option value="{{ c }}" {% if c in r.context.uitsluitingen %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
-{% for id in ids %}<input type="hidden" name="ids" value="{{ id }}">{% endfor %}<button>Gebruik aangepaste interpretatie</button></form></details>
-</section>
-{% for m in r.meldingen %}<p role="status">{{ m }}</p>{% endfor %}
-<form id="pilot-vergelijk" action="/vergelijken" method="post">{{ toestand(d,[]) }}
-<p id="pilot-teller">Selecteer twee of drie aanbieders.</p><button id="pilot-knop" {% if ids|length<2 %}disabled{% endif %}>Vergelijk selectie</button>
-<button formaction="/bronchecklijst">Download bronchecklijst zonder casustekst</button>
-</form>
-{% for x in buiten_selectie %}<label><input form="pilot-vergelijk" type="checkbox" name="ids" value="{{ x.id }}" checked> Selectie buiten huidige resultaten: {{ x.naam }}</label>{% endfor %}
-<section id="pilot-resultaten"><h2>{{ r.resultaten|length }} resultaten binnen de vraag en filters</h2>
-{% for x in r.resultaten %}<article class="kaart"><label><input type="checkbox" form="pilot-vergelijk" name="ids" value="{{ x.id }}" {% if x.id in ids %}checked{% endif %}> Vergelijk {{ x.naam }}</label>{{ oordeel(x) }}</article>{% endfor %}
-</section>
-{% if r.afgevallen and not vergelijk %}<details><summary>Afgevallen door leeftijd of stop ({{ r.afgevallen|length }}) — niet als beschikbare aanbeveling</summary>{% for x in r.afgevallen %}<article class="kaart">{{ oordeel(x) }}</article>{% endfor %}</details>{% endif %}
-<p>Dataversie {{ r.context.datasetversie }}</p>
-<script src="/statisch/pilot.js"></script>
+{% set af=r.uitgesloten if r.uitgesloten is defined else r.afgevallen %}{% if af %}<details class="z-excluded"><summary>Voldoet niet aan gekozen voorwaarden ({{ af|length }}) — raadplegen met waarschuwing</summary>{% for x in af %}{{ kaart(x,ids,false) }}{% endfor %}</details>{% endif %}
+</section>{% endif %}
+<details class="z-version"><summary>Bronversie en verantwoording</summary><p>Dataversie <code>{{ r.context.datasetversie }}</code> · beoordeling {{ r.context.op_datum }}</p></details>
+</div><script src="/statisch/pilot.js"></script>
 {% endblock %}

@@ -455,6 +455,7 @@ class Vraag:
     op_datum: str | None = None
     max_wachttijd: int | None = None
     leeftijden: list[int | float] = field(default_factory=list)
+    interpretatiefragmenten: list[dict] = field(default_factory=list)
 
     def leeg(self) -> bool:
         return not any(
@@ -524,6 +525,24 @@ class Treffer:
     ontbrekende_expertise: list[str] = field(default_factory=list)
 
 
+def interpretatiefragmenten(tekst: str, concepten: list[str], ontkend: list[str], uitgesloten: list[str]) -> list[dict]:
+    """Literal original-text evidence only; no diagnosis or semantic invention."""
+    fragmenten = []
+    bezet = set()
+    for frase, cid in concept_frases():
+        if cid not in set(concepten + ontkend + uitgesloten):continue
+        for m in re.finditer(r"\b" + re.escape(frase) + r"\b", tekst, re.I):
+            plekken = set(range(m.start(), m.end()))
+            if plekken & bezet:continue
+            bezet.update(plekken)
+            mogelijk = bool(re.search(r"\b(?:vermoed\w*|mogelijk\w*)\s*$", tekst[:m.start()], re.I))
+            fragmenten.append({'soort': 'hulpvraag', 'begrip': cid, 'tekst': m[0],
+                              'begin': m.start(), 'einde': m.end(),
+                              'polariteit': 'uitgesloten' if cid in uitgesloten else 'ontkend' if cid in ontkend else 'genoemd',
+                              'zekerheid': 'mogelijk' if mogelijk else 'genoemd'})
+    return sorted(fragmenten, key=lambda f: f['begin'])
+
+
 def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[str]) -> Vraag:
     origineel = normaliseer(tekst)
     # Bewaar zinsgrenzen voor negatie; normalisatie zou ze anders wissen.
@@ -544,35 +563,32 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
     band = None
     leeftijd_label = ""
     leeftijden = []
-    meervoud = re.search(r"\b(?:kinderen|jongeren|pubers)\s+van\s+(\d{1,3}(?:decimal\d+)?)(?:\s*(?:en|maar)\s*(\d{1,3}(?:decimal\d+)?))+(?:\s*(?:jaar|jr))?\b", werk)
-    if meervoud:
-        leeftijden = [float(n.replace("decimal", ".")) for n in re.findall(r"\d{1,3}(?:decimal\d+)?", meervoud[0])]
-        if all(0 <= n <= 120 for n in leeftijden):
-            band = (min(leeftijden), max(leeftijden))
-            leeftijd_label = " en ".join(f"{n:g}".replace(".", ",") for n in leeftijden) + " jaar"
-            werk = werk[:meervoud.start()] + " " + werk[meervoud.end():]
-        else:
-            leeftijden = []
+    # First isolate ranges; they are not two separate children. Then collect
+    # every person/age span, rather than stopping at the first singular match.
     bereik = LEEFTIJD_RANGE.search(werk)
     if bereik and 0 <= int(bereik[1]) <= int(bereik[2]) <= 120:
         band = (int(bereik[1]), int(bereik[2]))
         leeftijd_label = f"{band[0]}-{band[1]} jaar"
         werk = werk[:bereik.start()] + " " + werk[bereik.end():]
-    for patroon in (() if band else (LEEFTIJD_JAAR, LEEFTIJD_PERSOON)):
-        match = patroon.search(werk)
-        if not match:
-            continue
-        kandidaat = float(match.group(1).replace("decimal", "."))
-        if kandidaat.is_integer():
-            kandidaat = int(kandidaat)
-        if 0 <= kandidaat <= 120:
-            leeftijd = kandidaat
-            werk = patroon.sub(" ", werk, count=1)
-            break
-
-    if leeftijd is not None:
-        band = (leeftijd, leeftijd)
-        leeftijd_label = f"{leeftijd:g}".replace(".", ",") + " jaar"
+    else:
+        nummer = r"\d{1,3}(?:decimal\d+)?"
+        meervoud = re.compile(r"\b(?:kinderen|jongeren|pubers)\s+(?:van\s+|maar\s+)?(" + nummer +
+                             r"(?:\s*(?:en|maar)\s*" + nummer + r")+)(?:\s*(?:jaar|jr))?\b")
+        spans = []
+        for m in meervoud.finditer(werk):
+            ns = [float(n.replace("decimal", ".")) for n in re.findall(nummer, m[1])]
+            if all(0 <= n <= 120 for n in ns):spans.append((m.start(), m.end(), ns))
+        for patroon in (LEEFTIJD_PERSOON, LEEFTIJD_JAAR):
+            for m in patroon.finditer(werk):
+                if any(m.start() < eind and m.end() > begin for begin, eind, _ in spans):continue
+                n = float(m[1].replace("decimal", "."))
+                if 0 <= n <= 120:spans.append((m.start(), m.end(), [n]))
+        for begin, eind, ns in sorted(spans):leeftijden.extend(ns)
+        for begin, eind, _ in sorted(spans, reverse=True):werk = werk[:begin] + " " + werk[eind:]
+        if leeftijden:
+            band = (min(leeftijden), max(leeftijden))
+            leeftijd = leeftijden[0] if len(leeftijden) == 1 else None
+            leeftijd_label = " en ".join(f"{n:g}".replace(".", ",") for n in leeftijden) + " jaar"
     for patroon, grens, naam in _LEVEN:
         if not patroon.search(werk):
             continue
@@ -592,6 +608,7 @@ def analyseer_vraag(tekst: str, plaatstabel: dict[str, str], bekende_codes: set[
     getallen = {"een": 1, "twee": 2, "drie": 3, "vier": 4}
     return Vraag(
         tekst=origineel,
+        interpretatiefragmenten=interpretatiefragmenten(tekst, concepten, ontkend, uitgesloten),
         leeftijd=leeftijd,
         leeftijden=leeftijden or ([leeftijd] if leeftijd is not None else []),
         plaatsen=plaatsen,
@@ -826,7 +843,7 @@ class Index:
         return meldingen
 
     def _contracttoets(self, profiel: Profiel, analyse: Vraag, filters: Filters) -> dict:
-        plaats = filters.gemeente or (analyse.gemeenten[0] if len(analyse.gemeenten) == 1 else None)
+        plaats = filters.gemeente
         gemeente = self.plaatstabel.get(normaliseer(plaats), normaliseer(plaats)) if plaats else None
         codes = list(analyse.codes) + ([filters.productcode] if filters.productcode else [])
         toets = self.contractregister.oordeel(profiel.ruw, gemeente=gemeente, codes=codes,
@@ -839,7 +856,7 @@ class Index:
         from zorgzoeker.beslissen import Beslisservice,Zoekcontext
         if not hasattr(self,'_beslisservice'):self._beslisservice=Beslisservice(self.bron_document,self)
         service=self._beslisservice
-        context=Zoekcontext(gemeente,analyse.leeftijden,analyse.concepten,analyse.uitgesloten,filters.productcode,filters.op_datum or analyse.op_datum or date.today().isoformat(),service.versie)
+        context=Zoekcontext(gemeente,analyse.leeftijden,analyse.concepten,analyse.uitgesloten,filters.productcode,filters.op_datum or analyse.op_datum or date.today().isoformat(),service.versie,max_wachttijd=analyse.max_wachttijd,genoemde_plaatsen=analyse.plaatsen,gemeente_bevestigd=bool(filters.gemeente))
         toets['beoordeling']=service.beoordeel(profiel.id,filters=filters,analyse=analyse,context=context)
         return toets
 
@@ -898,7 +915,7 @@ class Index:
                     return toets["status"] == "nee" and bron.get("label") == "afgeleid"
                 return toets["status"] == contractwens
             kandidaten = [p for p in kandidaten if contractpast(p)]
-        contextplaats = filters.gemeente or (analyse.gemeenten[0] if len(analyse.gemeenten) == 1 else None)
+        contextplaats = filters.gemeente
         if contextplaats:
             contextplaats = self.plaatstabel.get(normaliseer(contextplaats), normaliseer(contextplaats))
         # Informatie op naam blijft opvraagbaar, maar een expliciet gestopte

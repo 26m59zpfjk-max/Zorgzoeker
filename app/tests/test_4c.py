@@ -83,7 +83,7 @@ def test_vrijgegeven_pakket_en_andere_dataset_geweigerd(tmp_path,monkeypatch):
 
 def test_algemene_hulpvraag_vraagt_verduidelijking(client):
  c,_=client;r=c.post('/api/zoek',json={'q':'Kinderen van 6 en 14 hebben ondersteuning nodig'}).json()
- assert not r['resultaten'] and any('Verduidelijk' in x for x in r['meldingen'])
+ assert not r['resultaten'] and (r.get('keuze_nodig') or any('Verduidelijk' in x for x in r['meldingen']))
 
 
 def test_onbekende_dienstscope_geen_brede_toezegging():

@@ -1,0 +1,115 @@
+{
+  "opzet": "Offline verkenning op eerder opgehaalde openbare homepages, geen nieuwe scraping of identiteitsvrijgave. Geen onafhankelijke goldlabels; precisie/recall nog niet vastgesteld. Geen opschaling toegestaan op grond van deze verkenning.",
+  "aanbieders": [
+    {
+      "aanbieder_id": "1-1-vier",
+      "naam": "1+1=vier!",
+      "bron_url": "https://www.eenpluseenisvier.nl/",
+      "bron_hash": "218dc01141d66bda90429d99692fc757135f4d85979933493c14e7d17efd8013",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 0
+    },
+    {
+      "aanbieder_id": "1801-jeugd-onderwijsadvies",
+      "naam": "1801 Jeugd & onderwijsadvies",
+      "bron_url": "https://1801.nl/",
+      "bron_hash": "2892bd1e6a1cc006a0634c8a60d8d0b8ef10d2825fee2bb3b28b02029016cf22",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 18
+    },
+    {
+      "aanbieder_id": "aalsterveld-psychologen-b-v",
+      "naam": "Aalsterveld Psychologen B.V.",
+      "bron_url": "https://aalsterveldpsychologen.nl/",
+      "bron_hash": "9b6a213ad63d97228b18d824fb4c1c23c36ba65284bcea7062935778be11e32e",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 23
+    },
+    {
+      "aanbieder_id": "admodum-zorg-b-v",
+      "naam": "Admodum Zorg B.V.",
+      "bron_url": "https://www.admodumzorg.nl/",
+      "bron_hash": "73e220b47228be9bb32a90f8d4112d913a24573a5a7ea6b00cea586768824540",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 7
+    },
+    {
+      "aanbieder_id": "agile-welzijn-b-v",
+      "naam": "Agile Welzijn B.V.",
+      "bron_url": "https://agilewelzijn.nl/",
+      "bron_hash": "ab081611e638c3182bba9732b7320f1b4eb84e95e1e559456e1f7af285364a35",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 0
+    },
+    {
+      "aanbieder_id": "ambulatorium-nijmegen",
+      "naam": "Ambulatorium Nijmegen",
+      "bron_url": "https://www.ambulatoriumnijmegen.nl/",
+      "bron_hash": "f8727b37cf2389e6570a5dc3f7437462ec211edca4b36bda5d3138da9130f2f4",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 3
+    },
+    {
+      "aanbieder_id": "andersomgaan-therapie-praktijk-vakwerk-regio-nijmegen",
+      "naam": "Andersomgaan, therapie praktijk - Vakwerk regio Nijmegen",
+      "bron_url": "https://andersomgaan.nl/",
+      "bron_hash": "9af666f32533bbe55f62af1e253a4d740c6ad5b0ddd724f69387423c2bd0261b",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 0
+    },
+    {
+      "aanbieder_id": "autimaat-bv",
+      "naam": "Autimaat BV",
+      "bron_url": "https://www.autimaat.nl/",
+      "bron_hash": "328db8cc1c82db0b872957a9414139f1472655fe0ca600df511c4eb176081f2a",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 34
+    },
+    {
+      "aanbieder_id": "bco-onderwijsadvies-b-v",
+      "naam": "BCO Onderwijsadvies B.V.",
+      "bron_url": "https://bco-onderwijsadvies.nl/",
+      "bron_hash": "4cb39b9d746923df6a86aa43b25d851e77bd39404086ead0e4159f951a1af624",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 0
+    },
+    {
+      "aanbieder_id": "berkel-b",
+      "naam": "Berkel-B",
+      "bron_url": "https://berkel-b.nl/",
+      "bron_hash": "a394f1abfaa71f21db75327f2bc29aab8e15bcd3d3917eb267d1ee6f6282ac19",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 9
+    },
+    {
+      "aanbieder_id": "boland-praktijk",
+      "naam": "Boland Praktijk",
+      "bron_url": "https://www.bolandpraktijk.nl/",
+      "bron_hash": "007a665571ea17cb083272c6b9f730216769c650c528cb465fd89501b89c476a",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 13
+    },
+    {
+      "aanbieder_id": "coachia-b-v",
+      "naam": "Coachia B.V",
+      "bron_url": "https://coachia.nl/",
+      "bron_hash": "3285a9c6602d4ab5b4f8f142f977eae8aab8d7bb7058731b7d2b71d823809be8",
+      "soort": "historische_openbare_snapshot",
+      "identiteit": "niet_nieuw_vrijgegeven",
+      "aantal_bevindingen": 22
+    }
+  ],
+  "actuele_websites_getest": false,
+  "gepubliceerd": false
+}

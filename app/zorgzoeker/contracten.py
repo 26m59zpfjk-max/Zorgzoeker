@@ -134,7 +134,8 @@ def algemene_stop(aanbieder: dict, gemeente: str | None, op_datum: str | None = 
         if wacht.get("label") == "geverifieerd" and wacht.get("bron_url"):
             if not op_datum or op_datum >= wacht.get("opgehaald_op", ""):
                 toetsdatum = op_datum if op_datum and len(op_datum) == 10 else date.today().isoformat()
-                return _stop(wachttekst, gemeente, toetsdatum)
+                stopdeel=next((deel for deel in wachttekst.split(';') if re.search(r'18\s*\+\s*:\s*aanmeldstop',deel,re.I)),wachttekst)
+                return _stop(stopdeel, gemeente, toetsdatum)
     if veld.get("label") != "geverifieerd" or not veld.get("bron_url"):
         return False
     tekst = str(veld.get("waarde") or "")
